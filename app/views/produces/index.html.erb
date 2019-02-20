@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Produces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>| Availability Prediction |</th>
+      <th>Readiness</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produces.each do |produce| %>
+      <tr>
+        <td><%= produce.name %></td>
+        <td><%= produce.availability_prediction %></td>
+        <td><%= produce.readiness %></td>
+        <td><%= link_to 'Show', produce %></td>
+        <td><%= link_to 'Edit', edit_produce_path(produce) %></td>
+        <td><%= link_to 'Destroy', produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Produce', new_produce_path %>
