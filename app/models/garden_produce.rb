@@ -1,0 +1,2 @@
+class GardenProduce < ApplicationRecord
+end

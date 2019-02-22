@@ -1,2 +1,2 @@
-class Produce < ActiveRecord::Base
+class Produce < ApplicationRecord
 end

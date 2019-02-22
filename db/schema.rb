@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190222204530) do
+ActiveRecord::Schema.define(version: 20190222212806) do
+
+  create_table "garden_produces", force: :cascade do |t|
+    t.string "prediction_date"
+    t.integer "readiness"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gardens", force: :cascade do |t|
     t.string "garden_name"
@@ -26,8 +33,6 @@ ActiveRecord::Schema.define(version: 20190222204530) do
 
   create_table "produces", force: :cascade do |t|
     t.string "name"
-    t.string "availability_prediction"
-    t.integer "readiness"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

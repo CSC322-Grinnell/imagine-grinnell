@@ -69,6 +69,6 @@ class ProducesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produce_params
-      params.require(:produce).permit(:name, :availability_prediction, :readiness)
+      params.require(:produce).permit(:name)
     end
 end

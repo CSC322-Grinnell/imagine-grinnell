@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :gardens
-  get 'static_pages/home'
-
   resources :produces
+  resources :gardens
+  resources :garden_produces
+  get "/" => 'static_pages#home'
+
   root 'gardens#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

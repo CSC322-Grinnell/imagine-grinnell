@@ -1,49 +1,48 @@
 require 'test_helper'
 
-class ProducesControllerTest < ActionController::TestCase
+class ProducesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @produce = produces(:one)
   end
 
   test "should get index" do
-    get :index
+    get produces_url
     assert_response :success
-    assert_not_nil assigns(:produces)
   end
 
   test "should get new" do
-    get :new
+    get new_produce_url
     assert_response :success
   end
 
   test "should create produce" do
     assert_difference('Produce.count') do
-      post :create, produce: { availability_prediction: @produce.availability_prediction, name: @produce.name, readiness: @produce.readiness }
+      post produces_url, params: { produce: { name: @produce.name } }
     end
 
-    assert_redirected_to produce_path(assigns(:produce))
+    assert_redirected_to produce_url(Produce.last)
   end
 
   test "should show produce" do
-    get :show, id: @produce
+    get produce_url(@produce)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @produce
+    get edit_produce_url(@produce)
     assert_response :success
   end
 
   test "should update produce" do
-    patch :update, id: @produce, produce: { availability_prediction: @produce.availability_prediction, name: @produce.name, readiness: @produce.readiness }
-    assert_redirected_to produce_path(assigns(:produce))
+    patch produce_url(@produce), params: { produce: { name: @produce.name } }
+    assert_redirected_to produce_url(@produce)
   end
 
   test "should destroy produce" do
     assert_difference('Produce.count', -1) do
-      delete :destroy, id: @produce
+      delete produce_url(@produce)
     end
 
-    assert_redirected_to produces_path
+    assert_redirected_to produces_url
   end
 end

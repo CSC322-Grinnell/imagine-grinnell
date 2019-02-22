@@ -5,15 +5,5 @@
   <%= @produce.name %>
 </p>
 
-<p>
-  <strong>Availability Prediction:</strong>
-  <%= @produce.availability_prediction %>
-</p>
-
-<p>
-  <strong>Readiness:</strong>
-  <%= @produce.readiness %>
-</p>
-
 <%= link_to 'Edit', edit_produce_path(@produce) %> |
 <%= link_to 'Back', produces_path %>

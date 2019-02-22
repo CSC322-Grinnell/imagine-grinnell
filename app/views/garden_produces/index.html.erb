@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Garden Produces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prediction date</th>
+      <th>Readiness</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @garden_produces.each do |garden_produce| %>
+      <tr>
+        <td><%= garden_produce.prediction_date %></td>
+        <td><%= garden_produce.readiness %></td>
+        <td><%= link_to 'Show', garden_produce %></td>
+        <td><%= link_to 'Edit', edit_garden_produce_path(garden_produce) %></td>
+        <td><%= link_to 'Destroy', garden_produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garden Produce', new_garden_produce_path %>
