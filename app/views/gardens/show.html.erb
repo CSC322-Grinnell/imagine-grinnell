@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Garden name:</strong>
+  <%= @garden.garden_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @garden.address %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @garden.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @garden.long %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @garden.contact_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @garden.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @garden.email %>
+</p>
+
+<%= link_to 'Edit', edit_garden_path(@garden) %> |
+<%= link_to 'Back', gardens_path %>
