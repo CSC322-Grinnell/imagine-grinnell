@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  readiness: 1
   prediction_date: MyString
+  readiness: 1
 
 two:
   name: MyString
-  readiness: 1
   prediction_date: MyString
+  readiness: 1

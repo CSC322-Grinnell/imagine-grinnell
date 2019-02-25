@@ -1,6 +1,5 @@
 class ProducesController < ApplicationController
   before_action :set_produce, only: [:show, :edit, :update, :destroy]
-  
 
   # GET /produces
   # GET /produces.json
@@ -70,6 +69,6 @@ class ProducesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produce_params
-      params.require(:produce).permit(:name)
+      params.require(:produce).permit(:name, :prediction_date, :readiness)
     end
 end
