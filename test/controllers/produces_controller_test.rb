@@ -17,7 +17,7 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create produce" do
     assert_difference('Produce.count') do
-      post produces_url, params: { produce: { name: @produce.name } }
+      post produces_url, params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
     end
 
     assert_redirected_to produce_url(Produce.last)
@@ -34,7 +34,7 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update produce" do
-    patch produce_url(@produce), params: { produce: { name: @produce.name } }
+    patch produce_url(@produce), params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
     assert_redirected_to produce_url(@produce)
   end
 

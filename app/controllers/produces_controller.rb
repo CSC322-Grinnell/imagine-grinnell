@@ -1,5 +1,6 @@
 class ProducesController < ApplicationController
   before_action :set_produce, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /produces
   # GET /produces.json

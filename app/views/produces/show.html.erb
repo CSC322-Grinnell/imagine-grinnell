@@ -5,5 +5,15 @@
   <%= @produce.name %>
 </p>
 
+<p>
+  <strong>Readiness:</strong>
+  <%= @produce.readiness %>
+</p>
+
+<p>
+  <strong>Prediction date:</strong>
+  <%= @produce.prediction_date %>
+</p>
+
 <%= link_to 'Edit', edit_produce_path(@produce) %> |
 <%= link_to 'Back', produces_path %>
