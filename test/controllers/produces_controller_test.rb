@@ -22,6 +22,16 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to produce_url(Produce.last)
   end
+  
+  test "should not create duplicate" do
+    assert_difference('Produce.count') do
+      post produces_url, params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
+    end
+    assert_no_difference('Produce.count') do
+      post produces_url, params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
+    end
+  end
+    
 
   test "should show produce" do
     get produce_url(@produce)
