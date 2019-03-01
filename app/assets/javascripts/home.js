@@ -144,4 +144,22 @@ function initMap() {
   }
 ]
   });
+  
+  var imagine_grinnell = {lat: 41.752169, lng: -92.707852};
+
+  var contentString = '<div class="card" style="width: 20vw;"><div class="card-image"><img src="https://pbs.twimg.com/media/CD3ge1jUMAEKG1e.jpg"><span class="card-title">Imagine Grinnell</span></div><div class="card-content"><p>Imagine Grinnell turns imagination into action to create a more vibrant, sustainable, and healthy Grinnell. Our roots deepen relationships and enrich the community we serve.</p></div><div class="card-action"><ul class="collection"><li class="collection-item">Carrots</li><li class="collection-item">Cabbage</li> <li class="collection-item">Tomatos</li></ul></div></div>';
+  
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+    position: imagine_grinnell,
+    map: map,
+    title: 'Imagine Grinnell'
+  });
+  
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 }
