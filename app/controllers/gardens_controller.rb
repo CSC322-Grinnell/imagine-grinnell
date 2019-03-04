@@ -69,6 +69,6 @@ class GardensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_params
-      params.require(:garden).permit(:garden_name, :address, :lat, :long, :contact_name, :phone_number, :email)
+      params.require(:garden).permit(:garden_name, :address, :contact_name, :phone_number, :email)
     end
 end

@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190227212939) do
+ActiveRecord::Schema.define(version: 20190304205028) do
 
   create_table "gardens", force: :cascade do |t|
     t.string "garden_name"
     t.string "address"
-    t.float "lat"
-    t.float "long"
     t.string "contact_name"
     t.string "phone_number"
     t.string "email"

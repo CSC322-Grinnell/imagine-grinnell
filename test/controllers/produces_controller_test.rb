@@ -17,12 +17,22 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create produce" do
     assert_difference('Produce.count') do
-      post produces_url, params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
+      post produces_url, params: { produce: { name: 'carrot', prediction_date: 'March', readiness: 1 } }
     end
 
     assert_redirected_to produce_url(Produce.last)
   end
-
+  
+  
+  test "should not create duplicate" do
+    assert_difference('Produce.count') do
+      post produces_url, params: { produce: { name: 'carrot', prediction_date: 'March', readiness: 1 } }
+    end
+    assert_no_difference('Produce.count') do
+      post produces_url, params: { produce: { name: 'carrot', prediction_date: 'March', readiness: 1 } }
+    end
+  end
+  
   test "should show produce" do
     get produce_url(@produce)
     assert_response :success
@@ -34,7 +44,7 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update produce" do
-    patch produce_url(@produce), params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
+    patch produce_url(@produce), params: { produce: { name: 'test', prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
     assert_redirected_to produce_url(@produce)
   end
 

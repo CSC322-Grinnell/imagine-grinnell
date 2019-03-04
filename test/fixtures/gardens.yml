@@ -3,8 +3,6 @@
 one:
   garden_name: MyString
   address: MyString
-  lat: 1.5
-  long: 1.5
   contact_name: MyString
   phone_number: MyString
   email: MyString
@@ -12,8 +10,6 @@ one:
 two:
   garden_name: MyString
   address: MyString
-  lat: 1.5
-  long: 1.5
   contact_name: MyString
   phone_number: MyString
   email: MyString
