@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Garden:</strong>
+  <%= @garden_produce.garden_id %>
+</p>
+
+<p>
+  <strong>Produce:</strong>
+  <%= @garden_produce.produce_id %>
+</p>
+
+<p>
+  <strong>Available at:</strong>
+  <%= @garden_produce.available_at %>
+</p>
+
+<p>
+  <strong>Readiness:</strong>
+  <%= @garden_produce.readiness %>
+</p>
+
+<%= link_to 'Edit', edit_garden_produce_path(@garden_produce) %> |
+<%= link_to 'Back', garden_produces_path %>

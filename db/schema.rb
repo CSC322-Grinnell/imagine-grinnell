@@ -10,29 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190304205028) do
+ActiveRecord::Schema.define(version: 20190304215051) do
+
+  create_table "garden_produces", force: :cascade do |t|
+    t.integer "garden_id"
+    t.integer "produce_id"
+    t.string "available_at"
+    t.integer "readiness"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gardens", force: :cascade do |t|
-    t.string "garden_name"
+    t.string "name"
     t.string "address"
+    t.float "lat"
+    t.float "long"
     t.string "contact_name"
-    t.string "phone_number"
+    t.string "contact_number"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "gardens_produces", id: false, force: :cascade do |t|
-    t.integer "garden_id", null: false
-    t.integer "produce_id", null: false
-    t.index ["garden_id", "produce_id"], name: "index_gardens_produces_on_garden_id_and_produce_id"
-    t.index ["produce_id", "garden_id"], name: "index_gardens_produces_on_produce_id_and_garden_id"
-  end
-
   create_table "produces", force: :cascade do |t|
     t.string "name"
-    t.string "prediction_date"
-    t.integer "readiness"
+    t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

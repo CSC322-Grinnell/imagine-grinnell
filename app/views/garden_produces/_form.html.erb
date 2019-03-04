@@ -1,0 +1,37 @@
+<%= form_with(model: garden_produce, local: true) do |form| %>
+  <% if garden_produce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(garden_produce.errors.count, "error") %> prohibited this garden_produce from being saved:</h2>
+
+      <ul>
+      <% garden_produce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :garden_id %>
+    <%= form.number_field :garden_id, id: :garden_produce_garden_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :produce_id %>
+    <%= form.number_field :produce_id, id: :garden_produce_produce_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available_at %>
+    <%= form.text_field :available_at, id: :garden_produce_available_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :readiness %>
+    <%= form.number_field :readiness, id: :garden_produce_readiness %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

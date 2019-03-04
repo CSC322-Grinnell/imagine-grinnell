@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :gardens
+  resources :garden_produces
   resources :produces
   get "/" => 'static_pages#home'
 

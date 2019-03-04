@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  garden_id: 1
+  produce_id: 1
+  available_at: MyString
+  readiness: 1
+
+two:
+  garden_id: 1
+  produce_id: 1
+  available_at: MyString
+  readiness: 1

@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Prediction date</th>
-      <th>Readiness</th>
+      <th>Duration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +15,7 @@
     <% @produces.each do |produce| %>
       <tr>
         <td><%= produce.name %></td>
-        <td><%= produce.prediction_date %></td>
-        <td><%= produce.readiness %></td>
+        <td><%= produce.duration %></td>
         <td><%= link_to 'Show', produce %></td>
         <td><%= link_to 'Edit', edit_produce_path(produce) %></td>
         <td><%= link_to 'Destroy', produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
