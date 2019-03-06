@@ -10,5 +10,11 @@
   <%= @produce.duration %>
 </p>
 
+<p>
+  <strong>Produce:</strong>
+    <%= @produce.GardenProduces.each do |prod| %>
+  <% end %> %>
+</p>
+
 <%= link_to 'Edit', edit_produce_path(@produce) %> |
 <%= link_to 'Back', produces_path %>

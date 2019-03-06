@@ -35,5 +35,13 @@
   <%= @garden.email %>
 </p>
 
+<p>
+  <strong>Produce:</strong>
+    <%= @garden.GardenProduces.each do |prod| %>
+      <%= Produce.all.find_by(id: prod.produce_id).name %>
+    <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_garden_path(@garden) %> |
 <%= link_to 'Back', gardens_path %>
