@@ -28,8 +28,8 @@ class ProducesController < ApplicationController
 
     respond_to do |format|
       if @produce.save
-        format.html { redirect_to @produce, notice: 'Produce was successfully created.' }
-        format.json { render :show, status: :created, location: @produce }
+        format.html { redirect_to produces_url, notice: 'Produce was successfully created.' }
+        format.json { render :show, status: :created, location: produces_url }
       else
         format.html { render :new }
         format.json { render json: @produce.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ProducesController < ApplicationController
   def update
     respond_to do |format|
       if @produce.update(produce_params)
-        format.html { redirect_to @produce, notice: 'Produce was successfully updated.' }
-        format.json { render :show, status: :ok, location: @produce }
+        format.html { redirect_to produces_url, notice: 'Produce was successfully updated.' }
+        format.json { render :show, status: :ok, location: produces_url }
       else
         format.html { render :edit }
         format.json { render json: @produce.errors, status: :unprocessable_entity }

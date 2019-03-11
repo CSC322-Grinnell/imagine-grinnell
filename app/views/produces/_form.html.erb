@@ -11,17 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <td class="field">
     <%= form.text_field :name, id: :produce_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
+  </td>
+  <td class="field">
     <%= form.text_field :duration, id: :produce_duration %>
-  </div>
+  </td>
 
-  <div class="actions">
+  <td class="actions">
     <%= form.submit %>
-  </div>
+  </td>
 <% end %>
