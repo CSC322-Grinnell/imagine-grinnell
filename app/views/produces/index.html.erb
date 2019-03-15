@@ -1,6 +1,11 @@
 <%= stylesheet_link_tag "application" %>
 <p id="notice"><%= notice %></p>
 
+<script>
+  function showForm(elem){
+    document.getElementById(elem.name).class = "show";
+  }
+</script>
 
 <h1>Produces</h1>
 
@@ -19,11 +24,11 @@
       <tr>
         <td><%= produce.name %></td>
         <td><%= produce.duration %></td>
-        <td><input type="button" name="Edit" value="Edit" onclick="<% editRow(produce) %>"></td>
+        <td><button type="button" onclick="showForm(this)" name="<%= produce.id %>">Button1</button></td>
         <td><%= link_to 'Destroy', produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <tr>
-        <div id="<%= produce.id%>" class="hide">
+      <tr id="<%= produce.id %>" class="hide">
+        <div>
           <%= render 'form', produce: produce %>
         </div>
       </tr>
