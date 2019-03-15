@@ -3,7 +3,9 @@
 
 <script>
   function showForm(elem){
-    document.getElementById(elem.name).class = "show";
+    $("#" + elem.name).toggleClass("hide");
+    console.log(document.getElementById(elem.name));
+
   }
 </script>
 
