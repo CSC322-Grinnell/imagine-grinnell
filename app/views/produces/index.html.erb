@@ -26,7 +26,7 @@
       <tr>
         <td><%= produce.name %></td>
         <td><%= produce.duration %></td>
-        <td><button type="button" onclick="showForm(this)" name="<%= produce.id %>">Button1</button></td>
+        <td><button type="button" onclick="showForm(this)" name="<%= produce.id %>">Edit</button></td>
         <td><%= link_to 'Destroy', produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <tr id="<%= produce.id %>" class="hide">
