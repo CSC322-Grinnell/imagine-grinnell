@@ -33,7 +33,7 @@ describe 'gardens API' do
     
     get 'Gets index of all garden' do
       tags 'gardens'
-      gardens 'application/json', 'application/xml'
+      produces 'application/json', 'application/xml'
 
       response '200', 'gardens found' do
         schema type: :array,
@@ -62,7 +62,7 @@ describe 'gardens API' do
 
     get 'Retrieves a garden' do
       tags 'gardens'
-      gardens 'application/json', 'application/xml'
+      produces 'application/json', 'application/xml'
       parameter name: :id, :in => :path, :type => :string
 
       response '200', 'name found' do
