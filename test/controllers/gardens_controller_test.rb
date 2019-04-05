@@ -10,17 +10,12 @@ class GardensControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_garden_url
-    assert_response :success
-  end
-
   test "should create garden" do
     assert_difference('Garden.count') do
-      post gardens_url, params: { garden: { address: @garden.address, contact_name: @garden.contact_name, contact_number: @garden.contact_number, email: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } }
+      post gardens_url, params: { garden: { address: @garden.address, contact_name: @garden.contact_name, contact_number: @garden.contact_number, 
+                                            email: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } } 
     end
-
-    assert_redirected_to garden_url(Garden.last)
+    assert_response :success
   end
 
   test "should show garden" do
@@ -34,15 +29,15 @@ class GardensControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update garden" do
-    patch garden_url(@garden), params: { garden: { address: @garden.address, contact_name: @garden.contact_name, contact_number: @garden.contact_number, email: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } }
-    assert_redirected_to garden_url(@garden)
+    patch garden_url(@garden), params: { garden: { address: @garden.address, contact_name: @garden.contact_name, contact_number: @garden.contact_number, 
+                                                   email: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } }
+    assert_response :success
   end
 
   test "should destroy garden" do
     assert_difference('Garden.count', -1) do
       delete garden_url(@garden)
     end
-
-    assert_redirected_to gardens_url
   end
+  
 end

@@ -35,9 +35,9 @@ describe 'produces API' do
         schema type: :array,
           items: {
             properties: {
-            id: { type: :integer, },
-            name: { type: :string },
-            duration: { type: :string },
+              id: { type: :integer, },
+              name: { type: :string },
+              duration: { type: :string },
             },
           },
           required: [ 'id', 'name', 'duration' ]
