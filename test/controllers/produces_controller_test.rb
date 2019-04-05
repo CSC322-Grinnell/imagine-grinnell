@@ -10,17 +10,11 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_produce_url
-    assert_response :success
-  end
-
   test "should create produce" do
     assert_difference('Produce.count') do
       post produces_url, params: { produce: { duration: @produce.duration, name: @produce.name } }
     end
-
-    assert_redirected_to produce_url(Produce.last)
+    assert_response :success
   end
 
   test "should show produce" do
@@ -35,14 +29,13 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update produce" do
     patch produce_url(@produce), params: { produce: { duration: @produce.duration, name: @produce.name } }
-    assert_redirected_to produce_url(@produce)
+    assert_response :success
   end
 
   test "should destroy produce" do
     assert_difference('Produce.count', -1) do
       delete produce_url(@produce)
     end
-
-    assert_redirected_to produces_url
   end
+  
 end

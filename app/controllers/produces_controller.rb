@@ -4,6 +4,7 @@ class ProducesController < ApplicationController
   # GET /produces
   def index
     @produces = Produce.all
+    render json: @produces
   end
 
   # GET /produces/1
@@ -12,6 +13,7 @@ class ProducesController < ApplicationController
   end
 
   # POST /produces
+  skip_before_action :verify_authenticity_token
   def create
     @produce = Produce.new(produce_params)
 
@@ -26,7 +28,7 @@ class ProducesController < ApplicationController
   # PATCH/PUT /produces/1
   def update      
      if @produce.update(produce_params)        
-        render json: @produce
+        render json: @produce, status: :ok
      else        
         render json: @produce.errors, status: :unprocessable_entity      
      end
