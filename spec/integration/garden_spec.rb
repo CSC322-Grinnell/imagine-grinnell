@@ -3,6 +3,7 @@ require 'swagger_helper'
 describe 'gardens API' do
 
   path '/gardens' do
+    
     post 'Creates a garden' do
       tags 'gardens'
       consumes 'application/json', 'application/xml'
@@ -11,8 +12,8 @@ describe 'gardens API' do
         properties: {
           name: { type: :string },
           address: { type: :string },
-          lat: { type: :float },
-          long: { type: :float },
+          lat: { type: :number },
+          long: { type: :number },
           contact_name: { type: :string },
           contact_number: { type: :string},
           email: { type: :string },
@@ -42,8 +43,8 @@ describe 'gardens API' do
               id: { type: :integer },
               name: { type: :string },
               address: { type: :string },
-              lat: { type: :float },
-              long: { type: :float },
+              lat: { type: :number },
+              long: { type: :number },
               contact_name: { type: :string },
               contact_number: { type: :string},
               email: { type: :string },
@@ -71,8 +72,8 @@ describe 'gardens API' do
             id: { type: :integer },
             name: { type: :string },
             address: { type: :string },
-            lat: { type: :float },
-            long: { type: :float },
+            lat: { type: :number },
+            long: { type: :number },
             contact_name: { type: :string },
             contact_number: { type: :string},
             email: { type: :string },
@@ -98,8 +99,8 @@ describe 'gardens API' do
         properties: {
             name: { type: :string },
             address: { type: :string },
-            lat: { type: :float },
-            long: { type: :float },
+            lat: { type: :number },
+            long: { type: :number },
             contact_name: { type: :string },
             contact_number: { type: :string},
             email: { type: :string },

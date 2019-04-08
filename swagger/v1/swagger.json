@@ -29,10 +29,10 @@
                   "type": "string"
                 },
                 "lat": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "long": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "contact_name": {
                   "type": "string"
@@ -91,10 +91,10 @@
                     "type": "string"
                   },
                   "lat": {
-                    "type": "float"
+                    "type": "number"
                   },
                   "long": {
-                    "type": "float"
+                    "type": "number"
                   },
                   "contact_name": {
                     "type": "string"
@@ -156,10 +156,10 @@
                   "type": "string"
                 },
                 "lat": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "long": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "contact_name": {
                   "type": "string"
@@ -217,10 +217,10 @@
                   "type": "string"
                 },
                 "lat": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "long": {
-                  "type": "float"
+                  "type": "number"
                 },
                 "contact_name": {
                   "type": "string"
