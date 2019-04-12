@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Davis Elementary School",
+    "address": "818 Hamilton Ave.",
+    "lat": 41.737209,
+    "long": -92.725381,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:23:48.324Z",
+    "updated_at": "2019-04-12T19:24:46.558Z"
+  },
+  {
+    "id": 2,
+    "name": "GRMC Public Health",
+    "address": "306 4th Ave.",
+    "lat": 41.742474,
+    "long": -92.732863,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:28:52.132Z",
+    "updated_at": "2019-04-12T19:28:52.132Z"
+  },
+  {
+    "id": 3,
+    "name": "Marvin Garden",
+    "address": "Marvin Ave.",
+    "lat": 41.732351,
+    "long": -92.728562,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:31:09.371Z",
+    "updated_at": "2019-04-12T19:31:09.371Z"
+  },
+  {
+    "id": 4,
+    "name": "Ahrens Garden",
+    "address": "1510 Penrose St.",
+    "lat": 41.752668,
+    "long": -92.70738,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:33:08.810Z",
+    "updated_at": "2019-04-12T19:33:08.810Z"
+  },
+  {
+    "id": 5,
+    "name": "St. John's Lutheran Church",
+    "address": "1224 East St.",
+    "lat": 41.748438,
+    "long": -92.717234,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:34:52.679Z",
+    "updated_at": "2019-04-12T19:34:52.679Z"
+  },
+  {
+    "id": 6,
+    "name": "Summer Street Park",
+    "address": "736 Summer St.",
+    "lat": 41.741654,
+    "long": -92.714006,
+    "contact_name": "string",
+    "contact_number": "string",
+    "email": "placeholder@gmail.com",
+    "created_at": "2019-04-12T19:36:37.719Z",
+    "updated_at": "2019-04-12T19:36:37.719Z"
+  }
+]
