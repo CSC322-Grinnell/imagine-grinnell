@@ -16,8 +16,9 @@ class GardenProducesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     @garden_produce = GardenProduce.new(garden_produce_params)
+    @produce = Produce.find_by(id: @garden_produce.produce_id)
      
-    @garden_produce.available_at = @garden_produce.created_at + @garden_produce.produce.duration.to_i
+    @garden_produce.available_at = @garden_produce.created_at + @produce.duration.to_i
 
     if @garden_produce.save
       render json: @garden_produce, status: :created
