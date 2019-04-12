@@ -16,13 +16,14 @@ class GardenProducesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     @garden_produce = GardenProduce.new(garden_produce_params)
+     
+    @garden_produce.available_at = @garden_produce.created_at + @garden_produce.produce.duration.to_i
 
     if @garden_produce.save
       render json: @garden_produce, status: :created
     else
       render json: @garden_produce.errors, status: :unprocessable_entity
     end
-
   end
 
   # PATCH/PUT /garden_produces/1
