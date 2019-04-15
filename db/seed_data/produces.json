@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Carrot",
+    "duration": "60",
+    "created_at": "2019-04-12T19:23:48.324Z",
+    "updated_at": "2019-04-12T19:24:46.558Z"
+  },
+  {
+    "id": 2,
+    "name": "Tomato",
+    "duration": "15",
+    "created_at": "2019-04-12T19:23:48.324Z",
+    "updated_at": "2019-04-12T19:24:46.558Z"
+  },
+  {
+    "id": 3,
+    "name": "Potato",
+    "duration": "180",
+    "created_at": "2019-04-12T19:23:48.324Z",
+    "updated_at": "2019-04-12T19:24:46.558Z"
+  },
+  {
+    "id": 4,
+    "name": "Apple",
+    "duration": "24",
+    "created_at": "2019-04-12T19:23:48.324Z",
+    "updated_at": "2019-04-12T19:24:46.558Z"
+  }
+]

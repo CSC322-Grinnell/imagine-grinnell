@@ -10,3 +10,8 @@ records = JSON.parse(File.read('db/seed_data/gardens.json'))
 records.each do |record|
   Garden.create!(record)
 end
+
+records = JSON.parse(File.read('db/seed_data/produces.json'))
+records.each do |record|
+  Produce.create!(record)
+end
