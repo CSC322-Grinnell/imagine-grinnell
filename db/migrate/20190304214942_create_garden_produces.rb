@@ -5,6 +5,7 @@ class CreateGardenProduces < ActiveRecord::Migration[5.1]
       t.integer :produce_id
       t.string :available_at
       t.integer :readiness
+      t.date :planted_at
 
       t.timestamps
     end

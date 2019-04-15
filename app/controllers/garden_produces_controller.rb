@@ -16,9 +16,6 @@ class GardenProducesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     @garden_produce = GardenProduce.new(garden_produce_params)
-    @produce = Produce.find_by(id: @garden_produce.produce_id)
-     
-    @garden_produce.available_at = @garden_produce.created_at + @produce.duration.to_i
 
     if @garden_produce.save
       render json: @garden_produce, status: :created
@@ -54,6 +51,6 @@ class GardenProducesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_produce_params
-      params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness)
+      params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness, :planted_at)
     end
 end

@@ -12,6 +12,7 @@ describe 'produces API' do
         properties: {
           name: { type: :string },
           duration: { type: :string },
+          image: { type: :string },
         },
         required: [ 'name', 'duration' ]
       }
@@ -38,6 +39,7 @@ describe 'produces API' do
               id: { type: :integer, },
               name: { type: :string },
               duration: { type: :string },
+              image: { type: :string },
             },
           },
           required: [ 'id', 'name', 'duration' ]
@@ -67,6 +69,7 @@ describe 'produces API' do
             id: { type: :integer, },
             name: { type: :string },
             duration: { type: :string },
+            image: { type: :string },
           },
           required: [ 'id', 'name', 'duration' ]
 
@@ -89,6 +92,7 @@ describe 'produces API' do
         properties: {
           name: { type: :string },
           duration: { type: :string },
+          image: { type: :string },
         },
         required: [ 'name', 'duration' ]
       }

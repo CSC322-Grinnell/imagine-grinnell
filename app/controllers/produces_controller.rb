@@ -52,6 +52,6 @@ class ProducesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white produce through.
     def produce_params
-      params.require(:produce).permit(:name, :duration)
+      params.require(:produce).permit(:name, :duration, :image)
     end
 end

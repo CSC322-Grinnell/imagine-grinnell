@@ -8,6 +8,7 @@ class CreateGardens < ActiveRecord::Migration[5.1]
       t.string :contact_name
       t.string :contact_number
       t.string :email
+      t.string :image
 
       t.timestamps
     end
