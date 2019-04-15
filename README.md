@@ -8,20 +8,19 @@ The documentation utilized Swagger.
 
 DB and Documentation Rake Commands
 To change the DB settings:
+Change the code.
 
-    Change the code.
-    ```
-    rake db:drop
-    rake db:migrate
-    rake db:seed
-    ```
+```
+rake db:drop
+rake db:migrate
+rake db:seed
+```
     
-    DB Seed data can be found at /db/seed_data/
-    
+DB Seed data can be found at /db/seed_data/
     
 To change the Swagger documentation:
+Change the specs at /spec/"spec you want to change".
 
-    Change the specs at /spec/"spec you want to change".
-    ```
-    rake rswag:specs:swaggerize
-    ```
+```
+rake rswag:specs:swaggerize
+```
