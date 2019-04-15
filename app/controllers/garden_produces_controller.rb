@@ -18,10 +18,10 @@ class GardenProducesController < ApplicationController
     @garden_produce = GardenProduce.new(garden_produce_params)
     @produce = Produce.find(@garden_produce.produce_id)
     
-    dur = @produce.duration.to_i
-    available = @garden_produce.created_at.to_date
+    dur = Integer(@produce.duration)
+    available = @garden_produce.planted_at + dur
      
-    #@garden_produce.available_at = available.to_s
+    # @garden_produce.available_at = available.to_s
 
     if @garden_produce.save
       render json: @garden_produce, status: :created
