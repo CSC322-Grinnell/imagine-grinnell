@@ -35,7 +35,7 @@
                   "type": "number"
                 },
                 "planted_at": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "required": [
