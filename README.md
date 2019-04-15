@@ -1,24 +1,28 @@
+Ruby Rails Project for CSC-324 Software Design and Development
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Imagine Grinnell Giving Gardens
 
+This is the code for creation of the giving gardens webpage associated with Imagine Grinnell.
+Documentation for the API can be found when the project is ran at /api-docs.
+The documentation utilized Swagger.
 
-Welcome to your Rails project on Cloud9 IDE!
+DB and Documentation Rake Commands
+To change the DB settings:
 
-To get started, just do the following:
+Change the code.
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
+```
+rake db:drop
+rake db:migrate
+rake db:seed
+```
+    
+DB Seed data can be found at /db/seed_data/
+    
+To change the Swagger documentation:
 
-Happy coding!
-The Cloud9 IDE team
+Change the specs at /spec/"spec you want to change".
 
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+```
+rake rswag:specs:swaggerize
+```

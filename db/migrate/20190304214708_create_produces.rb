@@ -3,6 +3,7 @@ class CreateProduces < ActiveRecord::Migration[5.1]
     create_table :produces do |t|
       t.string :name
       t.string :duration
+      t.string :image
 
       t.timestamps
     end

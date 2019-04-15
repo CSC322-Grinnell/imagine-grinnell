@@ -14,6 +14,7 @@ describe 'garden_produces API' do
           produce_id: { type: :number },
           available_at: { type: :string },
           readiness: { type: :number },
+          planted_at: { type: :object},
         },
         required: [ 'garden_id', 'produce_id', 'available_at', 'readiness' ]
       }
@@ -41,6 +42,7 @@ describe 'garden_produces API' do
               produce_id: { type: :number },
               available_at: { type: :string },
               readiness: { type: :number },
+              planted_at: { type: :object},
             },
           },
           required: [ 'garden_id', 'produce_id', 'available_at', 'readiness' ]
@@ -66,6 +68,7 @@ describe 'garden_produces API' do
             produce_id: { type: :number },
             available_at: { type: :string },
             readiness: { type: :number },
+            planted_at: { type: :object},
           },
           required: [ 'garden_id', 'produce_id', 'available_at', 'readiness' ]
 
@@ -90,6 +93,7 @@ describe 'garden_produces API' do
           produce_id: { type: :number },
           available_at: { type: :string },
           readiness: { type: :number },
+          planted_at: { type: :object},
         },
           required: [ 'garden_id', 'produce_id', 'available_at', 'readiness' ]
       }

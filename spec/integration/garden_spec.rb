@@ -17,6 +17,8 @@ describe 'gardens API' do
           contact_name: { type: :string },
           contact_number: { type: :string},
           email: { type: :string },
+          image: { type: :string },
+          notes: { type: :string },
         },
         required: [ 'name', 'address', 'lat', 'long', 'contact_name', 'contact_number', 'email' ]
       }
@@ -48,6 +50,8 @@ describe 'gardens API' do
               contact_name: { type: :string },
               contact_number: { type: :string},
               email: { type: :string },
+              image: { type: :string },
+              notes: { type: :string },
             },
           },
           required: ['id', 'name', 'address', 'lat', 'long', 'contact_name', 'contact_number', 'email' ]
@@ -77,6 +81,8 @@ describe 'gardens API' do
             contact_name: { type: :string },
             contact_number: { type: :string},
             email: { type: :string },
+            image: { type: :string },
+            notes: { type: :string },
           },
         required: ['id', 'name', 'address', 'lat', 'long', 'contact_name', 'contact_number', 'email' ]
 
@@ -104,6 +110,8 @@ describe 'gardens API' do
             contact_name: { type: :string },
             contact_number: { type: :string},
             email: { type: :string },
+            image: { type: :string },
+            notes: { type: :string },
         },
         required: ['id', 'name', 'address', 'lat', 'long', 'contact_name', 'contact_number', 'email' ]
       }

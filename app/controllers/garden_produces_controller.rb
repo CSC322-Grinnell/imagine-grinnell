@@ -57,6 +57,6 @@ class GardenProducesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_produce_params
-      params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness)
+      params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness, :planted_at)
     end
 end
