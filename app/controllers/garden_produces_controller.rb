@@ -4,6 +4,12 @@ class GardenProducesController < ApplicationController
   # GET /garden_produces
   def index
     @garden_produces = GardenProduce.all
+    
+    @garden_produces.each do |gp|
+      @garden_produce = gp
+      calculate_readiness
+    end
+    
     render json: @garden_produces
   end
 
