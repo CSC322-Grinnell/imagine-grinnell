@@ -35,7 +35,7 @@
                   "type": "number"
                 },
                 "planted_at": {
-                  "type": "Date"
+                  "type": "string"
                 }
               },
               "required": [
@@ -84,7 +84,7 @@
                     "type": "number"
                   },
                   "planted_at": {
-                    "type": "object"
+                    "type": "string"
                   }
                 }
               },
@@ -136,7 +136,7 @@
                   "type": "number"
                 },
                 "planted_at": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "required": [
@@ -187,7 +187,7 @@
                   "type": "number"
                 },
                 "planted_at": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "required": [

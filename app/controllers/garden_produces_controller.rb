@@ -61,4 +61,5 @@ class GardenProducesController < ApplicationController
     def garden_produce_params
       params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness, :planted_at)
     end
+    
 end
