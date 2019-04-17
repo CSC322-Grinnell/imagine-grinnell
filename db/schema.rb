@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20190410194907) do
     t.integer "produce_id"
     t.string "available_at"
     t.integer "readiness"
-    t.date "planted_at"
+    t.string "planted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
