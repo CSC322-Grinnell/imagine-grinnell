@@ -9,6 +9,7 @@ class GardenProducesController < ApplicationController
 
   # GET /garden_produces/1
   def show
+    calculate_readiness
     render json: @garden_produce
   end
 
@@ -24,6 +25,7 @@ class GardenProducesController < ApplicationController
     available = planted + dur
      
     @garden_produce.available_at = available.to_s
+    @garden_produce.readiness = 0
 
     if @garden_produce.save
       render json: @garden_produce, status: :created
@@ -60,6 +62,17 @@ class GardenProducesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_produce_params
       params.require(:garden_produce).permit(:garden_id, :produce_id, :available_at, :readiness, :planted_at)
+    end
+    
+    def calculate_readiness
+      @produce = Produce.find(@garden_produce.produce_id)
+      limit = (0.8 * @produce.duration.to_i).round
+      available = Date.parse(@garden_produce.available_at)
+      if (available < Date.today)
+        @garden_produce.readiness = 2  # ready
+      elsif ((available - limit) < Date.today)
+        @garden_produce.readiness = 1  # almost ready
+      end
     end
     
 end
