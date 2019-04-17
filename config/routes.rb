@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  resources :users
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  resources :gardens
-  resources :garden_produces
-  resources :produces
+  
   get "/" => 'static_pages#home'
 
   root 'static_pages#home'
+  resources :users
+  resources :gardens
+  resources :garden_produces
+  resources :produces
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get "signup", to: "users#new", as: "signup"
+  get "login", to: "sessions#new", as: "login"
+  get "logout", to: "sessions#destroy", as: "logout"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
