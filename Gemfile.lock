@@ -82,6 +82,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json-schema (2.8.1)
       addressable (>= 2.4)
+    jwt (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -224,6 +225,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
+  jwt
   listen (= 3.1.5)
   materialize-sass
   pg (= 0.20.0)
