@@ -5,9 +5,12 @@ one:
   produce_id: 1
   available_at: MyString
   readiness: 1
+  planted_at: <% Date.today %>
 
 two:
   garden_id: 1
   produce_id: 1
   available_at: MyString
   readiness: 1
+  planted_at: <% Date.today %>
+

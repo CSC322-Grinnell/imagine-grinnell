@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  require 'json_web_token'
+  require 'jsonwebtoken'
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
