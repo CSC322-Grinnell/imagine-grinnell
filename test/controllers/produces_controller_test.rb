@@ -12,9 +12,16 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create produce" do
     assert_difference('Produce.count') do
-      post produces_url, params: { produce: { duration: @produce.duration, name: @produce.name } }
+      post produces_url, params: { produce: { duration: @produce.duration, name: "Tester" } }
     end
     assert_response :success
+  end
+  
+  test "should not create produce due to non-unique name" do
+    assert_no_difference('Produce.count') do
+      post produces_url, params: { produce: { duration: @produce.duration, name: @produce.name } }
+    end
+    assert_response 422
   end
 
   test "should show produce" do

@@ -3,14 +3,14 @@
 one:
   garden_id: 1
   produce_id: 1
-  available_at: MyString
+  available_at: "2018-07-23"
   readiness: 1
-  planted_at: <% Date.today %>
+  planted_at: "2018-04-23"
 
 two:
   garden_id: 1
   produce_id: 1
-  available_at: MyString
+  available_at: "2019-01-04"
   readiness: 1
-  planted_at: <% Date.today %>
+  planted_at: "2019-01-01"
 

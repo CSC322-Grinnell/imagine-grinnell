@@ -13,7 +13,8 @@ class GardenProducesControllerTest < ActionDispatch::IntegrationTest
   test "should create garden_produce" do
     assert_difference('GardenProduce.count') do
       post garden_produces_url, params: { garden_produce: { 
-        available_at: @garden_produce.available_at, garden_id: @garden_produce.garden_id, produce_id: @garden_produce.produce_id, readiness: @garden_produce.readiness, planted_at: Date.today   
+        available_at: @garden_produce.available_at, garden_id: @garden_produce.garden_id, produce_id: @garden_produce.produce_id, 
+        readiness: @garden_produce.readiness, planted_at: @garden_produce.planted_at   
       } }
     end
   end
@@ -30,7 +31,8 @@ class GardenProducesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update garden_produce" do
     patch garden_produce_url(@garden_produce), params: { garden_produce: { 
-      available_at: @garden_produce.available_at, garden_id: @garden_produce.garden_id, produce_id: @garden_produce.produce_id, readiness: @garden_produce.readiness, planted_at: Date.today 
+      available_at: @garden_produce.available_at, garden_id: @garden_produce.garden_id, produce_id: @garden_produce.produce_id, 
+      readiness: @garden_produce.readiness, planted_at: @garden_produce.planted_at
     } }
     assert_response :success
   end

@@ -25,7 +25,6 @@ class GardenProducesController < ApplicationController
     @garden_produce = GardenProduce.new(garden_produce_params)
     @produce = Produce.find(@garden_produce.produce_id)
     
-    
     planted = Date.parse(@garden_produce.planted_at)
     dur = @produce.duration.to_i
     available = planted + dur
