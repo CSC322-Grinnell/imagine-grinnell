@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag "home" %>
 <%= javascript_include_tag "home" %>
 <!--navbar-->
+<div class="navbar-fixed">
   <nav class="">
-    <div class="z-depth-2 z-index 2 nav-wrapper light-green">
+    <div class="nav-wrapper light-green">
       <a href="#" class="brand-logo" style="float: left; margin-left: .5vw;">Giving Gardens</a>
-      <div style="height:100%; width:20vw; float:right;">
+      <div style="height:100%; width:25vw; float:right;">
        <form>
         <div class="input-field">
           <input id="search" type="search" required>
@@ -15,6 +16,7 @@
       </div>
     </div>
   </nav>
+</div>
 <!--navbar-->
 <div id="map"></div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcxjlc7QhJOAskOrvlDZubGVNdT4qDxck&callback=initMap"></script>
