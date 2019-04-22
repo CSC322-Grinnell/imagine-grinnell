@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :produces
   resources :users, only: :create do
     collection do
-      post 'confirm'
       post 'login'
     end
   end
