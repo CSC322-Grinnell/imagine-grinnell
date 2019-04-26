@@ -17,4 +17,4 @@ records.each do |record|
 end
 # Hello
 # Please log out of your accounts when done
-# As punishment I delted random lines of your code 
+# As punishment I deleted random lines of your code 
