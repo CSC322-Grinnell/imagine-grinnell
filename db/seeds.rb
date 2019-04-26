@@ -15,6 +15,3 @@ records = JSON.parse(File.read('db/seed_data/produces.json'))
 records.each do |record|
   Produce.create!(record)
 end
-# Hello
-# Please log out of your accounts when done
-# As punishment I deleted random lines of your code 
