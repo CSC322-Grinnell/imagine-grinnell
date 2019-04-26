@@ -3,3 +3,7 @@ class GardenProduce < ApplicationRecord
     belongs_to :Produce
     validates :produce_id, :garden_id, :planted_at, presence: true # all these fields are required
 end
+
+# Hello
+# Please log out of your accounts when done
+# As punishment I delted random lines of your code 
