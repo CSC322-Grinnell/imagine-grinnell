@@ -1,0 +1,782 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/garden_produces": {
+      "post": {
+        "summary": "Creates a garden_produce",
+        "tags": [
+          "garden_produces"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "garden_produce",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "garden_id": {
+                  "type": "number"
+                },
+                "produce_id": {
+                  "type": "number"
+                },
+                "available_at": {
+                  "type": "string"
+                },
+                "readiness": {
+                  "type": "number"
+                },
+                "planted_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "garden_id",
+                "produce_id",
+                "planted_at"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "garden_produce created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "get": {
+        "summary": "Gets index of all garden_produce",
+        "tags": [
+          "garden_produces"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "garden_produces found",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "garden_id": {
+                    "type": "number"
+                  },
+                  "produce_id": {
+                    "type": "number"
+                  },
+                  "available_at": {
+                    "type": "string"
+                  },
+                  "readiness": {
+                    "type": "number"
+                  },
+                  "planted_at": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "garden_id",
+                "produce_id",
+                "available_at",
+                "readiness"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/garden_produces/{id}": {
+      "get": {
+        "summary": "Retrieves a garden_produce",
+        "tags": [
+          "garden_produces"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "garden_id": {
+                  "type": "number"
+                },
+                "produce_id": {
+                  "type": "number"
+                },
+                "available_at": {
+                  "type": "string"
+                },
+                "readiness": {
+                  "type": "number"
+                },
+                "planted_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "garden_id",
+                "produce_id",
+                "available_at",
+                "readiness"
+              ]
+            }
+          },
+          "404": {
+            "description": "garden_produce not found"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Edits a garden_produce",
+        "tags": [
+          "garden_produces"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "garden_produce",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "garden_id": {
+                  "type": "number"
+                },
+                "produce_id": {
+                  "type": "number"
+                },
+                "available_at": {
+                  "type": "string"
+                },
+                "readiness": {
+                  "type": "number"
+                },
+                "planted_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "garden_id",
+                "produce_id",
+                "available_at",
+                "readiness"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "garden_produce changed"
+          },
+          "404": {
+            "description": "garden_produce not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a garden_produce",
+        "tags": [
+          "garden_produces"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "garden_produce deleted"
+          },
+          "404": {
+            "description": "garden_produce not found"
+          }
+        }
+      }
+    },
+    "/gardens": {
+      "post": {
+        "summary": "Creates a garden",
+        "tags": [
+          "gardens"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "garden",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "long": {
+                  "type": "number"
+                },
+                "contact_name": {
+                  "type": "string"
+                },
+                "contact_number": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "address",
+                "lat",
+                "long",
+                "contact_name",
+                "contact_number",
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "garden created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "get": {
+        "summary": "Gets index of all garden",
+        "tags": [
+          "gardens"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "gardens found",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "lat": {
+                    "type": "number"
+                  },
+                  "long": {
+                    "type": "number"
+                  },
+                  "contact_name": {
+                    "type": "string"
+                  },
+                  "contact_number": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "notes": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "address",
+                "lat",
+                "long",
+                "contact_name",
+                "contact_number",
+                "email"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/gardens/{id}": {
+      "get": {
+        "summary": "Retrieves a garden",
+        "tags": [
+          "gardens"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "long": {
+                  "type": "number"
+                },
+                "contact_name": {
+                  "type": "string"
+                },
+                "contact_number": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "address",
+                "lat",
+                "long",
+                "contact_name",
+                "contact_number",
+                "email"
+              ]
+            }
+          },
+          "404": {
+            "description": "garden not found"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Edits a garden",
+        "tags": [
+          "gardens"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "garden",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "long": {
+                  "type": "number"
+                },
+                "contact_name": {
+                  "type": "string"
+                },
+                "contact_number": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "address",
+                "lat",
+                "long",
+                "contact_name",
+                "contact_number",
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "garden changed"
+          },
+          "404": {
+            "description": "garden not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a garden",
+        "tags": [
+          "gardens"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "garden deleted"
+          },
+          "404": {
+            "description": "garden not found"
+          }
+        }
+      }
+    },
+    "/produces": {
+      "post": {
+        "summary": "Creates a produce",
+        "tags": [
+          "produces"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "produce",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "duration": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "duration"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "produce created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      },
+      "get": {
+        "summary": "Gets index of all produce",
+        "tags": [
+          "produces"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "produces found",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "duration": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "duration"
+              ]
+            }
+          },
+          "404": {
+            "description": "produce not found"
+          }
+        }
+      }
+    },
+    "/produces/{id}": {
+      "get": {
+        "summary": "Retrieves a produce",
+        "tags": [
+          "produces"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "name found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "duration": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "duration"
+              ]
+            }
+          },
+          "404": {
+            "description": "produce not found"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Edits a produce",
+        "tags": [
+          "produces"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "produce",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "duration": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "duration"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "produce changed"
+          },
+          "404": {
+            "description": "produce not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a produce",
+        "tags": [
+          "produces"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "produce deleted"
+          },
+          "404": {
+            "description": "produce not found"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Creates a user",
+        "tags": [
+          "users"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "password_confirmation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "password_confirmation"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    }
+  }
+}

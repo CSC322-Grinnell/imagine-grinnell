@@ -6,13 +6,14 @@
 </p>
 
 <p>
-  <strong>Prediction date:</strong>
-  <%= @produce.prediction_date %>
+  <strong>Duration:</strong>
+  <%= @produce.duration %>
 </p>
 
 <p>
-  <strong>Readiness:</strong>
-  <%= @produce.readiness %>
+  <strong>Produce:</strong>
+    <%= @produce.GardenProduces.each do |prod| %>
+  <% end %> %>
 </p>
 
 <%= link_to 'Edit', edit_produce_path(@produce) %> |

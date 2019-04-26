@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Garden name:</strong>
-  <%= @garden.garden_name %>
+  <strong>Name:</strong>
+  <%= @garden.name %>
 </p>
 
 <p>
@@ -26,14 +26,22 @@
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @garden.phone_number %>
+  <strong>Contact number:</strong>
+  <%= @garden.contact_number %>
 </p>
 
 <p>
   <strong>Email:</strong>
   <%= @garden.email %>
 </p>
+
+<p>
+  <strong>Produce:</strong>
+    <%= @garden.GardenProduces.each do |prod| %>
+      <%= Produce.all.find_by(id: prod.produce_id).name %>
+    <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_garden_path(@garden) %> |
 <%= link_to 'Back', gardens_path %>

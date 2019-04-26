@@ -2,63 +2,46 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   # GET /gardens
-  # GET /gardens.json
   def index
     @gardens = Garden.all
+    render json: @gardens
   end
 
   # GET /gardens/1
-  # GET /gardens/1.json
   def show
-  end
-
-  # GET /gardens/new
-  def new
-    @garden = Garden.new
-  end
-
-  # GET /gardens/1/edit
-  def edit
+    render json: @garden
   end
 
   # POST /gardens
-  # POST /gardens.json
+  skip_before_action :verify_authenticity_token
   def create
     @garden = Garden.new(garden_params)
 
-    respond_to do |format|
-      if @garden.save
-        format.html { redirect_to @garden, notice: 'Garden was successfully created.' }
-        format.json { render :show, status: :created, location: @garden }
-      else
-        format.html { render :new }
-        format.json { render json: @garden.errors, status: :unprocessable_entity }
-      end
+    if @garden.save
+      render json: @garden, status: :created
+    else
+      render json: @garden.errors, status: :unprocessable_entity
     end
+
   end
 
   # PATCH/PUT /gardens/1
-  # PATCH/PUT /gardens/1.json
-  def update
-    respond_to do |format|
-      if @garden.update(garden_params)
-        format.html { redirect_to @garden, notice: 'Garden was successfully updated.' }
-        format.json { render :show, status: :ok, location: @garden }
-      else
-        format.html { render :edit }
-        format.json { render json: @garden.errors, status: :unprocessable_entity }
-      end
-    end
+  def update      
+     if @garden.update(garden_params)        
+        render json: @garden, status: :ok
+     else        
+        render json: @garden.errors, status: :unprocessable_entity      
+     end
   end
 
   # DELETE /gardens/1
-  # DELETE /gardens/1.json
   def destroy
     @garden.destroy
-    respond_to do |format|
-      format.html { redirect_to gardens_url, notice: 'Garden was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    if @garden.destroy
+      head :no_content, status: :ok
+    else
+      render json: @garden.errors, status: :unprocessable_entity
+    end    
   end
 
   private
@@ -67,8 +50,8 @@ class GardensController < ApplicationController
       @garden = Garden.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white garden through.
     def garden_params
-      params.require(:garden).permit(:garden_name, :address, :lat, :long, :contact_name, :phone_number, :email)
+      params.require(:garden).permit(:name, :address, :lat, :long, :contact_name, :contact_number, :email, :image, :notes)
     end
 end

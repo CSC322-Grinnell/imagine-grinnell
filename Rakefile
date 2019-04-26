@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+namespace :assets do
+  task :precompile do
+    Rake::Task['assets:precompile'].invoke
+    Rake::Task['swagger:docs'].invoke
+  end
+end

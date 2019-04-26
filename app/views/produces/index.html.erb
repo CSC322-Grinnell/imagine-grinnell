@@ -1,4 +1,13 @@
+<%= stylesheet_link_tag "application" %>
 <p id="notice"><%= notice %></p>
+
+<script>
+  function showForm(elem){
+    $("#" + elem.name).toggleClass("hide");
+    console.log(document.getElementById(elem.name));
+
+  }
+</script>
 
 <h1>Produces</h1>
 
@@ -6,23 +15,35 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Prediction date</th>
-      <th>Readiness</th>
+      <th>Duration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @produces.each do |produce| %>
       <tr>
         <td><%= produce.name %></td>
-        <td><%= produce.prediction_date %></td>
-        <td><%= produce.readiness %></td>
-        <td><%= link_to 'Show', produce %></td>
-        <td><%= link_to 'Edit', edit_produce_path(produce) %></td>
+        <td><%= produce.duration %></td>
+        <td><button type="button" onclick="showForm(this)" name="<%= produce.id %>">Edit</button></td>
         <td><%= link_to 'Destroy', produce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <tr id="<%= produce.id %>" class="hide">
+        <div>
+          <%= render 'form', produce: produce %>
+        </div>
+      </tr>
     <% end %>
+    
+    <tr id="<%= Produce.new.id%>">
+    <%= form_for :produce, remote: true do |f|%>
+      <td><%= f.text_field :name %><br />
+      <td><%= f.text_field :duration%></td>
+      <td><%= f.submit %></td>
+    <% end %>
+    </tr>
+    
   </tbody>
 </table>
 

@@ -11,22 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <td class="field">
     <%= form.text_field :name, id: :produce_name %>
-  </div>
+  </td>
+  <td class="field">
+    <%= form.text_field :duration, id: :produce_duration %>
+  </td>
 
-  <div class="field">
-    <%= form.label :prediction_date %>
-    <%= form.text_field :prediction_date, id: :produce_prediction_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :readiness %>
-    <%= form.number_field :readiness, id: :produce_readiness %>
-  </div>
-
-  <div class="actions">
+  <td class="actions">
     <%= form.submit %>
-  </div>
+  </td>
 <% end %>

@@ -10,17 +10,18 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_produce_url
-    assert_response :success
-  end
-
   test "should create produce" do
     assert_difference('Produce.count') do
-      post produces_url, params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
+      post produces_url, params: { produce: { duration: @produce.duration, name: "Tester" } }
     end
-
-    assert_redirected_to produce_url(Produce.last)
+    assert_response :success
+  end
+  
+  test "should not create produce due to non-unique name" do
+    assert_no_difference('Produce.count') do
+      post produces_url, params: { produce: { duration: @produce.duration, name: @produce.name } }
+    end
+    assert_response 422
   end
 
   test "should show produce" do
@@ -34,15 +35,14 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update produce" do
-    patch produce_url(@produce), params: { produce: { name: @produce.name, prediction_date: @produce.prediction_date, readiness: @produce.readiness } }
-    assert_redirected_to produce_url(@produce)
+    patch produce_url(@produce), params: { produce: { duration: @produce.duration, name: @produce.name } }
+    assert_response :success
   end
 
   test "should destroy produce" do
     assert_difference('Produce.count', -1) do
       delete produce_url(@produce)
     end
-
-    assert_redirected_to produces_url
   end
+  
 end
