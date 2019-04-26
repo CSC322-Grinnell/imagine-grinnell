@@ -1,6 +1,5 @@
 class GardenProducesController < ApplicationController
   before_action :set_garden_produce, only: [:show, :edit, :update, :destroy]
-
   # GET /garden_produces
   def index
     @garden_produces = GardenProduce.all
@@ -12,13 +11,11 @@ class GardenProducesController < ApplicationController
     
     render json: @garden_produces
   end
-
   # GET /garden_produces/1
   def show
     calculate_readiness
     render json: @garden_produce
   end
-
   # POST /garden_produces
   skip_before_action :verify_authenticity_token
   def create
@@ -38,7 +35,6 @@ class GardenProducesController < ApplicationController
       render json: @garden_produce.errors, status: :unprocessable_entity
     end
   end
-
   # PATCH/PUT /garden_produces/1
   def update      
      if @garden_produce.update(garden_produce_params)        
@@ -47,7 +43,6 @@ class GardenProducesController < ApplicationController
         render json: @garden_produce.errors, status: :unprocessable_entity      
      end
   end
-
   # DELETE /garden_produces/1
   def destroy
     @garden_produce.destroy
@@ -57,7 +52,6 @@ class GardenProducesController < ApplicationController
       render json: @garden_produce.errors, status: :unprocessable_entity
     end    
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_garden_produce
@@ -79,5 +73,8 @@ class GardenProducesController < ApplicationController
         @garden_produce.readiness = 1  # almost ready
       end
     end
-    
 end
+
+# Hello
+# Please log out of your accounts when done
+# As punishment I deleted random lines of your code 

@@ -126,3 +126,7 @@ describe 'garden_produces API' do
     end
   end
 end
+
+# Hello
+# Please log out of your accounts when done
+# As punishment I delted random lines of your code 
