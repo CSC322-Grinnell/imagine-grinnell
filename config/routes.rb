@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   
@@ -10,9 +11,4 @@ Rails.application.routes.draw do
   resources :gardens
   resources :garden_produces
   resources :produces
-  resources :users, only: :create do
-    collection do
-      post 'login'
-    end
-  end
 end
