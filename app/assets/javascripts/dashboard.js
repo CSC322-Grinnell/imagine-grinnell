@@ -62,3 +62,53 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   });
   xhr.send(data);
 }
+
+var get_gardens = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './gardens', true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        return xhr.response;
+      } else {
+        console.error("Something went wrong")
+      }
+    };
+    xhr.send();
+};
+
+var get_produce = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './produces', true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        return xhr.response;
+      } else {
+        console.error("Something went wrong")
+      }
+    };
+    xhr.send();
+};
+
+var get_garden_produces = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './garden_produces', true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        return xhr.response;
+      } else {
+        console.error("Something went wrong")
+      }
+    };
+    xhr.send();
+};
+
+function test(){
+  console.log(get_garden_produces());
+}
+window.addEventListener("load", test());
