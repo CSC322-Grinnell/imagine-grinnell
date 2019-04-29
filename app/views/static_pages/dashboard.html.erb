@@ -1,0 +1,147 @@
+<%= stylesheet_link_tag "home" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.ready {
+  color: #32CD32;
+}
+
+.almost {
+  color: #BDB76B;
+}
+
+.btn {
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+  /* Gray */
+.default {
+  border: none;
+  color: black;
+  background: #dddddd;
+}
+
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+
+.default:hover {
+  border: #dddddd;
+  background: #FFFFFF;
+}
+</style>
+</head>
+<body>
+
+<h2 align="center">Administrative Dashboard</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Contact Information</th>
+    <th>Planted Produce <br>(Days until Ready)</th>
+    <th>Notes</th>
+    <th><a>Edit Garden Info</a></th>
+    <th><a>Add Produce</a></th>
+  </tr>
+  <tr>
+    <td>Davis Elementary School</td>
+    <td>818 Hamilton</td>
+    <td>N/A</td>
+    <td><span class="ready">Carrot (0) </span> <br> Potato (45) <br> Tomato (35)</td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>GRMC Public Health</td>
+    <td>306 4th Ave.</td>
+    <td>N/A</td>
+    <td>Lettuce (17) <br> Cabbage (22) <br> Strawberries (37)</td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>Marvin Garden</td>
+    <td>Marvin Ave near Los Girasoles</td>
+    <td>N/A</td>
+    <td><span class="almost">Carrot (4)</span><br> Potato (27)<br> Tomato (16)</td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>Ahrens Garden</td>
+    <td>1510 Penrose St.</td>
+    <td>N/A</td>
+    <td>Lettuce (19)<br> Cabbage (12) <br> Strawberries (21)</td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>St. John<span>&#39;</span>s Lutheran Church</td>
+    <td>1224 East St.</td>
+    <td>N/A</td>
+    <td><span class="ready">Carrot (0)</span> <br> Potato (15) <br> Tomato (13)</td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>St. Paul<span>&#39;</span>s Episcopal Church</td>
+    <td>1026 State St.</td>
+    <td>N/A</td>
+    <td><span class="ready">Lettuce (0)</span><br><span class="almost"> Cabbage (6) </span><br> <span class="name">Strawberries (0)</span></td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+  <tr>
+    <td>Summer Street Park</td>
+    <td>736 Summer St.</td>
+    <td>N/A</td>
+    <td>Carrot (15) <br><span class="almost"> Potato (6) </span><br><span class="almost"> Tomato (2)</span></td>
+    <td><i class="fas fa-comments fa-2x"></i></td>
+    <th><a href="addGarden.html">Edit</a></th>
+    <th><a href="addProduce.html">Add</a></th>
+  </tr>
+</table>
+<br>
+
+<div id="textbox">
+  <button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
+</div>
+
+
+
+</body>
+</html>

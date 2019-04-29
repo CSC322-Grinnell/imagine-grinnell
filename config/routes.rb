@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   
   get "/" => 'static_pages#home'
+  get "/dashboard" => 'static_pages#dashboard'
 
   root 'static_pages#home'
 
