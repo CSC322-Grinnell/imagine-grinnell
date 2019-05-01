@@ -70,7 +70,7 @@ var get_gardens = function() {
     xhr.onload = function() {
       var status = xhr.status;
       if (status === 200) {
-        return xhr.response;
+        console.log(xhr.response);
       } else {
         console.error("Something went wrong")
       }
@@ -85,7 +85,7 @@ var get_produce = function() {
     xhr.onload = function() {
       var status = xhr.status;
       if (status === 200) {
-        return xhr.response;
+        console.log(xhr.response);
       } else {
         console.error("Something went wrong")
       }
@@ -109,5 +109,9 @@ var get_garden_produces = function() {
 };
 
 function test(){
+  get_gardens();
+  get_produce();
+  get_garden_produces();
 }
+
 window.addEventListener("load", test());
