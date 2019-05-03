@@ -63,51 +63,47 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.send(data);
 }
 
+var getJSON = function(url) {
+	return new Promise(function(resolve, reject) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', url, true);
+		xhr.responseType = 'json';
+		xhr.onload = function() {
+			var status = xhr.status;
+			if (status == 200) {
+				resolve(xhr.response);
+			} else {
+				reject(status);
+			}
+		};
+		xhr.send();
+	});
+};
+
+
 var get_gardens = function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', './gardens', true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        return xhr.response;
-      } else {
-        console.error("Something went wrong")
-      }
-    };
-    xhr.send();
+  return getJSON("./gardens")
 };
 
 var get_produce = function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', './produces', true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        return xhr.response;
-      } else {
-        console.error("Something went wrong")
-      }
-    };
-    xhr.send();
+  return getJSON("./produces")
 };
 
 var get_garden_produces = function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', './garden_produces', true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        console.log(xhr.response);
-      } else {
-        console.error("Something went wrong")
-      }
-    };
-    xhr.send();
+  return getJSON("./garden_produces")
 };
 
 function test(){
+  get_gardens().then(function(data){
+    console.log(data);
+  })
+  get_produce().then(function(data){
+    console.log(data);
+  })
+  get_garden_produces().then(function(data){
+    console.log(data);
+  })
+  post_garden("xyz", "xyz", "1", "1", "xyz", "123", "xyz", "xyz", "xyz");
 }
+
 window.addEventListener("load", test());
