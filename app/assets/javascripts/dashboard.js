@@ -6,7 +6,6 @@ function post_garden(name, address, lat, long, contact_name, contact_num, email,
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
-        console.log(json);
     }
   };
   var data = JSON.stringify({
@@ -31,7 +30,6 @@ function post_produce(name, duration, image){
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
-        console.log(json);
     }
   };
   var data = JSON.stringify({
@@ -44,13 +42,12 @@ function post_produce(name, duration, image){
 
 function post_garden_produce(garden_id, produce_id, available, readiness, planted_at){
   var xhr = new XMLHttpRequest();
-  var url = "./produces";
+  var url = "./garden_produces";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var json = JSON.parse(xhr.responseText);
-        console.log(json);
     }
   };
   var data = JSON.stringify({
@@ -63,47 +60,52 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.send(data);
 }
 
-var getJSON = function(url) {
-	return new Promise(function(resolve, reject) {
-		var xhr = new XMLHttpRequest();
-		xhr.open('get', url, true);
-		xhr.responseType = 'json';
-		xhr.onload = function() {
-			var status = xhr.status;
+var getJSON = function(url, successHandler, errorHandler) {
+	var xhr = typeof XMLHttpRequest != 'undefined'
+		? new XMLHttpRequest()
+		: new ActiveXObject('Microsoft.XMLHTTP');
+	xhr.open('get', url, true);
+	xhr.onreadystatechange = function() {
+		var status;
+		var data;
+		// https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
+		if (xhr.readyState == 4) { // `DONE`
+			status = xhr.status;
 			if (status == 200) {
-				resolve(xhr.response);
+				data = JSON.parse(xhr.responseText);
+				successHandler && successHandler(data);
 			} else {
-				reject(status);
+				errorHandler && errorHandler(status);
 			}
-		};
-		xhr.send();
-	});
+		}
+	};
+	xhr.send();
 };
 
-
-var get_gardens = function() {
-  return getJSON("./gardens")
-};
-
-var get_produce = function() {
-  return getJSON("./produces")
-};
-
-var get_garden_produces = function() {
-  return getJSON("./garden_produces")
-};
-
-function test(){
-  get_gardens().then(function(data){
-    console.log(data);
-  })
-  get_produce().then(function(data){
-    console.log(data);
-  })
-  get_garden_produces().then(function(data){
-    console.log(data);
-  })
-  post_garden("xyz", "xyz", "1", "1", "xyz", "123", "xyz", "xyz", "xyz");
+function populate_table(){
+  getJSON("./gardens", function populate_table_helper_garden(data){
+	 for(var i = 0; i <= data.length - 1; i++){
+    document.getElementById('table').innerHTML += 
+    ("<tr><td>" + data[i].name + "</td><td>" 
+    + data[i].address + "</td><td>" 
+    + data[i].contact_name + ", " 
+    + data[i].contact_num + "</td><td>"
+    + "<ul id=garden_id" + data[i].garden_id + "></ul></td><td>"
+    + data[i].notes + "</td></tr>")
+	 }
+  }, function(status) {
+	  alert('Something went wrong.');
+  });
+  getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
+	 for(var i = 0; i <= data.length - 1; i++){
+    document.getElementById('garden_id'+i).innerHTML += 
+    ("<li>" + data[i].produce_id + "</li>")
+	 }
+  }, function(status) {
+	  alert('Something went wrong.');
+  });
 }
 
-window.addEventListener("load", test());
+window.onload = function(){
+  populate_table();
+}

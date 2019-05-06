@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "Davis Elementary School",
     "address": "818 Hamilton Ave.",
     "lat": 41.737209,
@@ -12,7 +12,7 @@
     "updated_at": "2019-04-12T19:24:46.558Z"
   },
   {
-    "id": 2,
+    "id": 1,
     "name": "GRMC Public Health",
     "address": "306 4th Ave.",
     "lat": 41.742474,
@@ -24,7 +24,7 @@
     "updated_at": "2019-04-12T19:28:52.132Z"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Marvin Garden",
     "address": "Marvin Ave.",
     "lat": 41.732351,
@@ -36,7 +36,7 @@
     "updated_at": "2019-04-12T19:31:09.371Z"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Ahrens Garden",
     "address": "1510 Penrose St.",
     "lat": 41.752668,
@@ -48,7 +48,7 @@
     "updated_at": "2019-04-12T19:33:08.810Z"
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "St. John's Lutheran Church",
     "address": "1224 East St.",
     "lat": 41.748438,
@@ -60,7 +60,7 @@
     "updated_at": "2019-04-12T19:34:52.679Z"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Summer Street Park",
     "address": "736 Summer St.",
     "lat": 41.741654,
