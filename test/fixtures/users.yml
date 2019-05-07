@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: "test@test.com"
+  password_digest: "password"
+
+
+two:
+  email: "test2@test.com"
+  password_digest: "password"
+

@@ -1,0 +1,8 @@
+[
+  {
+    "id": 0,
+    "email": "admin@admin.com",
+    "password": "password",
+    "password_confirmation": "password"
+  }
+]
