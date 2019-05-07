@@ -15,3 +15,8 @@ records = JSON.parse(File.read('db/seed_data/produces.json'))
 records.each do |record|
   Produce.create!(record)
 end
+
+records = JSON.parse(File.read('db/seed_data/users.json'))
+records.each do |record|
+  User.create!(record)
+end
