@@ -2,7 +2,8 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    user = User.create(email: "admin@admin.com", password: "password", password_confirmation: "password")
+    user.save
   end
   
   test "should create session" do
