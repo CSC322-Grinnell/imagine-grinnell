@@ -40,6 +40,14 @@ function post_produce(name, duration, image){
   xhr.send(data);
 }
 
+function delete_garden(garden_id){
+  var xhr = new XMLHttpRequest();
+  var url = "./gardens/" + garden_id
+  xhr.open("DELETE", url, false);
+  xhr.send();
+  location.reload();
+}
+
 function post_garden_produce(garden_id, produce_id, available, readiness, planted_at){
   var xhr = new XMLHttpRequest();
   var url = "./garden_produces";
@@ -60,27 +68,14 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.send(data);
 }
 
-var getJSON = function(url, successHandler, errorHandler) {
-	var xhr = typeof XMLHttpRequest != 'undefined'
-		? new XMLHttpRequest()
-		: new ActiveXObject('Microsoft.XMLHTTP');
-	xhr.open('get', url, true);
-	xhr.onreadystatechange = function() {
-		var status;
-		var data;
-		// https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
-		if (xhr.readyState == 4) { // `DONE`
-			status = xhr.status;
-			if (status == 200) {
-				data = JSON.parse(xhr.responseText);
-				successHandler && successHandler(data);
-			} else {
-				errorHandler && errorHandler(status);
-			}
-		}
-	};
-	xhr.send();
-};
+function delete_modal(garden_id){
+  document.getElementById('delete_modal_footer').innerHTML = "<a onclick=\"delete_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
+  document.getElementById('delete_modal').style.display = "block";//Messed around with reccomended ways of doing it and couldn't get them to work so doing it this way. Sorry.
+}
+
+function delete_modal_close(){
+  document.getElementById('delete_modal').style.display = "none";//Messed around with reccomended ways of doing it and couldn't get them to work so doing it this way. Sorry.
+}
 
 function populate_table(){
   getJSON("./gardens", function populate_table_helper_garden(data){
@@ -90,8 +85,10 @@ function populate_table(){
     + data[i].address + "</td><td>" 
     + data[i].contact_name + ", " 
     + data[i].contact_num + "</td><td>"
-    + "<ul id=garden_id" + data[i].garden_id + "></ul></td><td>"
-    + data[i].notes + "</td></tr>")
+    + "<ul id=garden_id" + (data[i].id) + "></ul></td><td>"
+    + data[i].notes + "</td><td><a onclick='delete_modal(" 
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a>"
+    + "" + "</td></tr>")
 	 }
   }, function(status) {
 	  alert('Something went wrong.');

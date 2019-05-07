@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag "dashboard" %>
-<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "dashboard" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -16,7 +16,10 @@
     <th>Contact Information</th>
     <th>Planted Produce <br>(Days until Ready)</th>
     <th>Notes</th>
+    <th></th>
   </tr>
+  <tbody id="table_contents">
+  </tbody>
 </table>
 <br>
 
@@ -24,6 +27,15 @@
   <button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
 </div>
 
+<!--Modal responsable for delete_garden check-->
+<div id="delete_modal" class="modal">
+  <div class="modal-content">
+    <h4>Delete Garden?</h4>
+    <p>Are you sure you want to delete <span id="garden_name"></span></p>
+  </div>
+  <div id="delete_modal_footer" class="modal_footer">
+  </div>
+</div>
 
 
 </body>
