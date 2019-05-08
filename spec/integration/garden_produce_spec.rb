@@ -10,8 +10,8 @@ describe 'garden_produces API' do
       parameter name: :garden_produce, in: :body, schema: {
         type: :object,
         properties: {
-          garden_id: { type: :number },
-          produce_id: { type: :number },
+          garden_id: { type: :string },
+          produce_id: { type: :string },
           available_at: { type: :string },
           readiness: { type: :number },
           planted_at: { type: :string },
@@ -38,8 +38,8 @@ describe 'garden_produces API' do
         schema type: :array,
           items: {
             properties: {
-              garden_id: { type: :number },
-              produce_id: { type: :number },
+              garden_id: { type: :string },
+              produce_id: { type: :string },
               available_at: { type: :string },
               readiness: { type: :number },
               planted_at: { type: :string },
@@ -64,8 +64,8 @@ describe 'garden_produces API' do
       response '200', 'name found' do
         schema type: :object,
           properties: {
-            garden_id: { type: :number },
-            produce_id: { type: :number },
+            garden_id: { type: :string },
+            produce_id: { type: :string },
             available_at: { type: :string },
             readiness: { type: :number },
             planted_at: { type: :string },
@@ -89,8 +89,8 @@ describe 'garden_produces API' do
       parameter name: :garden_produce, in: :body, schema: {
         type: :object,
         properties: {
-          garden_id: { type: :number },
-          produce_id: { type: :number },
+          garden_id: { type: :string },
+          produce_id: { type: :string },
           available_at: { type: :string },
           readiness: { type: :number },
           planted_at: { type: :string },

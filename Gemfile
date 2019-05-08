@@ -39,9 +39,6 @@ gem 'rswag'
 
 gem 'bcrypt'
 
-# Authentication
-gem 'devise'
-gem 'devise_token_auth'
 
 group :development, :test do
     # Use sqlite3 as the database for Active Record

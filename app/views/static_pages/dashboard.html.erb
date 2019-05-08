@@ -1,92 +1,40 @@
 <%= stylesheet_link_tag "dashboard" %>
-<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "dashboard" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
 <h2 align="center">Administrative Dashboard</h2>
-
-<table id="admin">
+<div class="container">
+<h3>Gardens</h3>
+<table id="table">
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Contact Information</th>
-    <th>Planted Produce <br>(Days until Ready)</th>
+    <th>Contact Name</th>
+    <th>Contact Number</th>
+    <th>Planted Produce, Date Available</th>
     <th>Notes</th>
+    <th></th>
   </tr>
-  <tr>
-    <td>Davis Elementary School</td>
-    <td>818 Hamilton</td>
-    <td>N/A</td>
-    <td><span class="ready">Carrot (0) </span> <br> Potato (45) <br> Tomato (35)</td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>GRMC Public Health</td>
-    <td>306 4th Ave.</td>
-    <td>N/A</td>
-    <td>Lettuce (17) <br> Cabbage (22) <br> Strawberries (37)</td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>Marvin Garden</td>
-    <td>Marvin Ave near Los Girasoles</td>
-    <td>N/A</td>
-    <td><span class="almost">Carrot (4)</span><br> Potato (27)<br> Tomato (16)</td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>Ahrens Garden</td>
-    <td>1510 Penrose St.</td>
-    <td>N/A</td>
-    <td>Lettuce (19)<br> Cabbage (12) <br> Strawberries (21)</td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>St. John<span>&#39;</span>s Lutheran Church</td>
-    <td>1224 East St.</td>
-    <td>N/A</td>
-    <td><span class="ready">Carrot (0)</span> <br> Potato (15) <br> Tomato (13)</td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>St. Paul<span>&#39;</span>s Episcopal Church</td>
-    <td>1026 State St.</td>
-    <td>N/A</td>
-    <td><span class="ready">Lettuce (0)</span><br><span class="almost"> Cabbage (6) </span><br> <span class="name">Strawberries (0)</span></td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
-  <tr>
-    <td>Summer Street Park</td>
-    <td>736 Summer St.</td>
-    <td>N/A</td>
-    <td>Carrot (15) <br><span class="almost"> Potato (6) </span><br><span class="almost"> Tomato (2)</span></td>
-    <td><i class="fas fa-comments fa-2x"></i></td>
-    <th><a href="addGarden.html">Edit Garden</a></th>
-    <th><a href="addProduce.html">Add Produce</a></th>
-  </tr>
+  <tbody id="table_contents">
+  </tbody>
 </table>
 <br>
-
-<div id="textbox">
-  <button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
+<button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
 </div>
-
+<!--Modal responsable for delete_garden check-->
+<div id="delete_modal" class="modal">
+  <div class="modal-content">
+    <h4>Delete Garden?</h4>
+    <p>Are you sure you want to delete <span id="garden_name"></span></p>
+  </div>
+  <div id="delete_modal_footer" class="modal_footer">
+  </div>
+</div>
 
 
 </body>

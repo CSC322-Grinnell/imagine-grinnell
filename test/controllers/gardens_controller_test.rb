@@ -23,11 +23,6 @@ class GardensControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_garden_url(@garden)
-    assert_response :success
-  end
-
   test "should update garden" do
     patch garden_url(@garden), params: { garden: { address: @garden.address, contact_name: @garden.contact_name, contact_number: @garden.contact_number, 
                                                    email: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } }

@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  garden_id: 1
-  produce_id: 1
+  garden_id: "1"
+  produce_id: "1"
   available_at: "2018-07-23"
   readiness: 1
   planted_at: "2018-04-23"
 
 two:
-  garden_id: 1
-  produce_id: 1
+  garden_id: "1"
+  produce_id: "1"
   available_at: "2019-01-04"
   readiness: 1
   planted_at: "2019-01-01"
