@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :gardens
   resources :garden_produces
   resources :produces
-  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

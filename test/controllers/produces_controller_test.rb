@@ -29,11 +29,6 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_produce_url(@produce)
-    assert_response :success
-  end
-
   test "should update produce" do
     patch produce_url(@produce), params: { produce: { duration: @produce.duration, name: @produce.name } }
     assert_response :success
