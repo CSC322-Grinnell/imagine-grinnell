@@ -144,25 +144,35 @@ function initMap() {
   }
 ]
   });
-  
-}
 
-window.onload = function(){
-  var imagine_grinnell = {lat: 41.752169, lng: -92.707852};
-
-  var contentString = '<div class="card z-depth-0" style="width: 100%;"><div class="card-image"><img src="https://pbs.twimg.com/media/CD3ge1jUMAEKG1e.jpg"><span class="card-title">Imagine Grinnell</span></div><div class="card-content"><p>Imagine Grinnell turns imagination into action to create a more vibrant, sustainable, and healthy Grinnell. Our roots deepen relationships and enrich the community we serve.</p></div><div class="card-action"><ul class="collection"><li class="collection-item">Carrots</li><li class="collection-item">Cabbage</li> <li class="collection-item">Tomatos</li></ul></div></div>';
+  var infowindow = new google.maps.InfoWindow();
   
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  var marker = new google.maps.Marker({
-    position: imagine_grinnell,
-    map: map,
-    title: 'Imagine Grinnell'
-  });
-  
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
+  getJSON("./gardens", function populate_table_helper_garden(data){
+   var gardens = [...Array(data.length)].map(e => Array(4));
+	 for(var i = 0; i < data.length; i++){
+	   gardens[i][0]=data[i].name;
+	   gardens[i][1]=data[i].lat;
+	   gardens[i][2]=data[i].long;
+	   gardens[i][3]="<div class=\"card z-depth-0\" style=\"width: 100%;\"><div class=\"card-image\"><img src=\""+
+	   "https://pbs.twimg.com/media/CD3ge1jUMAEKG1e.jpg"+ //TODO: Replace this with data[i].image
+	   "\"><span class=\"card-title\">" +
+	   data[i].name + "</span></div><div class=\"card-content\"><p>" + 
+	   data[i].contact_name + "</p><p>" + 
+	   data[i].contact_number + "</p><p>" + 
+	   data[i].address + "</p></div><div class=\"card-action\"><ul class=\"collection\"><li class=\"collection-item\">Carrots</li><li class=\"collection-item\">Cabbage</li> <li class=\"collection-item\">Tomatos</li></ul></div></div>";
+	   var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(gardens[i][1], gardens[i][2]),
+      title: gardens[i][0],
+      map: map
+	   });
+	   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+      infowindow.setContent(gardens[i][3]);
+      infowindow.open(map, marker);
+      }
+     })(marker, i));
+	 }
+  }, function(status) {
+	  alert('Something went wrong.');
   });
 }
