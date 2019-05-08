@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   resources :garden_produces
   resources :produces
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :get]
 
   post 'signup', to: 'users#create', as: 'signup'
   post 'login', to: 'sessions#create', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'current_user', to: 'sessions#show', as: 'current_user'
 end

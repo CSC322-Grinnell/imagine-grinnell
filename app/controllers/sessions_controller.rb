@@ -17,5 +17,14 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, status: :ok
   end
+  
+  def show
+    current_user
+    if @current_user == nil
+      head :no_content
+    else
+      render json: @current_user, status: :ok
+    end
+  end
 
 end
