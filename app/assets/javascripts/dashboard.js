@@ -60,6 +60,7 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.send(data);
 }
 
+
 function patch_garden(id, name, address, lat, long, contact_name, contact_num, email, image, notes){
   var xhr = new XMLHttpRequest();
   var url = "./gardens/"+id;

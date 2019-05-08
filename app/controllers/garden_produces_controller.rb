@@ -74,7 +74,3 @@ class GardenProducesController < ApplicationController
       end
     end
 end
-
-# Hello
-# Please log out of your accounts when done
-# As punishment I deleted random lines of your code 

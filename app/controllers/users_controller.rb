@@ -1,21 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  # This doesn't actually have frontend support at the moment
+  # Also the API specs have not been built for both users and session endpoints
 
   # GET /users
-  # GET /users.json
   def index
     @users = User.all
     render json: @users
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
     render json: @user
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
 
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
       render json: @user, status: :ok
@@ -37,7 +36,6 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     if @user.destroy
