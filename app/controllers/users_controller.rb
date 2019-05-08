@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  # This doesn't actually have frontend support at the moment
+  # Also the API specs have not been built for both users and session endpoints
 
   # GET /users
   def index

@@ -26,3 +26,7 @@ Change the specs at /spec/"spec you want to change".
 ```
 rake rswag:specs:swaggerize
 ```
+
+Last Active Group: Spring 2019
+For Next Group:
+Fully develop and fix test cases
