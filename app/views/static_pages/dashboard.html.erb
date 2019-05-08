@@ -8,13 +8,15 @@
 <body>
 
 <h2 align="center">Administrative Dashboard</h2>
-
+<div class="container">
+<h3>Gardens</h3>
 <table id="table">
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Contact Information</th>
-    <th>Planted Produce <br>(Days until Ready)</th>
+    <th>Contact Name</th>
+    <th>Contact Number</th>
+    <th>Planted Produce, Date Available</th>
     <th>Notes</th>
     <th></th>
   </tr>
@@ -22,11 +24,8 @@
   </tbody>
 </table>
 <br>
-
-<div id="textbox">
-  <button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
+<button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
 </div>
-
 <!--Modal responsable for delete_garden check-->
 <div id="delete_modal" class="modal">
   <div class="modal-content">
