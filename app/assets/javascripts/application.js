@@ -1,6 +1,6 @@
 //= require jquery  
 //= require turbolinks  
-//= require materialize-sprockets
+//= require materialize
 
 var getJSON = function(url, successHandler, errorHandler) {
 	var xhr = typeof XMLHttpRequest != 'undefined'

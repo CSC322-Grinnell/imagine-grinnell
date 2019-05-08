@@ -24,7 +24,7 @@
   </tbody>
 </table>
 <br>
-<button class="btn default alignleft" onclick="location.href='addGarden.html'">Add a Garden</button>
+<button class="btn default alignleft" onclick="add_modal()">Add a Garden</button>
 </div>
 <!--Modal responsable for delete_garden check-->
 <div id="delete_modal" class="modal">
@@ -36,6 +36,51 @@
   </div>
 </div>
 
-
+<!--Modal responsable for adding a garden-->
+<div id="add_modal" class="modal">
+  <div class="modal-content">
+    <h4>Add Garden</h4>
+      <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="name" type="text" class="validate">
+          <label for="name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="address" type="text" class="validate">
+          <label for="address">Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="contact_name" type="text" class="validate">
+          <label for="contact_name">Contact Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="contact_num" type="text" class="validate">
+          <label for="contact_num">Contact Number</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <div id="add_modal_footer" class="modal_footer">
+    <a onclick="add_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+      Cancel
+    </a>
+    <a onclick="add_garden()" class="modal-close waves-effect waves-green btn-flat">
+      Add Garden
+    </a>
+  </div>
+</div>
 </body>
 </html>

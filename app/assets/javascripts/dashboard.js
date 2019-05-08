@@ -148,11 +148,23 @@ function delete_produce_garden(id){
 
 function delete_modal(garden_id){
   document.getElementById('delete_modal_footer').innerHTML = "<a onclick=\"delete_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
-  document.getElementById('delete_modal').style.display = "block";//Messed around with reccomended ways of doing it and couldn't get them to work so doing it this way. Sorry.
+  var instance = M.Modal.getInstance(document.getElementById('delete_modal'));
+  instance.open();
 }
 
 function delete_modal_close(){
-  document.getElementById('delete_modal').style.display = "none";//Messed around with reccomended ways of doing it and couldn't get them to work so doing it this way. Sorry.
+  var instance = M.Modal.getInstance(document.getElementById('delete_modal'));
+  instance.close();
+}
+
+function add_modal(garden_id){
+  var instance = M.Modal.getInstance(document.getElementById('add_modal'));
+  instance.open();
+}
+
+function add_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('add_modal'));
+  instance.close();
 }
 
 function populate_table(){
@@ -165,18 +177,17 @@ function populate_table(){
     + data[i].contact_num + "</td><td>"
     + "<ul id=garden_id" + (data[i].id) + "></ul></td><td>"
     + data[i].notes + "</td><td><a onclick='delete_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a>"
-    + "" + "</td></tr>")
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='edit_modal(" 
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>")
 	 }
 	 getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
 	 for(var i = 0; i <= data.length - 1; i++){
     document.getElementById('garden_id'+i).innerHTML += 
     ("<li><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
 	 }
-	 getJSON("./produces", function populate_table_helper_garden_produces(data){
+	 getJSON("./produces", function populate_table_helper_produces(data){
 	 for(var i = 0; i <= data.length - 1; i++){
 	  var elements = document.getElementsByClassName('produce_id'+i);
-	  console.log(elements);
 	  for(var j = 0; j < elements.length; j++){
      elements[j].innerHTML += data[i].name;
 	  }
@@ -193,5 +204,6 @@ function populate_table(){
 }
 
 window.onload = function(){
+  M.AutoInit();
   populate_table();
 }

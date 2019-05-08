@@ -154,8 +154,7 @@ function initMap() {
 	   gardens[i][1]=data[i].lat;
 	   gardens[i][2]=data[i].long;
 	   gardens[i][3]="<div class=\"card z-depth-0\" style=\"width: 100%;\"><div class=\"card-image\"><img src=\""+
-	   "https://pbs.twimg.com/media/CD3ge1jUMAEKG1e.jpg"+ //TODO: Replace this with data[i].image
-	   "\"><span class=\"card-title\">" +
+	   data[i].image + "\"><span class=\"card-title\">" +
 	   data[i].name + "</span></div><div class=\"card-content\"><p>" + 
 	   data[i].contact_name + "</p><p>" + 
 	   data[i].contact_number + "</p><p>" + 
