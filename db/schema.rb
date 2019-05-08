@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20190501204959) do
 
   create_table "garden_produces", force: :cascade do |t|
-    t.integer "garden_id"
-    t.integer "produce_id"
+    t.string "garden_id"
+    t.string "produce_id"
     t.string "available_at"
     t.integer "readiness"
     t.string "planted_at"
