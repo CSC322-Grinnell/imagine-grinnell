@@ -19,6 +19,7 @@ function post_garden(name, address, lat, long, contact_name, contact_num, email,
     "image" : image,
     "notes" : notes
   });
+  console.log(data);
   xhr.send(data);
 }
 
@@ -59,7 +60,6 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   });
   xhr.send(data);
 }
-
 
 function patch_garden(id, name, address, lat, long, contact_name, contact_num, email, image, notes){
   var xhr = new XMLHttpRequest();
@@ -202,6 +202,50 @@ function populate_table(){
   }, function(status) {
 	  alert('Something went wrong.');
   });
+}
+
+function add_garden(){
+  if(!RegExp('^(?!\s*$).+').test(document.forms["add_garden"]["name"].value)){
+    alert("Name must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["add_garden"]["address"].value)){
+    alert("Address must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms["add_garden"]["lat"].value)){
+    alert("Lattitude should be in decimal format");
+    return;
+  }
+  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms["add_garden"]["long"].value)){
+    alert("Longitude should be in decimal format");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["add_garden"]["contact_name"].value)){
+    alert("Contact Name must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["add_garden"]["contact_num"].value)){
+    alert("Contact Number must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms["add_garden"]["email"].value)){
+    alert("This does not seem to be a valid email address. If you think this is an error contact the administrator.");
+    return;
+  }
+  else{
+    post_garden(document.forms["add_garden"]["name"].value,
+                document.forms["add_garden"]["address"].value,
+                document.forms["add_garden"]["lat"].value,
+                document.forms["add_garden"]["long"].value,
+                document.forms["add_garden"]["contact_name"].value,
+                document.forms["add_garden"]["contact_num"].value,
+                document.forms["add_garden"]["email"].value,
+                document.forms["add_garden"]["image"].value,
+                document.forms["add_garden"]["notes"].value,
+                );
+    M.toast({html: 'Garden Added!'})
+  }
 }
 
 window.onload = function(){
