@@ -147,49 +147,50 @@ function delete_produce_garden(id){
   location.reload();
 }
 
-function delete_modal(garden_id){
-  document.getElementById('delete_modal_footer').innerHTML = "<a onclick=\"delete_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
-  var instance = M.Modal.getInstance(document.getElementById('delete_modal'));
+function delete_garden_modal(garden_id){
+  document.getElementById('delete_garden_modal_footer').innerHTML = "<a onclick=\"delete_garden_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
+  var instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
   instance.open();
 }
 
-function delete_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('delete_modal'));
+function delete_garden_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
   instance.close();
 }
 
-function add_modal(){
-  var instance = M.Modal.getInstance(document.getElementById('add_modal'));
+function add_garden_modal(){
+  var instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
   instance.open();
 }
 
-function add_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('add_modal'));
+function add_garden_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
   instance.close();
 }
 
-function update_modal(garden_id){
-  document.getElementById('update_modal_footer').innerHTML = "<a onclick=\"update_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"update_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Update</a>";
-  var instance = M.Modal.getInstance(document.getElementById('update_modal'));
+function update_garden_modal(garden_id){
+  document.getElementById('update_garden_modal_footer').innerHTML = "<a onclick=\"update_garden_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"update_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Update</a>";
+  var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.open();
 }
 
-function update_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('update_modal'));
+function update_garden_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.close();
 }
 
-function populate_table(){
+function populate_table_garden(){
   getJSON("./gardens", function populate_table_helper_garden(data){
 	 for(var i = 0; i <= data.length - 1; i++){
-    document.getElementById('table').innerHTML += 
+    document.getElementById('garden_table').innerHTML += 
     ("<tr><td>" + data[i].name + "</td><td>" 
-    + data[i].address + "</td><td>" 
+    + data[i].address + "</td><td>"
+    + data[i].lat + ", " + data[i].long + "</td><td>" +
     + data[i].contact_name + "</td><td>" 
     + data[i].contact_num + "</td><td>"
     + "<ul id=garden_id" + (data[i].id) + "></ul></td><td>"
-    + data[i].notes + "</td><td><a onclick='delete_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_modal(" 
+    + data[i].notes + "</td><td><a onclick='delete_garden_modal(" 
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_garden_modal(" 
     + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>")
 	 }
 	 getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
@@ -255,7 +256,7 @@ function add_garden(){
                  document.forms["add_garden"]["image"].value,
                  document.forms["add_garden"]["notes"].value,
                 );
-    M.toast({html: 'Garden Updated!'})
+    M.toast({html: 'Garden Added!'})
   }
 }
 
@@ -304,7 +305,101 @@ function update_garden(id){
   }
 }
 
+function delete_produce_modal(produce_id){
+  document.getElementById('delete_produce_modal_footer').innerHTML = "<a onclick=\"delete_produce_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_produce(" + produce_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
+  var instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
+  instance.open();
+}
+
+function delete_produce_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
+  instance.close();
+}
+
+function add_produce_modal(){
+  var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
+  instance.open();
+}
+
+function add_produce_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
+  instance.close();
+}
+
+function update_produce_modal(produce_id){
+  document.getElementById('update_produce_modal_footer').innerHTML = "<a onclick=\"update_produce_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"update_produce(" + produce_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Update</a>";
+  var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
+  instance.open();
+}
+
+function update_produce_modal_close(){
+  var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
+  instance.close();
+}
+
+function populate_table_produce(){
+  getJSON("./produces", function populate_table_helper_produce(data){
+	 for(var i = 0; i <= data.length - 1; i++){
+    document.getElementById('produces_table').innerHTML += 
+    ("<tr><td>" + data[i].name + "</td><td>" 
+    + data[i].duration + "</td><td>"
+    + data[i].image + "</td><td><a onclick='delete_produce_modal(" 
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_produce_modal(" 
+    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>"
+    )
+	 }
+  }, function(status) {
+	  alert('Something went wrong.');
+  });
+}
+
+function add_produce(){
+  if(!RegExp('^(?!\s*$).+').test(document.forms["add_produce"]["name"].value)){
+    alert("Name must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["add_produce"]["duration"].value)){
+    alert("Duration must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["add_produce"]["image"].value)){
+    alert("Image must contain more than whitespace.");
+    return;
+  }
+  else{
+    post_produce( document.forms["add_produce"]["name"].value,
+                 document.forms["add_produce"]["duration"].value,
+                 document.forms["add_produce"]["image"].value,
+                );
+    M.toast({html: 'Produce Added!'})
+  }
+}
+
+function update_produce(id){
+  if(!RegExp('^(?!\s*$).+').test(document.forms["update_produce"]["name"].value)){
+    alert("Name must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["update_produce"]["duration"].value)){
+    alert("Duration must contain more than whitespace.");
+    return;
+  }
+  else if(!RegExp('^(?!\s*$).+').test(document.forms["update_produce"]["image"].value)){
+    alert("Image must contain more than whitespace.");
+    return;
+  }
+  else{
+    patch_produce(id,
+                 document.forms["update_produce"]["name"].value,
+                 document.forms["update_produce"]["duration"].value,
+                 document.forms["update_produce"]["image"].value,
+                );
+    M.toast({html: 'Produce Updated!'})
+  }
+}
+
 window.onload = function(){
   M.AutoInit();
-  populate_table();
+  populate_table_garden();
+  populate_table_produce();
 }
