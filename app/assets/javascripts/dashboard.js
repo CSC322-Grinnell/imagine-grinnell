@@ -194,7 +194,7 @@ function populate_table(){
 	 }
 	 getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
 	 for(var i = 0; i <= data.length - 1; i++){
-    document.getElementById('garden_id'+i).innerHTML += 
+    document.getElementById('garden_id'+data[i].garden_id).innerHTML += 
     ("<li><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
 	 }
 	 getJSON("./produces", function populate_table_helper_produces(data){

@@ -147,7 +147,7 @@ function initMap() {
 
   var infowindow = new google.maps.InfoWindow();
   
-  getJSON("./gardens", function populate_table_helper_garden(data){
+  getJSON("./gardens", function populate_map(data){
    var gardens = [...Array(data.length)].map(e => Array(4));
 	 for(var i = 0; i < data.length; i++){
 	   gardens[i][0]=data[i].name;
@@ -158,7 +158,8 @@ function initMap() {
 	   data[i].name + "</span></div><div class=\"card-content\"><p>" + 
 	   data[i].contact_name + "</p><p>" + 
 	   data[i].contact_number + "</p><p>" + 
-	   data[i].address + "</p></div><div class=\"card-action\"><ul class=\"collection\"><li class=\"collection-item\">Carrots</li><li class=\"collection-item\">Cabbage</li> <li class=\"collection-item\">Tomatos</li></ul></div></div>";
+	   data[i].address + "</p><ul id=garden_id" + 
+	   data[i].id + "\" class=\"collection\"></ul></div></div>";
 	   var marker = new google.maps.Marker({
       position: new google.maps.LatLng(gardens[i][1], gardens[i][2]),
       title: gardens[i][0],
@@ -171,6 +172,28 @@ function initMap() {
       }
      })(marker, i));
 	 }
+	 getJSON("./garden_produces", function(data) {
+	  for(var i = 0; i <= data.length - 1; i++){
+	   try{
+     document.getElementById('garden_id'+data[i].garden_id).innerHTML += 
+     ("<li class=\"collection-item green lighten-" + (data[i].readiness) + "\><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
+	   } catch {
+	     console.log('garden with garden_id \'' + data[i].garden_id + '\' does not exist.')
+	   }
+	  }
+	  getJSON("./produces", function populate_table_helper_produces(data){
+	   for(var i = 0; i <= data.length - 1; i++){
+	    var elements = document.getElementsByClassName('produce_id'+i);
+	    for(var j = 0; j < elements.length; j++){
+       elements[j].innerHTML += data[i].name;
+	    }
+	   }
+    }, function(status) {
+	    alert('Something went wrong.');
+    });
+   }, function(status) {
+	   alert('Something went wrong.');
+   });
   }, function(status) {
 	  alert('Something went wrong.');
   });
