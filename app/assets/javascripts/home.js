@@ -159,7 +159,7 @@ function initMap() {
 	   data[i].contact_name + "</p><p>" + 
 	   data[i].contact_number + "</p><p>" + 
 	   data[i].address + "</p><ul id=garden_id" + 
-	   data[i].id + "\" class=\"collection\"></ul></div></div>";
+	   data[i].id + " class=\"collection\"></ul></div></div>";
 	   var marker = new google.maps.Marker({
       position: new google.maps.LatLng(gardens[i][1], gardens[i][2]),
       title: gardens[i][0],
@@ -169,16 +169,22 @@ function initMap() {
       return function() {
       infowindow.setContent(gardens[i][3]);
       infowindow.open(map, marker);
+      populate_produces();
       }
      })(marker, i));
 	 }
+  }, function(status) {
+	  alert('Something went wrong.');
+  });
+}
+
+function populate_produces(){
 	 getJSON("./garden_produces", function(data) {
 	  for(var i = 0; i <= data.length - 1; i++){
 	   try{
      document.getElementById('garden_id'+data[i].garden_id).innerHTML += 
-     ("<li class=\"collection-item green lighten-" + (data[i].readiness) + "\><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
+     ("<li class=\"collection-item light-green lighten-" + (3 - data[i].readiness) + "\"><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
 	   } catch {
-	     console.log('garden with garden_id \'' + data[i].garden_id + '\' does not exist.')
 	   }
 	  }
 	  getJSON("./produces", function populate_table_helper_produces(data){
@@ -194,7 +200,6 @@ function initMap() {
    }, function(status) {
 	   alert('Something went wrong.');
    });
-  }, function(status) {
-	  alert('Something went wrong.');
-  });
-}
+  }
+  
+  
