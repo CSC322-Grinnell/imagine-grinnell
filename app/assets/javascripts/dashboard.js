@@ -14,7 +14,7 @@ function post_garden(name, address, lat, long, contact_name, contact_num, email,
     "lat" : lat,
     "long" : long,
     "contact_name" : contact_name,
-    "contact_num" : contact_num,
+    "contact_number" : contact_num,
     "email" : email,
     "image" : image,
     "notes" : notes
@@ -77,7 +77,7 @@ function patch_garden(id, name, address, lat, long, contact_name, contact_num, e
     "lat" : lat,
     "long" : long,
     "contact_name" : contact_name,
-    "contact_num" : contact_num,
+    "contact_number" : contact_num,
     "email" : email,
     "image" : image,
     "notes" : notes
@@ -185,13 +185,14 @@ function populate_table_garden(){
     document.getElementById('garden_table').innerHTML += 
     ("<tr><td>" + data[i].name + "</td><td>" 
     + data[i].address + "</td><td>"
-    + data[i].lat + ", " + data[i].long + "</td><td>" +
+    + data[i].lat + ", " + data[i].long + "</td><td>"
     + data[i].contact_name + "</td><td>" 
-    + data[i].contact_num + "</td><td>"
+    + data[i].contact_number + "</td><td>"
     + "<ul id=garden_id" + (data[i].id) + "></ul></td><td>"
     + data[i].notes + "</td><td><a onclick='delete_garden_modal(" 
     + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_garden_modal(" 
     + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>")
+	 console.log(typeof data[i].contact_name);  
 	 }
 	 getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
 	 for(var i = 0; i <= data.length - 1; i++){
