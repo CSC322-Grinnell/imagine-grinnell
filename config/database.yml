@@ -2,7 +2,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: db # Docker-compose automatically sets up dns such that the container names resolve to a host running that service. As our postgres service is called db, we can simply use that to find the network name of the database
   username: postgres
   password:
   pool: 5
