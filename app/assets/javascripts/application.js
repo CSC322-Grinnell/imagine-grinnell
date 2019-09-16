@@ -1,5 +1,5 @@
-//= require jquery  
-//= require turbolinks  
+//= require jquery
+//= require turbolinks
 //= require materialize
 
 var getJSON = function(url, successHandler, errorHandler) {
