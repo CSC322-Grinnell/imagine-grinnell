@@ -17,10 +17,8 @@ do
             shift # past argument
             ;;
         -h|--help)
-            # Clobber everything
             HELP=true
             shift # past argument
-            shift # past value
             ;;
         *)    # unknown option
             POSITIONAL+=("$1") # save it in an array for later
