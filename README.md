@@ -81,6 +81,9 @@ The most common manifestation of this is that `bundle` commands run inside a con
  - To rebuild the rails docker image, run `docker-compose build rails`
  - To do a hard removal of all docker information, you can run `docker container prune`, `docker image prune`, and `docker volume prune`. May be a good idea if you are running out of disk space.
 
+# Adding code to this repository / Git style
+See the [`Contributing.md`](Contributing.md) file.
+
 # Old README as I am not to change anything
 
 This is the code for creation of the giving gardens webpage associated with Imagine Grinnell.
