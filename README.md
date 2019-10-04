@@ -2,12 +2,17 @@ Ruby Rails Project for CSC-324 Software Design and Development
 
 Imagine Grinnell Giving Gardens
 
+![](https://github.com/CSC322-Grinnell/imagine-grinnell/workflows/.github/workflows/unit-test-workflow.yml/badge.svg)
+
 # Running on your machine
 1. Install Docker [[link]](https://docs.docker.com/install/)
   - Windows note: you to want to make sure the drive that you have *this folder* in available for bind mounts. Google *docker bind mount windows* for more information. This is required in order to "hot reload" the rails code.
 2. Run `docker-compose run rails bin/initialize.sh` to initialize the database
 3. Run `docker-compose up`
 4. Visit `http://localhost:3000/` in your browser of choice.
+
+## Running tests
+Run `docker-compose run rails bin/test.sh`
 
 ## What is this docker thing?
 The short of it: docker makes it very easy to reproduce environments for running software.
