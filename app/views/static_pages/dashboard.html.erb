@@ -2,278 +2,283 @@
 <%= javascript_include_tag "dashboard" %>
 <!DOCTYPE html>
 <html>
-<head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper light-green">
-      <a href="./" class="brand-logo">Giving Gardens - Administrative Dashboard</a>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper light-green">
+          <a href="./" class="brand-logo">Giving Gardens - Administrative Dashboard</a>
+        </div>
+      </nav>
     </div>
-  </nav>
-</div>
-<div class="container">
-<h3>Gardens</h3>
-<table id="garden_table">
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Location</th>
-    <th>Contact Name</th>
-    <th>Contact Number</th>
-    <th>Planted Produce, Date Available</th>
-    <th>Notes</th>
-    <th></th>
-  </tr>
-</table>
-<br>
-<button class="btn default alignleft" onclick="add_garden_modal()">Add a Garden</button>
-</div>
-<br>
-<br>
-<div class="container">
-<h3>Produces</h3>
-<table id="produces_table">
-  <tr>
-    <th>Name</th>
-    <th>Duration</th>
-    <th>Image</th>
-    <th></th>
-  </tr>
-</table>
-<br>
-<button class="btn default alignleft" onclick="add_produce_modal()">Add a Produce</button>
-</div>
-</div>
 
-<!--Modal responsable for delete_garden check-->
-<div id="delete_garden_modal" class="modal">
-  <div class="modal-content">
-    <h4>Delete Garden?</h4>
-    <p>Are you sure you want to delete <span id="garden_name"></span></p>
-  </div>
-  <div id="delete_garden_modal_footer" class="modal_footer">
-  </div>
-</div>
+    <div class="container">
+      <h3>Gardens</h3>
+      <table id="garden_table">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Location</th>
+          <th>Contact Name</th>
+          <th>Contact Number</th>
+          <th>Planted Produce, Date Available</th>
+          <th>Notes</th>
+          <th></th>
+        </tr>
+      </table>
+      <br>
+      <button class="btn default alignleft" onclick="add_garden_modal()">Add a Garden</button>
+    </div>
 
-<!--Modal responsable for adding a garden-->
-<div id="add_garden_modal" class="modal">
-  <div class="modal-content">
-    <h4>Add Garden</h4>
-      <div class="row">
-    <form id="add_garden" class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="name" type="text" class="validate">
-          <label for="name">Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="address" type="text" class="validate">
-          <label for="address">Address</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="lat" type="text" class="validate">
-          <label for="lat">Latitude</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="long" type="text" class="validate">
-          <label for="long">Longitude</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="contact_name" type="text" class="validate">
-          <label for="contact_name">Contact Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="contact_num" type="text" class="validate">
-          <label for="contact_num">Contact Number</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="image" type="text" class="validate">
-          <label for="image">Image</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="notes" type="text" class="validate">
-          <label for="notes">Notes</label>
-        </div>
-      </div>
-    </form>
-  </div>
-  </div>
-  <div id="add_garden_modal_footer" class="modal_footer">
-    <a onclick="add_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
-      Cancel
-    </a>
-    <a onclick="add_garden()" class="modal-close waves-effect waves-green btn-flat">
-      Add Garden
-    </a>
-  </div>
-</div>
+    <br>
+    <br>
 
-<!--Modal responsable for updating a garden-->
-<div id="update_garden_modal" class="modal">
-  <div class="modal-content">
-    <h4>Update Garden</h4>
-      <div class="row">
-    <form id="update_garden" class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="name" type="text" class="validate">
-          <label for="name">Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="address" type="text" class="validate">
-          <label for="address">Address</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="lat" type="text" class="validate">
-          <label for="lat">Latitude</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="long" type="text" class="validate">
-          <label for="long">Longitude</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="contact_name" type="text" class="validate">
-          <label for="contact_name">Contact Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="contact_num" type="text" class="validate">
-          <label for="contact_num">Contact Number</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="image" type="text" class="validate">
-          <label for="image">Image</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="notes" type="text" class="validate">
-          <label for="notes">Notes</label>
-        </div>
-      </div>
-    </form>
-  </div>
-  </div>
-  <div id="update_garden_modal_footer" class="modal_footer">
-    <a onclick="update_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
-      Cancel
-    </a>
-    <a onclick="add_garden()" class="modal-close waves-effect waves-green btn-flat">
-      Update Garden
-    </a>
-  </div>
-</div>
+    <div class="container">
+      <h3>Produces</h3>
+      <table id="produces_table">
+        <tr>
+          <th>Name</th>
+          <th>Duration</th>
+          <th>Image</th>
+          <th></th>
+        </tr>
+      </table>
+      <br>
+      <button class="btn default alignleft" onclick="add_produce_modal()">Add a Produce</button>
+    </div>
 
-<!--Modal responsable for delete_produce check-->
-<div id="delete_produce_modal" class="modal">
-  <div class="modal-content">
-    <h4>Delete Produce?</h4>
-    <p>Are you sure you want to delete <span id="produce_name"></span></p>
-  </div>
-  <div id="delete_produce_modal_footer" class="modal_footer">
-  </div>
-</div>
+    <!--Modal responsable for delete_garden check-->
+    <div id="delete_garden_modal" class="modal">
+      <div class="modal-content">
+        <h4>Delete Garden?</h4>
+        <p>Are you sure you want to delete <span id="garden_name"></span></p>
+      </div>
+      <div id="delete_garden_modal_footer" class="modal_footer"></div>
+    </div>
 
-<!--Modal responsable for adding a produce-->
-<div id="add_produce_modal" class="modal">
-  <div class="modal-content">
-    <h4>Add Produce</h4>
-      <div class="row">
-    <form id="add_produce" class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="name" type="text" class="validate">
-          <label for="name">Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="duration" type="text" class="validate">
-          <label for="duration">Duration</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="image" type="text" class="validate">
-          <label for="image">Image</label>
-        </div>
-      </div>
-    </form>
-  </div>
-  </div>
-  <div id="add_produce_modal_footer" class="modal_footer">
-    <a onclick="add_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
-      Cancel
-    </a>
-    <a onclick="add_produce()" class="modal-close waves-effect waves-green btn-flat">
-      Add Produce
-    </a>
-  </div>
-</div>
-
-<!--Modal responsable for updating a produce-->
-<div id="update_produce_modal" class="modal">
-  <div class="modal-content">
-    <h4>Update Produce</h4>
-      <div class="row">
-        <form id="update_produce" class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="name" type="text" class="validate">
-              <label for="name">Name</label>
+    <!--Modal responsable for adding a garden-->
+    <div id="add_garden_modal" class="modal">
+      <div class="modal-content">
+        <h4>Add Garden</h4>
+        <div class="row">
+          <form id="add_garden" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="duration" type="text" class="validate">
-              <label for="duration">Duration</label>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="address" type="text" class="validate">
+                <label for="address">Address</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="image" type="text" class="validate">
-              <label for="image">Image</label>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="lat" type="text" class="validate">
+                <label for="lat">Latitude</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="long" type="text" class="validate">
+                <label for="long">Longitude</label>
+              </div>
             </div>
-          </div>
-        </form>
-  </div>
-  </div>
-  <div id="update_produce_modal_footer" class="modal_footer">
-    <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
-      Cancel
-    </a>
-    <a onclick="add_produce()" class="modal-close waves-effect waves-green btn-flat">
-      Update Produce
-    </a>
-  </div>
-</div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="contact_name" type="text" class="validate">
+                <label for="contact_name">Contact Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="contact_num" type="text" class="validate">
+                <label for="contact_num">Contact Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="notes" type="text" class="validate">
+                <label for="notes">Notes</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
 
-</body>
+      <div id="add_garden_modal_footer" class="modal_footer">
+        <a onclick="add_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+          Cancel
+        </a>
+        <a onclick="add_garden()" class="modal-close waves-effect waves-green btn-flat">
+          Add Garden
+        </a>
+      </div>
+    </div>
+
+    <!--Modal responsable for updating a garden-->
+    <div id="update_garden_modal" class="modal">
+      <div class="modal-content">
+        <h4>Update Garden</h4>
+        <div class="row">
+          <form id="update_garden" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="address" type="text" class="validate">
+                <label for="address">Address</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="lat" type="text" class="validate">
+                <label for="lat">Latitude</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="long" type="text" class="validate">
+                <label for="long">Longitude</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="contact_name" type="text" class="validate">
+                <label for="contact_name">Contact Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="contact_num" type="text" class="validate">
+                <label for="contact_num">Contact Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="notes" type="text" class="validate">
+                <label for="notes">Notes</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="update_garden_modal_footer" class="modal_footer">
+        <a onclick="update_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+          Cancel
+        </a>
+        <a onclick="add_garden()" class="modal-close waves-effect waves-green btn-flat">
+          Update Garden
+        </a>
+      </div>
+    </div>
+
+    <!--Modal responsable for delete_produce check-->
+    <div id="delete_produce_modal" class="modal">
+      <div class="modal-content">
+        <h4>Delete Produce?</h4>
+        <p>Are you sure you want to delete <span id="produce_name"></span></p>
+      </div>
+      <div id="delete_produce_modal_footer" class="modal_footer"></div>
+    </div>
+
+    <!--Modal responsable for adding a produce-->
+    <div id="add_produce_modal" class="modal">
+      <div class="modal-content">
+        <h4>Add Produce</h4>
+        <div class="row">
+          <form id="add_produce" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="duration" type="text" class="validate">
+                <label for="duration">Duration</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="add_produce_modal_footer" class="modal_footer">
+        <a onclick="add_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+          Cancel
+        </a>
+        <a onclick="add_produce()" class="modal-close waves-effect waves-green btn-flat">
+          Add Produce
+        </a>
+      </div>
+    </div>
+
+    <!--Modal responsable for updating a produce-->
+    <div id="update_produce_modal" class="modal">
+      <div class="modal-content">
+        <h4>Update Produce</h4>
+        <div class="row">
+          <form id="update_produce" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="duration" type="text" class="validate">
+                <label for="duration">Duration</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div id="update_produce_modal_footer" class="modal_footer">
+        <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+          Cancel
+        </a>
+        <a onclick="add_produce()" class="modal-close waves-effect waves-green btn-flat">
+          Update Produce
+        </a>
+      </div>
+    </div>
+
+  </body>
 </html>
