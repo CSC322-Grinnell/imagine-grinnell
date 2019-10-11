@@ -5,7 +5,7 @@ function post_garden(name, address, lat, long, contact_name, contact_num, email,
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -30,7 +30,7 @@ function post_produce(name, duration, image){
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -48,7 +48,7 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -68,7 +68,7 @@ function patch_garden(id, name, address, lat, long, contact_name, contact_num, e
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -92,7 +92,7 @@ function patch_produce(id, name, duration, image){
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -110,7 +110,7 @@ function patch_garden_produce(id, garden_id, produce_id, available, readiness, p
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
+      var json = JSON.parse(xhr.responseText);
     }
   };
   var data = JSON.stringify({
@@ -148,7 +148,14 @@ function delete_produce_garden(id){
 }
 
 function delete_garden_modal(garden_id){
-  document.getElementById('delete_garden_modal_footer').innerHTML = "<a onclick=\"delete_garden_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
+  document.getElementById('delete_garden_modal_footer').innerHTML = `
+    <a onclick="delete_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+      Cancel
+    </a>
+    <a onclick="delete_garden(${garden_id})" class="modal-close waves-effect waves-green btn-flat">
+      Delete
+    </a>`;
+
   var instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
   instance.open();
 }
@@ -169,7 +176,14 @@ function add_garden_modal_close(){
 }
 
 function update_garden_modal(garden_id){
-  document.getElementById('update_garden_modal_footer').innerHTML = "<a onclick=\"update_garden_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"update_garden(" + garden_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Update</a>";
+  document.getElementById('update_garden_modal_footer').innerHTML = `
+    <a onclick="update_garden_modal_close()" class=\"modal-close waves-effect waves-green btn-flat">
+      Cancel
+    </a>
+    <a onclick="update_garden(${garden_id})" class=\"modal-close waves-effect waves-green btn-flat">
+      Update
+    </a>`;
+  
   var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.open();
 }
@@ -181,37 +195,51 @@ function update_garden_modal_close(){
 
 function populate_table_garden(){
   getJSON("./gardens", function populate_table_helper_garden(data){
-	 for(var i = 0; i <= data.length - 1; i++){
-    document.getElementById('garden_table').innerHTML += 
-    ("<tr><td>" + data[i].name + "</td><td>" 
-    + data[i].address + "</td><td>"
-    + data[i].lat + ", " + data[i].long + "</td><td>"
-    + data[i].contact_name + "</td><td>" 
-    + data[i].contact_number + "</td><td>"
-    + "<ul id=garden_id" + (data[i].id) + "></ul></td><td>"
-    + data[i].notes + "</td><td><a onclick='delete_garden_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_garden_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>")
-	 console.log(typeof data[i].contact_name);  
-	 }
-	 getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
-	 for(var i = 0; i <= data.length - 1; i++){
-    document.getElementById('garden_id'+data[i].garden_id).innerHTML += 
-    ("<li><span class=\"produce_id" + data[i].produce_id + "\"></span>, " + data[i].available_at + "</li>")
-	 }
-	 getJSON("./produces", function populate_table_helper_produces(data){
-	 for(var i = 0; i <= data.length - 1; i++){
-	  var elements = document.getElementsByClassName('produce_id'+i);
-	  for(var j = 0; j < elements.length; j++){
-     elements[j].innerHTML += data[i].name;
-	  }
-	 }
-  }, function(status) {
-	  alert('Something went wrong.');
-  });
-  }, function(status) {
-	  alert('Something went wrong.');
-  });
+    for(var i = 0; i <= data.length - 1; i++){
+      document.getElementById('garden_table').innerHTML += `
+        <tr>
+          <td>${data[i].name}</td>
+          <td>${data[i].address}</td>
+          <td>${data[i].lat}, ${data[i].long}</td>
+          <td>${data[i].contact_name}</td>
+          <td>${data[i].contact_number}</td>
+          <td>
+            <ul id=garden_id${data[i].id}></ul>
+          </td>
+          <td>${data[i].notes}</td>
+          <td>
+            <a onclick='delete_garden_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
+              <i class="material-icons">delete</i>
+            </a>
+            <a onclick='update_garden_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
+              <i class="material-icons">edit</i>
+            </a>
+          </td>
+        </tr>`
+      
+      console.log(typeof data[i].contact_name);
+    }
+    getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
+      for(var i = 0; i <= data.length - 1; i++){
+        document.getElementById('garden_id'+data[i].garden_id).innerHTML += `
+          <li>
+            <span class="produce_id${data[i].produce_id}"></span>,
+            ${data[i].available_at}
+          </li>`
+      }
+      getJSON("./produces", function populate_table_helper_produces(data){
+        for(var i = 0; i <= data.length - 1; i++){
+          var elements = document.getElementsByClassName('produce_id'+i);
+          for(var j = 0; j < elements.length; j++){
+            elements[j].innerHTML += data[i].name;
+          }
+        }
+      }, function(status) {
+        alert('Something went wrong.');
+      });
+    }, function(status) {
+      alert('Something went wrong.');
+    });
   }, function(status) {
 	  alert('Something went wrong.');
   });
@@ -307,7 +335,14 @@ function update_garden(id){
 }
 
 function delete_produce_modal(produce_id){
-  document.getElementById('delete_produce_modal_footer').innerHTML = "<a onclick=\"delete_produce_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"delete_produce(" + produce_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Delete</a>";
+  document.getElementById('delete_produce_modal_footer').innerHTML = `
+    <a onclick="delete_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+      Cancel
+    </a>
+    <a onclick="delete_produce(${produce_id})" class="modal-close waves-effect waves-green btn-flat">
+      Delete
+    </a>`;
+
   var instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
   instance.open();
 }
@@ -328,7 +363,14 @@ function add_produce_modal_close(){
 }
 
 function update_produce_modal(produce_id){
-  document.getElementById('update_produce_modal_footer').innerHTML = "<a onclick=\"update_produce_modal_close()\" class=\"modal-close waves-effect waves-green btn-flat\">Cancel</a><a onclick=\"update_produce(" + produce_id + ")\" class=\"modal-close waves-effect waves-green btn-flat\">Update</a>";
+  document.getElementById('update_produce_modal_footer').innerHTML = `
+    <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
+      Cancel
+    </a>
+    <a onclick="update_produce(${produce_id})" class="modal-close waves-effect waves-green btn-flat">
+      Update
+    </a>`;
+  
   var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
   instance.open();
 }
@@ -341,13 +383,20 @@ function update_produce_modal_close(){
 function populate_table_produce(){
   getJSON("./produces", function populate_table_helper_produce(data){
 	 for(var i = 0; i <= data.length - 1; i++){
-    document.getElementById('produces_table').innerHTML += 
-    ("<tr><td>" + data[i].name + "</td><td>" 
-    + data[i].duration + "</td><td>"
-    + data[i].image + "</td><td><a onclick='delete_produce_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">delete</i></a><a onclick='update_produce_modal(" 
-    + data[i].id + ")' class=\"waves-effect waves-teal btn-flat\"><i class=\"material-icons\">edit</i></a>" + "</td></tr>"
-    )
+    document.getElementById('produces_table').innerHTML += `
+      <tr>
+        <td>${data[i].name}</td>
+        <td>${data[i].duration}</td>
+        <td>${data[i].image}</td>
+        <td>
+          <a onclick='delete_produce_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
+            <i class="material-icons">delete</i>
+          </a>
+          <a onclick='update_produce_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
+            <i class="material-icons">edit</i>
+          </a>
+        </td>
+      </tr>`
 	 }
   }, function(status) {
 	  alert('Something went wrong.');
