@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "home" %>
-<%= javascript_include_tag "home" %>
+<%= javascript_pack_tag 'home-application' %>
 <!--navbar-->
 <div class="navbar-fixed">
   <nav>
@@ -12,5 +12,5 @@
 <!--navbar-->
 
 <div id="map"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcxjlc7QhJOAskOrvlDZubGVNdT4qDxck&callback=initMap"></script>
+<script id="GoogleMapsScript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcxjlc7QhJOAskOrvlDZubGVNdT4qDxck&callback=initMap"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
