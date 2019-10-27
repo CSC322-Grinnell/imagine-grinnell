@@ -1,0 +1,37 @@
+<%= form_with(model: crop, local: true) do |form| %>
+  <% if crop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+
+      <ul>
+      <% crop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :produce %>
+    <%= form.number_field :produce, id: :crop_produce %>
+  </div>
+
+  <div class="field">
+    <%= form.label :garden_id %>
+    <%= form.number_field :garden_id, id: :crop_garden_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :planted_at %>
+    <%= form.text_field :planted_at, id: :crop_planted_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :crop_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

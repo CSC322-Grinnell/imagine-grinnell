@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190501204959) do
+ActiveRecord::Schema.define(version: 20191027145733) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "crops", force: :cascade do |t|
+    t.integer "produce"
+    t.integer "garden_id"
+    t.string "planted_at"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "garden_produces", force: :cascade do |t|
     t.string "garden_id"
@@ -49,6 +61,14 @@ ActiveRecord::Schema.define(version: 20190501204959) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "email"
+    t.string "password"
+    t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

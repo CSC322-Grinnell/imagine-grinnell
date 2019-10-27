@@ -1,0 +1,32 @@
+<%= form_with(model: volunteer, local: true) do |form| %>
+  <% if volunteer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(volunteer.errors.count, "error") %> prohibited this volunteer from being saved:</h2>
+
+      <ul>
+      <% volunteer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :volunteer_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password, id: :volunteer_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salt %>
+    <%= form.text_field :salt, id: :volunteer_salt %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
