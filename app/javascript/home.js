@@ -1,3 +1,5 @@
+import {getJSON} from 'misc';
+
 export function initMap(google) {
   // Styles a map in night mode.
   var map = new google.maps.Map(document.getElementById('map'), {
