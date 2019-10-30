@@ -183,7 +183,7 @@ function update_garden_modal(garden_id){
     <a onclick="update_garden(${garden_id})" class=\"modal-close waves-effect waves-green btn-flat">
       Update
     </a>`;
-  
+
   var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.open();
 }
@@ -216,7 +216,7 @@ function populate_table_garden(){
             </a>
           </td>
         </tr>`
-      
+
       console.log(typeof data[i].contact_name);
     }
     getJSON("./garden_produces", function populate_table_helper_garden_produces(data){
@@ -370,7 +370,7 @@ function update_produce_modal(produce_id){
     <a onclick="update_produce(${produce_id})" class="modal-close waves-effect waves-green btn-flat">
       Update
     </a>`;
-  
+
   var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
   instance.open();
 }
