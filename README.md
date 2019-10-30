@@ -57,7 +57,7 @@ Some useful derivatives include:
 
 #### `docker-compose build [service]`
 Rebuilds the image associated with `[service]`. In our case we really only care about the case where `[service]` is `rails`.
-Required after updates to the `Dockerfile`.
+Required after updates to the `Dockerfile`, `Gemfile`, or `Gemfile.lock`.
 
 #### `docker ps`
 Lists all currently running containers, anywhere on your system.
