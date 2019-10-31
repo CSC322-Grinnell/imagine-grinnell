@@ -15,6 +15,8 @@ rules:
   linebreak-style:
     - error
     - unix
+  eol-last:
+    - error
   quotes:
     - error
     - single
