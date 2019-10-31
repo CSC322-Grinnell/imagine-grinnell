@@ -244,7 +244,7 @@ export function populate_table_garden(){
       alert('Something went wrong.');
     });
   }, function(status) {
-	  alert('Something went wrong.');
+    alert('Something went wrong.');
   });
 }
 
@@ -385,7 +385,7 @@ export function update_produce_modal_close(){
 
 export function populate_table_produce(){
   getJSON('./produces', function populate_table_helper_produce(data){
-	 for(var i = 0; i <= data.length - 1; i++){
+    for(var i = 0; i <= data.length - 1; i++){
       document.getElementById('produces_table').innerHTML += `
       <tr>
         <td>${data[i].name}</td>

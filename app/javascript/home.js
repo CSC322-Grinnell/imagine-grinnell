@@ -7,150 +7,150 @@ export function initMap(google) {
     zoom: 14,
     disableDefaultUI: true,
     styles: [
-  {
-    "featureType": "administrative",
-    "stylers": [
       {
-        "saturation": "-100"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape",
-    "stylers": [
-      {
-        "saturation": -100
+        'featureType': 'administrative',
+        'stylers': [
+          {
+            'saturation': '-100'
+          }
+        ]
       },
       {
-        "lightness": 65
+        'featureType': 'administrative.province',
+        'stylers': [
+          {
+            'visibility': 'off'
+          }
+        ]
       },
       {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "stylers": [
-      {
-        "saturation": -100
+        'featureType': 'landscape',
+        'stylers': [
+          {
+            'saturation': -100
+          },
+          {
+            'lightness': 65
+          },
+          {
+            'visibility': 'on'
+          }
+        ]
       },
       {
-        "lightness": "50"
+        'featureType': 'poi',
+        'stylers': [
+          {
+            'saturation': -100
+          },
+          {
+            'lightness': '50'
+          },
+          {
+            'visibility': 'simplified'
+          }
+        ]
       },
       {
-        "visibility": "simplified"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.business",
-    "stylers": [
-      {
-        "visibility": "simplified"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.business",
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "stylers": [
-      {
-        "saturation": "-100"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "stylers": [
-      {
-        "lightness": "30"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "stylers": [
-      {
-        "visibility": "simplified"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "stylers": [
-      {
-        "lightness": "40"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "stylers": [
-      {
-        "saturation": -100
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "hue": "#ffff00"
+        'featureType': 'poi',
+        'elementType': 'labels.icon',
+        'stylers': [
+          {
+            'visibility': 'off'
+          }
+        ]
       },
       {
-        "saturation": -97
+        'featureType': 'poi.business',
+        'stylers': [
+          {
+            'visibility': 'simplified'
+          }
+        ]
       },
       {
-        "lightness": -25
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "saturation": -100
+        'featureType': 'poi.business',
+        'elementType': 'labels.icon',
+        'stylers': [
+          {
+            'visibility': 'off'
+          }
+        ]
       },
       {
-        "lightness": -25
+        'featureType': 'road',
+        'stylers': [
+          {
+            'saturation': '-100'
+          }
+        ]
+      },
+      {
+        'featureType': 'road.arterial',
+        'stylers': [
+          {
+            'lightness': '30'
+          }
+        ]
+      },
+      {
+        'featureType': 'road.highway',
+        'stylers': [
+          {
+            'visibility': 'simplified'
+          }
+        ]
+      },
+      {
+        'featureType': 'road.local',
+        'stylers': [
+          {
+            'lightness': '40'
+          }
+        ]
+      },
+      {
+        'featureType': 'transit',
+        'stylers': [
+          {
+            'saturation': -100
+          }
+        ]
+      },
+      {
+        'featureType': 'water',
+        'elementType': 'geometry',
+        'stylers': [
+          {
+            'hue': '#ffff00'
+          },
+          {
+            'saturation': -97
+          },
+          {
+            'lightness': -25
+          }
+        ]
+      },
+      {
+        'featureType': 'water',
+        'elementType': 'labels',
+        'stylers': [
+          {
+            'saturation': -100
+          },
+          {
+            'lightness': -25
+          }
+        ]
       }
     ]
-  }
-]
   });
 
   var infowindow = new google.maps.InfoWindow();
 
-  getJSON("./gardens", function populate_map(data){
-    var gardens = [...Array(data.length)].map(e => Array(4));
+  getJSON('./gardens', function populate_map(data){
+    var gardens = [...Array(data.length)].map(_ => Array(4));
     for(var i = 0; i < data.length; i++){
       gardens[i][0] = data[i].name;
       gardens[i][1] = data[i].lat;
@@ -189,21 +189,20 @@ export function initMap(google) {
   });
 }
 
-export function populate_produces(google){
-  getJSON("./garden_produces", function(data) {
+export function populate_produces() {
+  getJSON('./garden_produces', function(data) {
     for(var i = 0; i <= data.length - 1; i++){
       try {
-          document.getElementById("garden_id" + data[i].garden_id).innerHTML +=
-              (`
+        document.getElementById('garden_id' + data[i].garden_id).innerHTML += `
           <li class="collection-item light-green lighten-${(3 - data[i].readiness)}">
             <span class="produce_id${data[i].produce_id}"></span>,
             ${data[i].available_at}
-          </li>`);
-      } catch {
-          // pass
+          </li>`;
+      } catch (exception) {
+        // pass
       }
     }
-    getJSON("./produces", function populate_table_helper_produces(data){
+    getJSON('./produces', function populate_table_helper_produces(data){
       for(var i = 0; i <= data.length - 1; i++){
         var elements = document.getElementsByClassName('produce_id'+i);
         for(var j = 0; j < elements.length; j++){
