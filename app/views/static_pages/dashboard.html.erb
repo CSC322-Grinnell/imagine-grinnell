@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "dashboard" %>
-<%= javascript_include_tag "dashboard" %>
+<%= javascript_pack_tag "dashboard-pack" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -269,7 +269,7 @@
           </form>
         </div>
       </div>
-      
+
       <div id="update_produce_modal_footer" class="modal_footer">
         <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
           Cancel

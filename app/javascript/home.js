@@ -181,7 +181,7 @@ export function initMap(google) {
           infowindow.setContent(gardens[i][3]);
           infowindow.open(map, marker);
           populate_produces();
-        }
+        };
       })(marker, i));
     }
   }, function(status) {
@@ -192,14 +192,15 @@ export function initMap(google) {
 export function populate_produces(google){
   getJSON("./garden_produces", function(data) {
     for(var i = 0; i <= data.length - 1; i++){
-      try{
-        document.getElementById("garden_id" + data[i].garden_id).innerHTML += (`
+      try {
+          document.getElementById("garden_id" + data[i].garden_id).innerHTML +=
+              (`
           <li class="collection-item light-green lighten-${(3 - data[i].readiness)}">
             <span class="produce_id${data[i].produce_id}"></span>,
             ${data[i].available_at}
-          </li>`
-        )
+          </li>`);
       } catch {
+          // pass
       }
     }
     getJSON("./produces", function populate_table_helper_produces(data){
