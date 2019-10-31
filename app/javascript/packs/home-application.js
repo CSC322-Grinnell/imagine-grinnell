@@ -20,5 +20,5 @@ import {initMap, populate_produces} from '../home';
 import {withGoogle} from '../google';
 withGoogle((google) => {
   initMap(google);
-  populate_produces(google);
+  populate_produces();
 });
