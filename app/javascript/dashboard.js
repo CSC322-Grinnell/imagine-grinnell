@@ -249,11 +249,11 @@ export function populate_table_garden(){
 }
 
 export function add_garden(){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['name'].value)){
+  if(!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['address'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['address'].value)){
     alert('Address must contain more than whitespace.');
     return;
   }
@@ -265,11 +265,11 @@ export function add_garden(){
     alert('Longitude should be in decimal format');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_name'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_name'].value)){
     alert('Contact Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_num'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_num'].value)){
     alert('Contact Number must contain more than whitespace.');
     return;
   }
@@ -293,11 +293,11 @@ export function add_garden(){
 }
 
 function update_garden(id){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['name'].value)){
+  if(!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['address'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['address'].value)){
     alert('Address must contain more than whitespace.');
     return;
   }
@@ -309,11 +309,11 @@ function update_garden(id){
     alert('Longitude should be in decimal format');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_name'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_name'].value)){
     alert('Contact Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_num'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_num'].value)){
     alert('Contact Number must contain more than whitespace.');
     return;
   }
@@ -407,15 +407,15 @@ export function populate_table_produce(){
 }
 
 export function add_produce(){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['name'].value)){
+  if(!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['duration'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['duration'].value)){
     alert('Duration must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['image'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['image'].value)){
     alert('Image must contain more than whitespace.');
     return;
   }
@@ -429,15 +429,15 @@ export function add_produce(){
 }
 
 function update_produce(id){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['name'].value)){
+  if(!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['duration'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['duration'].value)){
     alert('Duration must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['image'].value)){
+  else if(!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['image'].value)){
     alert('Image must contain more than whitespace.');
     return;
   }
