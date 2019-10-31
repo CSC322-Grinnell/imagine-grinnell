@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars no-undef */
-function post_garden(name, address, lat, long, contact_name, contact_num, email, image, notes){
-  var xhr = new XMLHttpRequest();
-  var url = './gardens';
+function post_garden(name, address, lat, long, contact_name, contact_num, email, image, notes) {
+  const xhr = new XMLHttpRequest();
+  const url = './gardens';
   xhr.open('POST', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'name': name,
     'address': address,
     'lat' : lat,
@@ -24,17 +24,17 @@ function post_garden(name, address, lat, long, contact_name, contact_num, email,
   xhr.send(data);
 }
 
-function post_produce(name, duration, image){
-  var xhr = new XMLHttpRequest();
-  var url = './produces';
+function post_produce(name, duration, image) {
+  const xhr = new XMLHttpRequest();
+  const url = './produces';
   xhr.open('POST', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'name': name,
     'duration': duration,
     'image' : image,
@@ -42,17 +42,17 @@ function post_produce(name, duration, image){
   xhr.send(data);
 }
 
-function post_garden_produce(garden_id, produce_id, available, readiness, planted_at){
-  var xhr = new XMLHttpRequest();
-  var url = './garden_produces';
+function post_garden_produce(garden_id, produce_id, available, readiness, planted_at) {
+  const xhr = new XMLHttpRequest();
+  const url = './garden_produces';
   xhr.open('POST', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'garden_id' : garden_id,
     'produce_id' : produce_id,
     'available_at' : available,
@@ -62,17 +62,17 @@ function post_garden_produce(garden_id, produce_id, available, readiness, plante
   xhr.send(data);
 }
 
-function patch_garden(id, name, address, lat, long, contact_name, contact_num, email, image, notes){
-  var xhr = new XMLHttpRequest();
-  var url = './gardens/'+id;
+function patch_garden(id, name, address, lat, long, contact_name, contact_num, email, image, notes) {
+  const xhr = new XMLHttpRequest();
+  const url = `./gardens/${id}`;
   xhr.open('PATCH', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'name': name,
     'address': address,
     'lat' : lat,
@@ -86,17 +86,17 @@ function patch_garden(id, name, address, lat, long, contact_name, contact_num, e
   xhr.send(data);
 }
 
-function patch_produce(id, name, duration, image){
-  var xhr = new XMLHttpRequest();
-  var url = './produces/' + id;
+function patch_produce(id, name, duration, image) {
+  const xhr = new XMLHttpRequest();
+  const url = `./produces/${  id}`;
   xhr.open('PATCH', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'name': name,
     'duration': duration,
     'image' : image,
@@ -104,17 +104,17 @@ function patch_produce(id, name, duration, image){
   xhr.send(data);
 }
 
-function patch_garden_produce(id, garden_id, produce_id, available, readiness, planted_at){
-  var xhr = new XMLHttpRequest();
-  var url = './garden_produces/' + id;
+function patch_garden_produce(id, garden_id, produce_id, available, readiness, planted_at) {
+  const xhr = new XMLHttpRequest();
+  const url = `./garden_produces/${  id}`;
   xhr.open('PATCH', url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
     }
   };
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     'garden_id' : garden_id,
     'produce_id' : produce_id,
     'available_at' : available,
@@ -124,31 +124,31 @@ function patch_garden_produce(id, garden_id, produce_id, available, readiness, p
   xhr.send(data);
 }
 
-function delete_garden(id){
-  var xhr = new XMLHttpRequest();
-  var url = './gardens/' + id;
+function delete_garden(id) {
+  const xhr = new XMLHttpRequest();
+  const url = `./gardens/${  id}`;
   xhr.open('DELETE', url, false);
   xhr.send();
   location.reload();
 }
 
-function delete_produce(id){
-  var xhr = new XMLHttpRequest();
-  var url = './produces/' + id;
+function delete_produce(id) {
+  const xhr = new XMLHttpRequest();
+  const url = `./produces/${  id}`;
   xhr.open('DELETE', url, false);
   xhr.send();
   location.reload();
 }
 
-function delete_produce_garden(id){
-  var xhr = new XMLHttpRequest();
-  var url = './garden_produces/' + id;
+function delete_produce_garden(id) {
+  const xhr = new XMLHttpRequest();
+  const url = `./garden_produces/${  id}`;
   xhr.open('DELETE', url, false);
   xhr.send();
   location.reload();
 }
 
-function delete_garden_modal(garden_id){
+function delete_garden_modal(garden_id) {
   document.getElementById('delete_garden_modal_footer').innerHTML = `
     <a onclick="delete_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
       Cancel
@@ -157,26 +157,26 @@ function delete_garden_modal(garden_id){
       Delete
     </a>`;
 
-  var instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
+  const instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
   instance.open();
 }
 
-function delete_garden_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
+function delete_garden_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('delete_garden_modal'));
   instance.close();
 }
 
-function add_garden_modal(){
-  var instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
+function add_garden_modal() {
+  const instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
   instance.open();
 }
 
-function add_garden_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
+function add_garden_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
   instance.close();
 }
 
-function update_garden_modal(garden_id){
+function update_garden_modal(garden_id) {
   document.getElementById('update_garden_modal_footer').innerHTML = `
     <a onclick="update_garden_modal_close()" class=\"modal-close waves-effect waves-green btn-flat">
       Cancel
@@ -185,18 +185,18 @@ function update_garden_modal(garden_id){
       Update
     </a>`;
 
-  var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
+  const instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.open();
 }
 
-function update_garden_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
+function update_garden_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.close();
 }
 
-function populate_table_garden(){
-  getJSON('./gardens', function populate_table_helper_garden(data){
-    for(var i = 0; i <= data.length - 1; i++){
+function populate_table_garden() {
+  getJSON('./gardens', (data) => {
+    for (let i = 0; i <= data.length - 1; i++) {
       document.getElementById('garden_table').innerHTML += `
         <tr>
           <td>${data[i].name}</td>
@@ -220,62 +220,62 @@ function populate_table_garden(){
 
       console.log(typeof data[i].contact_name);
     }
-    getJSON('./garden_produces', function populate_table_helper_garden_produces(data){
-      for(var i = 0; i <= data.length - 1; i++){
-        document.getElementById('garden_id'+data[i].garden_id).innerHTML += `
+    getJSON('./garden_produces', (data) => {
+      for (let i = 0; i <= data.length - 1; i++) {
+        document.getElementById(`garden_id${data[i].garden_id}`).innerHTML += `
           <li>
             <span class="produce_id${data[i].produce_id}"></span>,
             ${data[i].available_at}
           </li>`;
       }
-      getJSON('./produces', function populate_table_helper_produces(data){
-        for(var i = 0; i <= data.length - 1; i++){
-          var elements = document.getElementsByClassName('produce_id'+i);
-          for(var j = 0; j < elements.length; j++){
+      getJSON('./produces', (data) => {
+        for (let i = 0; i <= data.length - 1; i++) {
+          const elements = document.getElementsByClassName(`produce_id${i}`);
+          for (let j = 0; j < elements.length; j++) {
             elements[j].innerHTML += data[i].name;
           }
         }
-      }, function(status) {
+      }, (status) => {
         alert('Something went wrong.');
       });
-    }, function(status) {
+    }, (status) => {
       alert('Something went wrong.');
     });
-  }, function(status) {
+  }, (status) => {
 	  alert('Something went wrong.');
   });
 }
 
-function add_garden(){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['name'].value)){
+function add_garden() {
+  if (!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['address'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['address'].value)) {
     alert('Address must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['lat'].value)){
+  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['lat'].value)) {
     alert('Lattitude should be in decimal format');
     return;
   }
-  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['long'].value)){
+  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['long'].value)) {
     alert('Longitude should be in decimal format');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_name'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_name'].value)) {
     alert('Contact Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_num'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['contact_num'].value)) {
     alert('Contact Number must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['add_garden']['email'].value)){
+  else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['add_garden']['email'].value)) {
     alert('This does not seem to be a valid email address. If you think this is an error contact the administrator.');
     return;
   }
-  else{
+  else {
     post_garden( document.forms['add_garden']['name'].value,
       document.forms['add_garden']['address'].value,
       document.forms['add_garden']['lat'].value,
@@ -290,36 +290,36 @@ function add_garden(){
   }
 }
 
-function update_garden(id){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['name'].value)){
+function update_garden(id) {
+  if (!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['address'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['address'].value)) {
     alert('Address must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['lat'].value)){
+  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['lat'].value)) {
     alert('Lattitude should be in decimal format');
     return;
   }
-  else if(!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['long'].value)){
+  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['long'].value)) {
     alert('Longitude should be in decimal format');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_name'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_name'].value)) {
     alert('Contact Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_num'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['update_garden']['contact_num'].value)) {
     alert('Contact Number must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['update_garden']['email'].value)){
+  else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['update_garden']['email'].value)) {
     alert('This does not seem to be a valid email address. If you think this is an error contact the administrator.');
     return;
   }
-  else{
+  else {
     patch_garden(id,
       document.forms['update_garden']['name'].value,
       document.forms['update_garden']['address'].value,
@@ -335,7 +335,7 @@ function update_garden(id){
   }
 }
 
-function delete_produce_modal(produce_id){
+function delete_produce_modal(produce_id) {
   document.getElementById('delete_produce_modal_footer').innerHTML = `
     <a onclick="delete_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
       Cancel
@@ -344,26 +344,26 @@ function delete_produce_modal(produce_id){
       Delete
     </a>`;
 
-  var instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
+  const instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
   instance.open();
 }
 
-function delete_produce_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
+function delete_produce_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('delete_produce_modal'));
   instance.close();
 }
 
-function add_produce_modal(){
-  var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
+function add_produce_modal() {
+  const instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
   instance.open();
 }
 
-function add_produce_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
+function add_produce_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
   instance.close();
 }
 
-function update_produce_modal(produce_id){
+function update_produce_modal(produce_id) {
   document.getElementById('update_produce_modal_footer').innerHTML = `
     <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
       Cancel
@@ -372,18 +372,18 @@ function update_produce_modal(produce_id){
       Update
     </a>`;
 
-  var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
+  const instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
   instance.open();
 }
 
-function update_produce_modal_close(){
-  var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
+function update_produce_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
   instance.close();
 }
 
-function populate_table_produce(){
-  getJSON('./produces', function populate_table_helper_produce(data){
-	 for(var i = 0; i <= data.length - 1; i++){
+function populate_table_produce() {
+  getJSON('./produces', (data) => {
+	 for (let i = 0; i <= data.length - 1; i++) {
       document.getElementById('produces_table').innerHTML += `
       <tr>
         <td>${data[i].name}</td>
@@ -399,25 +399,25 @@ function populate_table_produce(){
         </td>
       </tr>`;
 	 }
-  }, function(status) {
+  }, (status) => {
 	  alert('Something went wrong.');
   });
 }
 
-function add_produce(){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['name'].value)){
+function add_produce() {
+  if (!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['duration'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['duration'].value)) {
     alert('Duration must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['image'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['image'].value)) {
     alert('Image must contain more than whitespace.');
     return;
   }
-  else{
+  else {
     post_produce( document.forms['add_produce']['name'].value,
       document.forms['add_produce']['duration'].value,
       document.forms['add_produce']['image'].value,
@@ -426,20 +426,20 @@ function add_produce(){
   }
 }
 
-function update_produce(id){
-  if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['name'].value)){
+function update_produce(id) {
+  if (!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['duration'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['duration'].value)) {
     alert('Duration must contain more than whitespace.');
     return;
   }
-  else if(!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['image'].value)){
+  else if (!RegExp('^(?!\s*$).+').test(document.forms['update_produce']['image'].value)) {
     alert('Image must contain more than whitespace.');
     return;
   }
-  else{
+  else {
     patch_produce(id,
       document.forms['update_produce']['name'].value,
       document.forms['update_produce']['duration'].value,
@@ -449,7 +449,7 @@ function update_produce(id){
   }
 }
 
-window.onload = function(){
+window.onload = function() {
   M.AutoInit();
   populate_table_garden();
   populate_table_produce();
