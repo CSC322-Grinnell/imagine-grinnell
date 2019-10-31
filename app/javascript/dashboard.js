@@ -252,32 +252,25 @@ export function add_garden() {
   if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['address'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['address'].value)) {
     alert('Address must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['lat'].value)) {
+  } else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['lat'].value)) {
     alert('Lattitude should be in decimal format');
     return;
-  }
-  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['long'].value)) {
+  } else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['add_garden']['long'].value)) {
     alert('Longitude should be in decimal format');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_name'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_name'].value)) {
     alert('Contact Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_num'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_garden']['contact_num'].value)) {
     alert('Contact Number must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['add_garden']['email'].value)) {
+  } else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['add_garden']['email'].value)) {
     alert('This does not seem to be a valid email address. If you think this is an error contact the administrator.');
     return;
-  }
-  else {
+  } else {
     post_garden( document.forms['add_garden']['name'].value,
       document.forms['add_garden']['address'].value,
       document.forms['add_garden']['lat'].value,
@@ -296,32 +289,25 @@ function update_garden(id) {
   if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['address'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['address'].value)) {
     alert('Address must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['lat'].value)) {
+  } else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['lat'].value)) {
     alert('Lattitude should be in decimal format');
     return;
-  }
-  else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['long'].value)) {
+  } else if (!RegExp('(^\\+?([1-8])?\\d(\\.\\d+)?$)|(^-90$)|(^-(([1-8])?\\d(\\.\\d+)?$))').test(document.forms['update_garden']['long'].value)) {
     alert('Longitude should be in decimal format');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_name'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_name'].value)) {
     alert('Contact Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_num'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_garden']['contact_num'].value)) {
     alert('Contact Number must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['update_garden']['email'].value)) {
+  } else if (!RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$').test(document.forms['update_garden']['email'].value)) {
     alert('This does not seem to be a valid email address. If you think this is an error contact the administrator.');
     return;
-  }
-  else {
+  } else {
     patch_garden(id,
       document.forms['update_garden']['name'].value,
       document.forms['update_garden']['address'].value,
@@ -410,16 +396,13 @@ export function add_produce() {
   if (!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['duration'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['duration'].value)) {
     alert('Duration must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['image'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['add_produce']['image'].value)) {
     alert('Image must contain more than whitespace.');
     return;
-  }
-  else {
+  } else {
     post_produce( document.forms['add_produce']['name'].value,
       document.forms['add_produce']['duration'].value,
       document.forms['add_produce']['image'].value,
@@ -432,16 +415,13 @@ function update_produce(id) {
   if (!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['name'].value)) {
     alert('Name must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['duration'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['duration'].value)) {
     alert('Duration must contain more than whitespace.');
     return;
-  }
-  else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['image'].value)) {
+  } else if (!RegExp('^(?!\\s*$).+').test(document.forms['update_produce']['image'].value)) {
     alert('Image must contain more than whitespace.');
     return;
-  }
-  else {
+  } else {
     patch_produce(id,
       document.forms['update_produce']['name'].value,
       document.forms['update_produce']['duration'].value,
