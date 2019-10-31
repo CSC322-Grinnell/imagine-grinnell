@@ -14,6 +14,11 @@ Imagine Grinnell Giving Gardens
 ## Running tests
 Run `docker-compose run rails bin/test.sh`
 
+## Linting
+
+The javascript in this code has style defined in `.eslintrc` for [eslint](https://eslint.org/), which can be tested with `docker-compose run rails bin/lint.sh`.
+Automatic fixes can be attempted for some problems with `docker-compose run rails bin/lint.sh --fix`.
+
 ## What is this docker thing?
 The short of it: docker makes it very easy to reproduce environments for running software.
 It does this by providing a declarative way of defining most of a linux machine in a single file, called a `Dockerfile` [[documentation]](https://docs.docker.com/engine/reference/builder/), that can then be *built* into a *image*.
