@@ -18,6 +18,9 @@ rules:
   quotes:
     - error
     - single
+  brace-style:
+    - error
+    - 1tbs
   semi:
     - error
     - always

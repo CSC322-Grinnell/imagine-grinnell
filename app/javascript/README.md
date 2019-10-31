@@ -10,7 +10,7 @@ The linter can be called with `docker-compose run rails bin/lint.sh`.
 If you would like it to preform automatic fixes where possible, you can call `docker-compose run rails bin/lint.sh --fix-js`.
 
 ## Including webpack assets in html.erb file
-The files in the [`pack`](./pack) directory are special, as they are considered entry points for webpack.
+The files in the [`pack`](./packs) directory are special, as they are considered entry points for webpack.
 They can be referenced from an `html.erb` (i.e. [`application.html.erb`](../views/layouts/application.html.erb)) file with `<%= javascript_pack_tag 'filename_without_extension' =>`.
 Therefore, any javascript not `include`'d in a pack file loaded with the current page will not be executed.
 
