@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Workspace
   class Application < Rails::Application
-    
+    config.generators.javascript_engine = false
     config.autoload_paths << Rails.root.join('lib')
 
   end
