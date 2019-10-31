@@ -2,7 +2,7 @@ import {getJSON} from 'misc';
 
 export function initMap(google) {
   // Styles a map in night mode.
-  var map = new google.maps.Map(document.getElementById('map'), {
+  const map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 41.743611, lng: -92.724722},
     zoom: 14,
     disableDefaultUI: true,
@@ -147,11 +147,11 @@ export function initMap(google) {
     ]
   });
 
-  var infowindow = new google.maps.InfoWindow();
+  const infowindow = new google.maps.InfoWindow();
 
-  getJSON('./gardens', function populate_map(data){
-    var gardens = [...Array(data.length)].map(_ => Array(4));
-    for(var i = 0; i < data.length; i++){
+  getJSON('./gardens', (data) => {
+    const gardens = [...Array(data.length)].map(_ => Array(4));
+    for (let i = 0; i < data.length; i++) {
       gardens[i][0] = data[i].name;
       gardens[i][1] = data[i].lat;
       gardens[i][2] = data[i].long;
@@ -171,7 +171,7 @@ export function initMap(google) {
           </div>
         </div>`;
 
-      var marker = new google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: new google.maps.LatLng(gardens[i][1], gardens[i][2]),
         title: gardens[i][0],
         map: map
@@ -184,16 +184,16 @@ export function initMap(google) {
         };
       })(marker, i));
     }
-  }, function(status) {
+  }, (_) => {
     alert('Something went wrong.');
   });
 }
 
 export function populate_produces() {
-  getJSON('./garden_produces', function(data) {
-    for(var i = 0; i <= data.length - 1; i++){
+  getJSON('./garden_produces', (data) => {
+    for (let i = 0; i <= data.length - 1; i++) {
       try {
-        document.getElementById('garden_id' + data[i].garden_id).innerHTML += `
+        document.getElementById(`garden_id${  data[i].garden_id}`).innerHTML += `
           <li class="collection-item light-green lighten-${(3 - data[i].readiness)}">
             <span class="produce_id${data[i].produce_id}"></span>,
             ${data[i].available_at}
@@ -202,17 +202,17 @@ export function populate_produces() {
         // pass
       }
     }
-    getJSON('./produces', function populate_table_helper_produces(data){
-      for(var i = 0; i <= data.length - 1; i++){
-        var elements = document.getElementsByClassName('produce_id'+i);
-        for(var j = 0; j < elements.length; j++){
+    getJSON('./produces', (data) => {
+      for (let i = 0; i <= data.length - 1; i++) {
+        const elements = document.getElementsByClassName(`produce_id${i}`);
+        for (let j = 0; j < elements.length; j++) {
           elements[j].innerHTML += data[i].name;
         }
       }
-    }, function(status) {
+    }, (_) => {
       alert('Something went wrong.');
     });
-  }, function(status) {
+  }, (_) => {
     alert('Something went wrong.');
   });
 }
