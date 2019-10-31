@@ -5,7 +5,7 @@
 // Waiting for the entire window to load is probably kinda slow, this should probably be replaced with a callback for when the specific google maps script is loaded.
 // The cleanest way to handle this would be to grab the script ahead of time and include it in the webpack bundle, but that also proved problematic.
 export function withGoogle(callback) {
-    window.addEventListener('load', () => {
-        callback(window.google);
-    });
+  window.addEventListener('load', () => {
+    callback(window.google);
+  });
 }

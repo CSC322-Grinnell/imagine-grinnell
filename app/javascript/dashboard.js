@@ -1,4 +1,6 @@
-/* eslint-disable no-unused-vars no-undef */
+import {getJSON} from './misc';
+import M from 'materialize-css';
+
 function post_garden(name, address, lat, long, contact_name, contact_num, email, image, notes){
   var xhr = new XMLHttpRequest();
   var url = './gardens';
@@ -166,7 +168,7 @@ function delete_garden_modal_close(){
   instance.close();
 }
 
-function add_garden_modal(){
+export function add_garden_modal(){
   var instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
   instance.open();
 }
@@ -178,10 +180,10 @@ function add_garden_modal_close(){
 
 function update_garden_modal(garden_id){
   document.getElementById('update_garden_modal_footer').innerHTML = `
-    <a onclick="update_garden_modal_close()" class=\"modal-close waves-effect waves-green btn-flat">
+    <a onclick="update_garden_modal_close()" class="modal-close waves-effect waves-green btn-flat">
       Cancel
     </a>
-    <a onclick="update_garden(${garden_id})" class=\"modal-close waves-effect waves-green btn-flat">
+    <a onclick="update_garden(${garden_id})" class="modal-close waves-effect waves-green btn-flat">
       Update
     </a>`;
 
@@ -189,12 +191,12 @@ function update_garden_modal(garden_id){
   instance.open();
 }
 
-function update_garden_modal_close(){
+export function update_garden_modal_close(){
   var instance = M.Modal.getInstance(document.getElementById('update_garden_modal'));
   instance.close();
 }
 
-function populate_table_garden(){
+export function populate_table_garden(){
   getJSON('./gardens', function populate_table_helper_garden(data){
     for(var i = 0; i <= data.length - 1; i++){
       document.getElementById('garden_table').innerHTML += `
@@ -246,7 +248,7 @@ function populate_table_garden(){
   });
 }
 
-function add_garden(){
+export function add_garden(){
   if(!RegExp('^(?!\s*$).+').test(document.forms['add_garden']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
@@ -353,12 +355,12 @@ function delete_produce_modal_close(){
   instance.close();
 }
 
-function add_produce_modal(){
+export function add_produce_modal(){
   var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
   instance.open();
 }
 
-function add_produce_modal_close(){
+export function add_produce_modal_close(){
   var instance = M.Modal.getInstance(document.getElementById('add_produce_modal'));
   instance.close();
 }
@@ -376,12 +378,12 @@ function update_produce_modal(produce_id){
   instance.open();
 }
 
-function update_produce_modal_close(){
+export function update_produce_modal_close(){
   var instance = M.Modal.getInstance(document.getElementById('update_produce_modal'));
   instance.close();
 }
 
-function populate_table_produce(){
+export function populate_table_produce(){
   getJSON('./produces', function populate_table_helper_produce(data){
 	 for(var i = 0; i <= data.length - 1; i++){
       document.getElementById('produces_table').innerHTML += `
@@ -398,13 +400,13 @@ function populate_table_produce(){
           </a>
         </td>
       </tr>`;
-	 }
+    }
   }, function(status) {
-	  alert('Something went wrong.');
+    alert('Something went wrong.');
   });
 }
 
-function add_produce(){
+export function add_produce(){
   if(!RegExp('^(?!\s*$).+').test(document.forms['add_produce']['name'].value)){
     alert('Name must contain more than whitespace.');
     return;
@@ -448,9 +450,3 @@ function update_produce(id){
     M.toast({html: 'Produce Updated!'});
   }
 }
-
-window.onload = function(){
-  M.AutoInit();
-  populate_table_garden();
-  populate_table_produce();
-};
