@@ -9,9 +9,12 @@
       <th>Address</th>
       <th>Lat</th>
       <th>Long</th>
-      <th>Contact name</th>
-      <th>Contact number</th>
-      <th>Email</th>
+      <th>Contact name 1</th>
+      <th>Contact number 1</th>
+      <th>Email 1</th>
+      <th>Contact name 2</th>
+      <th>Contact number 2</th>
+      <th>Email 2</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,9 +26,12 @@
         <td><%= garden.address %></td>
         <td><%= garden.lat %></td>
         <td><%= garden.long %></td>
-        <td><%= garden.contact_name %></td>
-        <td><%= garden.contact_number %></td>
-        <td><%= garden.email %></td>
+        <td><%= garden.contact_name_1 %></td>
+        <td><%= garden.contact_number_1 %></td>
+        <td><%= garden.email_1 %></td>
+        <td><%= garden.contact_name_2 %></td>
+        <td><%= garden.contact_number_2 %></td>
+        <td><%= garden.email_2 %></td>
         <td><%= link_to 'Show', garden %></td>
         <td><%= link_to 'Edit', edit_garden_path(garden) %></td>
         <td><%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
