@@ -5,9 +5,12 @@ class CreateGardens < ActiveRecord::Migration[5.1]
       t.string :address
       t.float :lat
       t.float :long
-      t.string :contact_name
-      t.string :contact_number
-      t.string :email
+      t.string :contact_name_1
+      t.string :contact_number_1
+      t.string :email_1
+      t.string :contact_name_2
+      t.string :contact_number_2
+      t.string :email_2
       t.string :image
 
       t.timestamps

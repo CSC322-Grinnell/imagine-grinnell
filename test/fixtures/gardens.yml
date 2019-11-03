@@ -5,9 +5,12 @@ one:
   address: MyString
   lat: 1.5
   long: 1.5
-  contact_name: MyString
-  contact_number: 555-555-5555
-  email: MyString@string.com
+  contact_name_1: MyString
+  contact_number_1: 555-555-5555
+  email_1: MyString@string.com
+  contact_name_2: MyString
+  contact_number_2: 555-555-5555
+  email_2: MyString@string.com
   image: MyString
 
 two:
@@ -15,7 +18,10 @@ two:
   address: MyString
   lat: 1.5
   long: 1.5
-  contact_name: MyString
-  contact_number: 555-555-5555
-  email: MyString@string.com
+  contact_name_1: MyString
+  contact_number_1: 555-555-5555
+  email_1: MyString@string.com
+  contact_name_2: MyString
+  contact_number_2: 555-555-5555
+  email_2: MyString@string.com
   image: MyString
