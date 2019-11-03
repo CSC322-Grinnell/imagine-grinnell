@@ -12,8 +12,8 @@ class GardensControllerTest < ActionDispatch::IntegrationTest
 
   test "should create garden" do
     assert_difference('Garden.count') do
-      post gardens_url, params: { garden: { address: @garden.address, contact_name_1: @garden.contact_name, contact_number_1: @garden.contact_number, 
-                                            email_1: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } } 
+      post gardens_url, params: { garden: { address: @garden.address, contact_name_1: @garden.contact_name_1, contact_number_1: @garden.contact_number_1, 
+                                            email_1: @garden.email_1, lat: @garden.lat, long: @garden.long, name: @garden.name } } 
     end
     assert_response :success
   end
@@ -24,8 +24,8 @@ class GardensControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update garden" do
-    patch garden_url(@garden), params: { garden: { address: @garden.address, contact_name_1: @garden.contact_name, contact_number_1: @garden.contact_number, 
-                                                   email_1: @garden.email, lat: @garden.lat, long: @garden.long, name: @garden.name } }
+    patch garden_url(@garden), params: { garden: { address: @garden.address, contact_name_1: @garden.contact_name_1, contact_number_1: @garden.contact_number_1, 
+                                                   email_1: @garden.email_1, lat: @garden.lat, long: @garden.long, name: @garden.name } }
     assert_response :success
   end
 
