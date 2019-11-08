@@ -2,17 +2,20 @@
   {
     "produce": 1,
     "garden_id": 0,
-    "planted_at": "06/06/2019"
+    "planted_at": "06/06/2019",
+    "description": "North east corner"
   },
   {
     "produce": 1,
     "garden_id": 0,
-    "planted_at": "06/06/2019"
+    "planted_at": "06/06/2019",
+    "description": "North east corner"
   },
   {
     "produce": 1,
     "garden_id": 0,
-    "planted_at": "06/07/2019"
+    "planted_at": "06/07/2019",
+    "description": "North east corner"
   },
   {
     "produce": 2,
@@ -27,7 +30,8 @@
   {
     "produce": 3,
     "garden_id": 0,
-    "planted_at": "06/08/2019"
+    "planted_at": "06/08/2019",
+    "description": "South west corner"
   },
   {
     "produce": 1,
@@ -72,11 +76,13 @@
   {
     "produce": 1,
     "garden_id": 4,
-    "planted_at": "05/22/2019"
+    "planted_at": "05/22/2019",
+    "description": "North side"
   },
   {
     "produce": 2,
     "garden_id": 5,
-    "planted_at": "05/10/2019"
+    "planted_at": "05/10/2019",
+    "description": "Middle"
   }
 ]
