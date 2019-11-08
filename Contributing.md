@@ -1,4 +1,14 @@
 # Contributing to this project
+## Code style
+### Ruby
+Ruby code styling in this project should conform to the [ruby style guide](https://rubystyle.guide/), and this is enforced by [rubocop](https://github.com/rubocop-hq/rubocop) [(docs)](https://docs.rubocop.org/en/stable/).
+The configuration for rubocop can be found in [.rubocop.yml](./.rubocop.yml).
+To run only rubocop for an error report, you can call `docker-compose run rails bin/lint.sh --ruby`.
+If you want rubocop to try and correct as many errors as it can find safely, you can call `docker-compose run rails bin/lint.sh --ruby --fix-safe`.
+If you want rubocop to try and correct as many errors as it can find with potential edge case problems, you can call `docker-compose run rails bin/lint.sh --ruby --fix`.
+You probably want to be using the normal `--fix` call most of the time.
+The cases that it will screw up are explicitly weird parts of ruby that you are not going to run into anyway.
+
 ## Git and Github
 Understanding how git internals work conceptually is *highly* recommended before moving any farther in this document.
 A good introduction can be found [here](https://www.youtube.com/watch?v=P6jD966jzlk).
