@@ -16,9 +16,14 @@ records.each do |record|
   Garden.create!(record)
 end
 
-records = JSON.parse(File.read('db/seed_data/produces.json'))
+records = JSON.parse(File.read('db/seed_data/annual_produces.json'))
 records.each do |record|
-  Produce.create!(record)
+  AnnualProduce.create!(record)
+end
+
+records = JSON.parse(File.read('db/seed_data/perennial_produces.json'))
+records.each do |record|
+  PerennialProduce.create!(record)
 end
 
 records = JSON.parse(File.read('db/seed_data/users.json'))
