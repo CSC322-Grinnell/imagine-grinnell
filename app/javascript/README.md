@@ -6,8 +6,9 @@ This project uses the [webpacker gem](https://github.com/rails/webpacker) to man
 
 This project uses [eslint](https://eslint.org/) to lint (style checking and some error checking) all javascript code.
 The style rules for this project can be found [here](../../.eslintrc), and the reference for what these rules do can be found [here](https://eslint.org/docs/rules/)
-The linter can be called with `docker-compose run rails bin/lint.sh`.
-If you would like it to preform automatic fixes where possible, you can call `docker-compose run rails bin/lint.sh --fix-js`.
+The linter can be called with `docker-compose run rails bin/lint.sh --js`.
+If you would like it to preform automatic fixes where possible, you can call `docker-compose run rails bin/lint.sh --js --fix`.
+Note that all linter fixes for javascript are safe, so the `--fix-safe` flag does the same thing as `--fix` when `bin/lint.sh` is run with the `--js` flag.
 
 ## Including webpack assets in html.erb file
 The files in the [`pack`](./packs) directory are special, as they are considered entry points for webpack.
