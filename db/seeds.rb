@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+records = JSON.parse(File.read('db/seed_data/crops.json'))
+records.each do |record|
+  Crop.create!(record)
+end
+
 records = JSON.parse(File.read('db/seed_data/gardens.json'))
 records.each do |record|
   Garden.create!(record)
