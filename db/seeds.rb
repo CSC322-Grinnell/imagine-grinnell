@@ -21,7 +21,7 @@ records.each do |record|
   PerennialProduce.create!(record)
 end
 
-records = JSON.parse(File.read('db/seed_data/users.json'))
+records = JSON.parse(File.read('db/seed_data/volunteer.json'))
 records.each do |record|
-  User.create!(record)
+  Volunteer.create!(record)
 end
