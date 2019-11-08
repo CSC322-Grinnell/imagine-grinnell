@@ -1,5 +1,6 @@
 {
   "name": "imagine-grinnell",
+  "license": "UNLICENSED",
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
     "materialize-css": "^1.0.0",
