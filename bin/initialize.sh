@@ -57,4 +57,4 @@ if $FULL_RESET ; then
 fi
 
 echo "==Setting up database=="
-rake db:setup
+rake db:setup --trace
