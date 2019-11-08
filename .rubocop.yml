@@ -8,3 +8,114 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+    - 'node_modules/**/*'
+    - 'app/javascript/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Metrics/AbcSize:
+  Enabled: false
+
+# This is totally draconian in rails
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Max: 4
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 70
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/EmptyLines:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+# Enforce => for hash literals
+Style/HashSyntax:
+  EnforcedStyle: no_mixed_keys
+
+Style/NonNilCheck:
+  Enabled: false
+
+Style/Not:
+  Enabled: false
+
+Style/OptionHash:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/ReturnNil:
+  EnforcedStyle: return_nil
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/YodaCondition:
+  Enabled: false
