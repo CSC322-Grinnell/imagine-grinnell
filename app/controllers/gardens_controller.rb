@@ -22,16 +22,15 @@ class GardensController < ApplicationController
     else
       render json: @garden.errors, status: :unprocessable_entity
     end
-
   end
 
   # PATCH/PUT /gardens/1
-  def update      
-     if @garden.update(garden_params)        
-        render json: @garden, status: :ok
-     else        
-        render json: @garden.errors, status: :unprocessable_entity      
-     end
+  def update
+    if @garden.update(garden_params)
+      render json: @garden, status: :ok
+    else
+      render json: @garden.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /gardens/1
@@ -41,17 +40,18 @@ class GardensController < ApplicationController
       head :no_content, status: :ok
     else
       render json: @garden.errors, status: :unprocessable_entity
-    end    
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_garden
-      @garden = Garden.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white garden through.
-    def garden_params
-      params.require(:garden).permit(:name, :address, :lat, :long, :contact_name_1, :contact_number_1, :email_1, :contact_name_1, :contact_number_2, :email_2, :image, :notes)
-    end
+  # Never trust parameters from the scary internet, only allow the white garden through.
+  def garden_params
+    params.require(:garden).permit(:name, :address, :lat, :long, :contact_name_1, :contact_number_1, :email_1, :contact_name_1, :contact_number_2, :email_2, :image, :notes)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_garden
+    @garden = Garden.find(params[:id])
+  end
 end

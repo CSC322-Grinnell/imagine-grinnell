@@ -9,8 +9,7 @@ class CropsController < ApplicationController
 
   # GET /crops/1
   # GET /crops/1.json
-  def show
-  end
+  def show; end
 
   # GET /crops/new
   def new
@@ -18,8 +17,7 @@ class CropsController < ApplicationController
   end
 
   # GET /crops/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /crops
   # POST /crops.json
@@ -62,13 +60,14 @@ class CropsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_crop
-      @crop = Crop.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def crop_params
-      params.require(:crop).permit(:produce, :garden_id, :planted_at, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_crop
+    @crop = Crop.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def crop_params
+    params.require(:crop).permit(:produce, :garden_id, :planted_at, :description)
+  end
 end

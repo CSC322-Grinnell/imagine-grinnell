@@ -1,6 +1,5 @@
 module ApplicationHelper
-    
-    def editRow(produce)
-        render 'form', produce: produce
-    end
+  def edit_row(produce)
+    render 'form', produce: produce
+  end
 end

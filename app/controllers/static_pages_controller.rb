@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
-  def dashboard
-  end
+  def home; end
+
+  def dashboard; end
 end

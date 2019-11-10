@@ -1,1 +1,1 @@
-json.partial! "produces/produce", produce: @produce
+json.partial! 'produces/produce', produce: @produce

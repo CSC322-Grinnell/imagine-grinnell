@@ -9,8 +9,7 @@ class VolunteersController < ApplicationController
 
   # GET /volunteers/1
   # GET /volunteers/1.json
-  def show
-  end
+  def show; end
 
   # GET /volunteers/new
   def new
@@ -18,8 +17,7 @@ class VolunteersController < ApplicationController
   end
 
   # GET /volunteers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /volunteers
   # POST /volunteers.json
@@ -62,13 +60,14 @@ class VolunteersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_volunteer
-      @volunteer = Volunteer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def volunteer_params
-      params.require(:volunteer).permit(:email, :password, :salt)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_volunteer
+    @volunteer = Volunteer.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def volunteer_params
+    params.require(:volunteer).permit(:email, :password, :salt)
+  end
 end

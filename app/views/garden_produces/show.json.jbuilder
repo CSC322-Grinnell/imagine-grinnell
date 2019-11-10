@@ -1,1 +1,1 @@
-json.partial! "garden_produces/garden_produce", garden_produce: @garden_produce
+json.partial! 'garden_produces/garden_produce', garden_produce: @garden_produce
