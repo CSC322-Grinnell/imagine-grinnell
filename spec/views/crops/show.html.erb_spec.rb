@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "crops/show", type: :view do
+RSpec.describe 'crops/show', type: :view do
   before(:each) do
     @crop = assign(:crop, Crop.create!(
-      :produce => 2,
-      :garden_id => 3,
-      :planted_at => "Planted At",
-      :description => "MyText"
-    ))
+                            :produce => 2,
+                            :garden_id => 3,
+                            :planted_at => 'Planted At',
+                            :description => 'MyText',
+                          ),)
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)

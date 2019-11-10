@@ -1,1 +1,1 @@
-json.partial! "crops/crop", crop: @crop
+json.partial! 'crops/crop', crop: @crop

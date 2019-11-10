@@ -22,16 +22,15 @@ class ProducesController < ApplicationController
     else
       render json: @produce.errors, status: :unprocessable_entity
     end
-
   end
 
   # PATCH/PUT /produces/1
-  def update      
-     if @produce.update(produce_params)        
-        render json: @produce, status: :ok
-     else        
-        render json: @produce.errors, status: :unprocessable_entity      
-     end
+  def update
+    if @produce.update(produce_params)
+      render json: @produce, status: :ok
+    else
+      render json: @produce.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /produces/1
@@ -41,17 +40,18 @@ class ProducesController < ApplicationController
       head :no_content, status: :ok
     else
       render json: @produce.errors, status: :unprocessable_entity
-    end    
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_produce
-      @produce = Produce.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white produce through.
-    def produce_params
-      params.require(:produce).permit(:name, :duration, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_produce
+    @produce = Produce.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white produce through.
+  def produce_params
+    params.require(:produce).permit(:name, :duration, :image)
+  end
 end

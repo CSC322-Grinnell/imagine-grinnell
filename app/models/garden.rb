@@ -3,7 +3,7 @@ class Garden < ApplicationRecord
     validates :name, :address, :lat, :long, :contact_name_1, presence: true # all these fields are required
     # validates :check_consistency #a t least one of contact_number or email should be filled
     # name must be only letters and some special chars
-    validates_format_of :name, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/ 
+    validates_format_of :name, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/
     # email must be correct format
     validates_format_of :email_1,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
@@ -19,4 +19,5 @@ class Garden < ApplicationRecord
        return true
       end
     end
+  end
 end
