@@ -10,26 +10,8 @@ two:
   duration: "64"
   image: MyString
 
-three:
+PerennialOne:
   type: PerennialProduce
-  name: "MyString_Perennial"
-  duration: "52"
-  image: MyString
-
-four:
-  type: PerennialProduce
-  name: "MyStringTwo_Perennial"
-  duration: "64"
-  image: MyString
-
-five:
-  type: AnnualProduce
-  name: "MyString_Annual"
-  duration: "52"
-  image: MyString
-
-six:
-  type: AnnualProduce
-  name: "MyStringTwo_Annual"
-  duration: "64"
+  name: "MyString"
+  duration: "72"
   image: MyString

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProducesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @produce = produces(:one)
+    @produce = produces(:PerennialOne)
   end
 
   test "should get index" do
@@ -30,7 +30,7 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update produce" do
-    patch produce_url(@produce), params: { produce: { duration: @produce.duration, name: @produce.name } }
+    patch produce_url(@produce), params: { produce: { duration: @produce.duration, name: "UniqueName", type: @produce.type } }
     assert_response :success
   end
 
