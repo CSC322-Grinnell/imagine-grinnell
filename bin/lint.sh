@@ -99,9 +99,9 @@ fi
 
 ## Ruby
 function cleanup() {
-    popd # Undo the pushd cd
+    popd &>/dev/null # Undo the pushd cd
 }
-pushd "$SCRIPTPATH/.." # Temporarily cd into the root of the project
+pushd "$SCRIPTPATH/.." &>/dev/null # Temporarily cd into the root of the project
 trap cleanup EXIT # run cleanup when this script exits
 
 RUBOCOP_COMMAND="rubocop"
