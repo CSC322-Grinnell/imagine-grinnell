@@ -3,6 +3,7 @@ Ruby Rails Project for CSC-324 Software Design and Development
 Imagine Grinnell Giving Gardens
 
 ![](https://github.com/CSC322-Grinnell/imagine-grinnell/workflows/Unit%20Tests/badge.svg)
+![](https://github.com/CSC322-Grinnell/imagine-grinnell/workflows/Linting/badge.svg)
 
 # Running on your machine
 1. Install Docker [[link]](https://docs.docker.com/install/)
