@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<!--navbar-->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper light-green">
+      <a href="/" class="brand-logo" style="float: left; margin-left: .5vw;"><%= yield(:nav_text)%></a>
+      <a href="/map" style="float: right;">Map Temp Link</a>
+      <a href="/dashboard" style="float: right;">Dashboard Temp Link</a>
+    </div>
+  </nav>
+</div>
+<!--navbar-->
 <html>
 <head>
   <title>Workspace</title>
@@ -7,6 +18,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
 
 <%= yield %>
 

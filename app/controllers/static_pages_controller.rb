@@ -20,4 +20,6 @@ class StaticPagesController < ApplicationController
       end
     end
   end
+  def map
+  end
 end
