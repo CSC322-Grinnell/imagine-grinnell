@@ -11,13 +11,9 @@ class StaticPagesController < ApplicationController
 
       crop_produce_name = Produce.find(crop.produce).name
       crop_item = [crop_produce_name]
-      if (crop.description)
-        crop_item << crop.description
-      else
-        crop_item << "-"
-      end
+      crop_item << crop.description ? crop.description : '-'
 
-      if (@all_crops[garden_name])
+      if @all_crops[garden_name]
         @all_crops[garden_name] << crop_item
       else
         @all_crops[garden_name] = [crop_item]
