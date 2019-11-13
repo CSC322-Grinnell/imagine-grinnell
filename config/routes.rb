@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/" => 'static_pages#home'
   get "/dashboard" => 'static_pages#dashboard'
   get "/produce-by-garden" => 'static_pages#produce_by_garden'
+  get "map" => 'static_pages#map'
 
   root 'static_pages#home'
 
