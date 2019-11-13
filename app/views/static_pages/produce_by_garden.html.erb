@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "dashboard" %> <!--use the same css as the dashboard-->
+<!--navbar-->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper light-green">
+      <a href="/" class="brand-logo" style="float: left; margin-left: .5vw;">Giving Gardens</a>
+      <a href="/dashboard" style="float: right;">Dashboard Temp Link</a>
+    </div>
+  </nav>
+</div>
+<!--navbar-->
+
+<% @all_crops.each_key do |garden| %>
+  <div class="container">
+    <h4><%= garden %></h4>
+    <table id="garden_table">
+      <tr>
+        <th>Produce</th>
+        <th>Description</th>
+      </tr>
+      <% @all_crops[garden].each do |crop| %>
+        <tr>
+          <td><%= crop[0] %></td>
+          <td><%= crop[1] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
