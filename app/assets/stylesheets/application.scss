@@ -15,6 +15,17 @@
  */
 @import "materialize";
 
-  .navbar-fixed{
-    background-color:red;
-  }
+.brand-logo:hover{
+        background-color: #83b846;
+
+
+}
+
+.nav_btn{
+    text-align: center;
+    font-size: 2.1rem;
+    float: right;
+    width:200px;
+    
+
+}
