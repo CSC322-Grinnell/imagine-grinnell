@@ -1,6 +1,8 @@
 FROM ruby:2.6.4
 
-ENV RAILS_ON_DOCKER=yes
+# Required for the scripts in ./bin to know whether or not
+# they're running in a docker container
+ENV RAILS_ON_DOCKER="YES"
 
 # Install nodejs 11
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
