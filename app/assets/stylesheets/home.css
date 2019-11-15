@@ -2,9 +2,11 @@
   height: 100%;
 }
 
-.navbar-fixed{
-  position: fixed;
+
+#logo_div{
+width: 100%;
 }
+
 
 html, body {
   height: 100%;
