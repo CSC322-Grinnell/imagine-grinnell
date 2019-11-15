@@ -98,7 +98,7 @@ if $RUN_JS ; then
 fi
 
 ## Ruby
-function cleanup() {
+cleanup() {
     popd &>/dev/null # Undo the pushd cd
 }
 pushd "$SCRIPTPATH/.." &>/dev/null # Temporarily cd into the root of the project
