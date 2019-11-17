@@ -19,33 +19,41 @@ Therefore, any javascript not `include`'d in a pack file loaded with the current
 Webpack uses [`yarn`](https://yarnpkg.com/lang/en/) to manage packages, which in turn gets them from [npm](https://www.npmjs.com/).
 The [`package.json`](../../package.json) file contains the user readable configuration for npm and `yarn`, while [`yarn.lock`](../../yarn.lock) holds the exact copy of every package involved.
 
-_Note: all yarn commands *must* be executed from the rails container, unless you know what you are doing._
+Annoyingly, though, inconsistencies tend to arise from using yarn with docker and bind mounts, and serious headaches tend to arise when trying to add javascript packages.
+It is therefore recommended that all npm/javascript/webpack dependencies be added with [`bin/yarn-for-docker.sh`](../../bin/yarn-for-docker.sh), which takes care of the hard work for you on this front.
+Calling `bin/yarn-for-docker.sh [arguments]` passes all of `[arguments]` directly to a call to yarn, and therefore you can simply substitute `bin/yarn-for-docker.sh` for `yarn` in any outside documentation you see that describes yarn usage for package management.
+See `bin/yarn-for-docker.sh --help` for more information.
+
+Note that some yarn commands (mostly `yarn run ...`) do not actually do any package management.
+These commands, therefore, you want to run with a straight `docker-compose run rails yarn [arguments]` instead.
+This is, for example, how eslint gets run under the hood in `bin/lint.sh`.
 
 ### Adding a package
 
-    yarn add [package]
+    bin/yarn-for-docker.sh add [package]
 
 Adding a dev dependency
 
-    yarn add [package] --dev
+    bin/yarn-for-docker.sh add [package] --dev
 
 ### Updating the lock file
 
-    yarn upgrade
+    bin/yarn-for-docker.sh upgrade
 
 or
 
-    yarn upgrade-interactive
+    bin/yarn-for-docker.sh upgrade-interactive
 
 ### Getting rid of a package
 
-    yarn remove [package]
+    bin/yarn-for-docker.sh remove [package]
 
 Or delete the relevant line from the [`package.json`](../../package.json)
 
 ### Docker notes
 Executing commands from the `rails` container can be done with the shell created by `docker-compose run rails bash`.
-Also note that any changes made to the npm (javascript/webpack/yarn) packages will require a rebuild of the `rails` container afterwords, (i.e. `docker-compose build rails`).
+Any changes made to the npm (javascript/webpack/yarn) packages will require a rebuild of the `rails` container afterwords, (i.e. `docker-compose build rails`).
+`yarn-for-docker.sh` will handle this for you, though.
 
 #### Yarn is complaining about packages!
 First, try rebuilding the rails container.
