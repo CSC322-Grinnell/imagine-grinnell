@@ -6,6 +6,9 @@ ENV RAILS_ON_DOCKER=yes
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
   apt-get install -y nodejs
 
+# Install postgres client
+RUN apt-get install -y postgresql-client
+
 # Install yarn
 RUN npm install --global yarn
 
