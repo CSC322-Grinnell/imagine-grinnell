@@ -5,13 +5,14 @@ one:
   duration: "52"
   image: MyString
 
-two:
-  name: "MyStringTwo"
+PerennialProduceOne:
+  name: "MyString"
   duration: "64"
   image: MyString
+  type: "PerennialProduce"
 
-PerennialOne:
-  type: PerennialProduce
+AnnualProduceOne:
   name: "MyString"
-  duration: "72"
+  duration: "1/1-12/31"
   image: MyString
+  type: "AnnualProduce"
