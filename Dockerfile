@@ -8,8 +8,12 @@ ENV RAILS_ON_DOCKER="YES"
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
   apt-get install -y nodejs
 
-# Install postgres client
+# Install postgres client and GNU parallel, needed for development only
 RUN apt-get install -y postgresql-client
+RUN apt-get install -y parallel
+RUN echo "will cite\n" | parallel --citation &>/dev/null # Tell parallel that we will,
+                                                         # in fact, cite it if we use
+                                                         # it in an academic publication
 
 # Install yarn
 RUN npm install --global yarn
