@@ -1,6 +1,5 @@
 [
   {
-    "id": 0,
     "email": "admin@admin.com",
     "password": "password",
     "salt": "salt"

@@ -1,6 +1,5 @@
 [
   {
-    "id": 0,
     "name": "Davis Elementary School",
     "address": "818 Hamilton Ave.",
     "lat": 41.737209,
@@ -8,12 +7,9 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:23:48.324Z",
-    "updated_at": "2019-04-12T19:24:46.558Z",
     "image": "https://www.grinnell-k12.org/vimages/shared/vnews/stories/51b2a5663d899/DV.png"
   },
   {
-    "id": 1,
     "name": "GRMC Public Health",
     "address": "306 4th Ave.",
     "lat": 41.742474,
@@ -21,12 +17,9 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:28:52.132Z",
-    "updated_at": "2019-04-12T19:28:52.132Z",
     "image": "https://4.bp.blogspot.com/-LcyA2Z_g7Js/Wz-u86tGECI/AAAAAAAABqs/5pg_9b3AewQ4aoO2Z80rujDWr2lAw78PgCLcBGAs/s1600/RTinnes%2Bphoto.jpg"
   },
   {
-    "id": 2,
     "name": "Marvin Garden",
     "address": "Marvin Ave.",
     "lat": 41.732351,
@@ -34,13 +27,10 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:31:09.371Z",
-    "updated_at": "2019-04-12T19:31:09.371Z",
     "image": "http://ourgrinnell.com/wp-content/uploads/2018/06/imagine_grinnell_1_660.jpg"
 
   },
   {
-    "id": 3,
     "name": "Ahrens Garden",
     "address": "1510 Penrose St.",
     "lat": 41.752668,
@@ -48,12 +38,9 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:33:08.810Z",
-    "updated_at": "2019-04-12T19:33:08.810Z",
     "image": "https://ahrensfamilyfoundation.org/wp-content/uploads/2018/06/Volunteers-helping-with-the-garden-6_20_18-2.jpg"
   },
   {
-    "id": 4,
     "name": "St. John's Lutheran Church",
     "address": "1224 East St.",
     "lat": 41.748438,
@@ -61,12 +48,9 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:34:52.679Z",
-    "updated_at": "2019-04-12T19:34:52.679Z",
     "image": "http://members.iowatelecom.net/stjohnweb/images/stjohnswelcomesstudents09.jpg"
   },
   {
-    "id": 5,
     "name": "Summer Street Park",
     "address": "736 Summer St.",
     "lat": 41.741654,
@@ -74,8 +58,6 @@
     "contact_name_1": "John Doe",
     "contact_number_1": "555-555-5555",
     "email_1": "placeholder@gmail.com",
-    "created_at": "2019-04-12T19:36:37.719Z",
-    "updated_at": "2019-04-12T19:36:37.719Z",
     "image": "http://www.grinnelliowa.gov/ImageRepository/Path?filePath=%2FDocuments%5CContent%5C86%2FIMG_5261.jpg"
   }
 ]

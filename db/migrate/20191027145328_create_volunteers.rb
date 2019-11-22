@@ -7,5 +7,6 @@ class CreateVolunteers < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :volunteers, :email, unique: true
   end
 end
