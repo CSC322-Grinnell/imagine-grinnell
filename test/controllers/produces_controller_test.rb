@@ -20,7 +20,7 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create perennial produce' do
-    assert_difference('PerennnialProduce.count') do
+    assert_difference('PerennialProduce.count') do
       post produces_url, params: { produce: { duration: @PerennialProduce.duration, name: @PerennialProduce.name, type: @PerennialProduce.type } }
     end
     assert_response :success

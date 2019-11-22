@@ -16,6 +16,7 @@ class ProducesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     @produce = Produce.new(produce_params)
+    #@produce.type = params[:type]
 
     if @produce.save
       render json: @produce, status: :created
