@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   resources :gardens
   resources :garden_produces
   resources :produces
-  resources :perennial_produces, controller: :produces, type: 'PerennialProduce', except: %i(new edit)
-  resources :annual_produces, controller: :produces, type: 'AnnualProduce', except: %i(new edit)
+  #resources :perennial_produces, controller: :produces, type: 'PerennialProduce', except: %i(new edit)
+  #resources :annual_produces, controller: :produces, type: 'AnnualProduce', except: %i(new edit)
+  resources :perennial_produces, :controller => 'produces', :type => 'PerennialProduce'
+  resources :annual_produces, :controller => 'produces', :type => 'AnnualProduce'
   resources :users
   resources :sessions, only: [:new, :create, :destroy, :get]
 
