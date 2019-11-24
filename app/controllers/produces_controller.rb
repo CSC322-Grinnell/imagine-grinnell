@@ -16,7 +16,16 @@ class ProducesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
     @produce = Produce.new(produce_params)
-    #@produce.type = params[:type]
+    @produce = PerennialProduce.new(produce_params) if params[:type] == "PerennialProduce"
+    @produce = AnnualProduce.new(produce_params) if params[:type] == "AnnualProduce"
+    puts params[:type]
+    puts @produce
+    puts produce_params
+
+    #for debugging
+    #if @produce.invalid?
+    #  puts @produce.save!
+    #end
 
     if @produce.save
       render json: @produce, status: :created
@@ -53,6 +62,6 @@ class ProducesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white produce through.
   def produce_params
-    params.require(:produce).permit(:name, :duration, :image, :type)
+    params.require(:produce).permit(:name, :duration, :start_date, :end_date, :image)
   end
 end

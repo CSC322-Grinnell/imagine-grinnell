@@ -1,18 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: "MyString"
-  duration: "52"
+  name: MyString
+  duration: 52
   image: MyString
 
-PerennialProduceOne:
-  name: "MyString"
-  duration: "64"
+two:
+  name: PerennialMyString
+  start_date: 2019/1/1
+  end_date: 2019/12/31
   image: MyString
-  type: "PerennialProduce"
+  type: PerennialProduce
 
-AnnualProduceOne:
-  name: "MyString"
-  duration: "1/1-12/31"
+three:
+  name: MyStringThree
+  duration: 60
   image: MyString
-  type: "AnnualProduce"
+  type: AnnualProduce
