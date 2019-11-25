@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
 
   def dashboard; end
 
+  def map; end
+
   def produce_by_garden
     @all_crops = {}
     @num_crops = Crop.all.count

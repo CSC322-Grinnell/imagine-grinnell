@@ -1,14 +1,5 @@
 <%= stylesheet_link_tag "dashboard" %> <!--use the same css as the dashboard-->
-<!--navbar-->
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper light-green">
-      <a href="/" class="brand-logo" style="float: left; margin-left: .5vw;">Giving Gardens</a>
-      <a href="/dashboard" style="float: right;">Dashboard Temp Link</a>
-    </div>
-  </nav>
-</div>
-<!--navbar-->
+<% provide(:nav_text, "Giving Gardens - Produce By Garden") %>
 
 <% @all_crops.each_key do |garden| %>
   <div class="container">

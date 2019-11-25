@@ -174,10 +174,10 @@ export function add_garden_modal() {
   instance.open();
 }
 
-//function add_garden_modal_close() {
-//  const instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
-//  instance.close();
-//}
+export function add_garden_modal_close() {
+  const instance = M.Modal.getInstance(document.getElementById('add_garden_modal'));
+  instance.close();
+}
 
 //function update_garden_modal(garden_id) {
 //  document.getElementById('update_garden_modal_footer').innerHTML = `
