@@ -52,6 +52,8 @@ Type | Field Name
 --- | ---
 string | name
 int | during
+date | start_date
+date | end_date
 string | image
 string | type
 
@@ -68,6 +70,8 @@ Type | Field Name | Value
 --- | --- | ---
 string | name | xxx
 int | during | xxx
+date | start_date | null
+date | end_date | null
 string | image | xxx
 string | type | AnnualProduce
 
@@ -76,7 +80,9 @@ string | type | AnnualProduce
 Type | Field Name | Value
 --- | --- | ---
 string | name | xxx
-int | during | xxx
+int | during | null
+date | start_date | xxx
+date | end_date | xxx
 string | image | xxx
 string | type | PerennialProduce
 
