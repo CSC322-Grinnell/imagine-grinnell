@@ -18,14 +18,6 @@ class ProducesController < ApplicationController
     @produce = Produce.new(produce_params)
     @produce = PerennialProduce.new(produce_params) if params[:type] == "PerennialProduce"
     @produce = AnnualProduce.new(produce_params) if params[:type] == "AnnualProduce"
-    puts params[:type]
-    puts @produce
-    puts produce_params
-
-    #for debugging
-    #if @produce.invalid?
-    #  puts @produce.save!
-    #end
 
     if @produce.save
       render json: @produce, status: :created
@@ -58,10 +50,12 @@ class ProducesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_produce
     @produce = Produce.find(params[:id])
+    @produce = PerennialProduce.find(params[:id]) if params[:type] == "PerennialProduce"
+    @produce = AnnualProduce.find(params[:id]) if params[:type] == "AnnualProduce"
   end
 
   # Never trust parameters from the scary internet, only allow the white produce through.
   def produce_params
-    params.require(:produce).permit(:name, :duration, :start_date, :end_date, :image)
+    params.require(:produce).permit(:id, :name, :duration, :start_date, :end_date, :image)
   end
 end
