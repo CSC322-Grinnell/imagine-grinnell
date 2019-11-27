@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ProducesControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @produce = Produce.new(name: 'ProduceTest')
     @perennial_produce = PerennialProduce.new(id: '10', name: 'PerennialTest', start_date: '2019/1/1', end_date: '2019/11/30')
@@ -22,22 +21,22 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create perennial produce' do
     assert_difference('PerennialProduce.count') do
-      post perennial_produces_url, params: { produce: { id: @PerennialProduce.id, name: @PerennialProduce.name, start_date: @PerennialProduce.start_date, end_date: @PerennialProduce.end_date } }
+      post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
     end
     assert_response :success
   end
 
   test 'should not create perennial produce due to non-unique name' do
-    post perennial_produces_url, params: { produce: { id: @PerennialProduce.id, name: @PerennialProduce.name, start_date: @PerennialProduce.start_date, end_date: @PerennialProduce.end_date } }
+    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
     assert_no_difference('PerennialProduce.count') do
-      post perennial_produces_url, params: { produce: { id: @PerennialProduce.id, name: @PerennialProduce.name, start_date: "2019/2/2", end_date: "2019/12/31" } }
+      post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: '2019/2/2', end_date: '2019/12/31' } }
     end
     assert_response 422
   end
 
   test 'should show perennial produce' do
-    post perennial_produces_url, params: { produce: { id: @PerennialProduce.id, name: @PerennialProduce.name, start_date: @PerennialProduce.start_date, end_date: @PerennialProduce.end_date } }
-    get perennial_produce_url(@PerennialProduce)
+    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
+    get perennial_produce_url(@perennial_produce)
     assert_response :success
   end
 
@@ -48,7 +47,6 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
   end
 
-<<<<<<< HEAD
   test 'should not create perennial produce due to missing name' do
     assert_no_difference('PerennialProduce.count') do
       post perennial_produces_url, params: { produce: { id: @perennial_produce.id, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
