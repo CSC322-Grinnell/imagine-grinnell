@@ -48,12 +48,20 @@ if [ "$RAILS_ON_DOCKER" == "yes" ] ; then
     true # Pass for now
 fi
 
+PROJECT_DB_PREFIX="imagine_grinnell"
+DROP_TEST_DB_COMMAND="DROP DATABASE IF EXISTS ${PROJECT_DB_PREFIX}_test;"
+DROP_DEV_DB_COMMAND="DROP DATABASE IF EXISTS ${PROJECT_DB_PREFIX}_development;"
+
 if $FULL_RESET ; then
     echo "==Removing logs and temp files=="
     rm -f log/*
     rm -rf tmp/cache
     echo "==Removing all database information=="
     rake db:drop:all
+    # Drop the databases anyways
+    psql -h db -U postgres \
+         -c "$DROP_TEST_DB_COMMAND" \
+         -c "$DROP_DEV_DB_COMMAND"
 fi
 
 echo "==Setting up database=="
