@@ -44,7 +44,7 @@ fi
 
 # $RAILS_ON_DOCKER is set to "yes" by the dockerfile, and can be used to tell if
 # we're running in the docker environment
-if [ "$RAILS_ON_DOCKER" == "yes" ] ; then
+if [[ -v RAILS_ON_DOCKER ]] && [[ "$RAILS_ON_DOCKER" == "YES" ]] ; then
     true # Pass for now
 fi
 
