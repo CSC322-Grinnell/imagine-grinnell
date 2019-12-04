@@ -60,7 +60,7 @@ string | type
 AnnualProduce and PerennialProduce are inherited from Produce using Single Table Inheritance (STI).
 [Explanation of STI](https://medium.com/@dcordz/single-table-inheritance-using-rails-5-02-6738bdd5101a)
 
-When you create an AnnualProduce or PerennialProduce table, the type attribute contains the value of AnnualProduce or PerennialProduce, which you can use to determine the type of a produce.
+When you create an AnnualProduce or PerennialProduce table, the type attribute contains the value of "AnnualProduce" or "PerennialProduce", which you can use to determine the type of the produce.
 
 ***
 
