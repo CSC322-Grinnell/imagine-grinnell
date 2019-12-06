@@ -7,7 +7,10 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
+p,
+ol,
+ul,
+td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -20,12 +23,11 @@ pre {
 }
 
 a {
-  color:white;
+  color: white;
 
   &:hover {
     color: #fff;
     background-color: #83b846;
-
   }
 }
 
@@ -38,7 +40,8 @@ td {
 }
 
 div {
-  &.field, &.actions {
+  &.field,
+  &.actions {
     margin-bottom: 10px;
   }
 }
