@@ -17,8 +17,24 @@ Run `docker-compose run rails bin/test.sh`
 
 ## Linting
 
-The javascript in this code has style defined in `.eslintrc` for [eslint](https://eslint.org/), which can be tested with `docker-compose run rails bin/lint.sh`.
-Automatic fixes can be attempted for some problems with `docker-compose run rails bin/lint.sh --fix`.
+Code style for ruby, javascript, and css/scss files can be checked with `docker-compose run rails bin/lint.sh`.
+This is done automatically on pushes to master and pull requests on master, and will show an error if any linting fails.
+Some style errors can be automatically fixed with `docker-compose run rails bin/lint.sh --fix`.
+These three file types are handled by three different programs, described below:
+
+### Javascript
+The javascript in this code has style defined in `.eslintrc` for [eslint](https://eslint.org/), which can be tested with `docker-compose run rails bin/lint.sh --js`.
+Automatic fixes can be attempted for some problems with `docker-compose run rails bin/lint.sh --js --fix`.
+
+### CSS
+The css and scss files in this repository have styling defined in `.stylelintrc.yml`, based on [these](https://github.com/stylelint/stylelint-config-standard) defaults.
+These files can be checked with `docker-compose run rails bin/lint.sh --css`.
+Automatic fixes can be attempted for some problems with `docker-compose run rails bin/lint.sh --css --fix`.
+
+### Ruby
+Ruby linting is handled by [rubocop](https://www.rubocop.org/en/stable/), with configuration defined in `.rubocop.yml`.
+Rubocop can be run with `docker-compose run rails bin/lint.sh --ruby`.
+Automatic fixes can be attempted for some problems with `docker-compose run rails bin/lint.sh --ruby --fix`.
 
 ## What is this docker thing?
 The short of it: docker makes it very easy to reproduce environments for running software.
