@@ -20,3 +20,5 @@ jobs:
         run: docker-compose run rails bin/lint.sh --ruby
       - name: Javascript linting
         run: docker-compose run rails bin/lint.sh --js
+      - name: css/scss linting
+        run: docker-compose run rails bin/lint.sh --css
