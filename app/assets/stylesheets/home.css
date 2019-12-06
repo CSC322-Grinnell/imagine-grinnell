@@ -4,12 +4,34 @@
 
 
 #logo_div{
-width: 100%;
+  width: 100%;
+  text-align: center;
 }
 
+#about_text_container{
+  text-align:center;
+
+}
+#about_text{
+  width:800px;
+  display: inline-block;
+  text-align: center;
+
+}
+
+#content_body{
+
+  font-family: 'Libre Franklin', serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #444;
+}
+
+  
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+
 }
