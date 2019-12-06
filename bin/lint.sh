@@ -132,7 +132,7 @@ fi
 
 STYLELINT_COMMAND="yarn run stylelint --color --config ./.stylelintrc.yml ./app/**/.css ./app/**/*.scss ./app/**/*.sass"
 if (( CSS || ! ( JS || RUBY ))) ; then
-    echo "Running rubocop (ruby)..."
+    echo "Running stylelint (css/scss/sass)..."
     if $FIX ; then
         eval $STYLELINT_COMMAND --fix \
             || EXIT_STATUS="1"
