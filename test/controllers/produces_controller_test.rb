@@ -63,53 +63,6 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create annual produce' do
     assert_difference('AnnualProduce.count') do
-      post annual_produces_url, params: { produce: { duration: @AnnualProduce.duration, name: @AnnualProduce.name} }
-    end
-    assert_response 422
-  end
-
-  test 'should not create perennial produce due to missing name' do
-    assert_no_difference('PerennialProduce.count') do
-      post perennial_produces_url, params: { produce: { id: @perennial_produce.id, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
-    end
-    assert_response 422
-  end
-
-  test 'should not create perennial produce due to missing start_date' do
-    assert_no_difference('PerennialProduce.count') do
-      post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, end_date: @perennial_produce.end_date } }
-    end
-    assert_response 422
-  end
-
-  test 'should not create perennial produce due to missing end_date' do
-    assert_no_difference('PerennialProduce.count') do
-      post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date } }
-    end
-    assert_response 422
-  end
-
-  test 'should show perennial produce' do
-    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
-    get perennial_produce_url(@perennial_produce)
-    assert_response :success
-  end
-
-  test 'should update perennial produce' do
-    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
-    patch perennial_produce_url(@perennial_produce), params: { produce: { name: 'UniqueName', start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
-    assert_response :success
-  end
-
-  test 'should destroy perennial produce' do
-    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
-    assert_difference('PerennialProduce.count', -1) do
-      delete perennial_produce_url(@perennial_produce)
-    end
-  end
-
-  test 'should create annual produce' do
-    assert_difference('AnnualProduce.count') do
       post annual_produces_url, params: { produce: { id: @annual_produce.id, duration: @annual_produce.duration, name: @annual_produce.name } }
     end
     assert_response :success
