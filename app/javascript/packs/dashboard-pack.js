@@ -14,8 +14,10 @@ import {populate_table_garden,
   update_produce_modal_close,
   delete_garden_modal,
   delete_produce_modal,
+  delete_produce_modal_close,
   delete_produce,
-  delete_garden} from '../dashboard';
+  delete_garden,
+  delete_garden_modal_close} from '../dashboard';
 import M from 'materialize-css';
 
 // Run after the page is fully loaded - TODO: Check if required
@@ -42,3 +44,5 @@ window.delete_garden_modal        = delete_garden_modal;
 window.delete_produce_modal       = delete_produce_modal;
 window.delete_garden              = delete_garden;
 window.delete_produce             = delete_produce;
+window.delete_garden_modal_close  = delete_garden_modal_close;
+window.delete_produce_modal_close = delete_produce_modal_close;
