@@ -61,6 +61,19 @@ class ProducesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should update perennial produce' do
+    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
+    patch perennial_produce_url(@perennial_produce), params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
+    assert_response :success
+  end
+
+  test 'should destroy perennial produce' do
+    post perennial_produces_url, params: { produce: { id: @perennial_produce.id, name: @perennial_produce.name, start_date: @perennial_produce.start_date, end_date: @perennial_produce.end_date } }
+    assert_difference('PerennialProduce.count', -1) do
+      delete perennial_produce_url(@perennial_produce)
+    end
+  end
+
   test 'should create annual produce' do
     assert_difference('AnnualProduce.count') do
       post annual_produces_url, params: { produce: { id: @annual_produce.id, duration: @annual_produce.duration, name: @annual_produce.name } }
