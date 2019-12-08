@@ -12,9 +12,9 @@
       </tr>
       <% @all_crops[garden].each do |crop| %>
         <tr>
-          <td><%= crop[0] %></td>
-          <td><%= crop[1] %></td>
-          <td><%= crop[2] %></td>
+          <td><%= crop[:name] %></td>
+          <td><%= crop[:desc] %></td>
+          <td><%= crop[:ripe] %></td>
         </tr>
       <% end %>
     </table>
