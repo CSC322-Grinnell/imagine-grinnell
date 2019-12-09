@@ -2,27 +2,39 @@
 
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Imagine Grinnell</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_pack_tag 'global-pack' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!--navbar-->
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper light-green">
-      <a href="/" class="brand-logo" style="float: left; margin-left: .5vw; padding-left: 15px; padding-right: 15px;"><%= yield(:nav_text)%></a>
-      <a href="/map" class = "nav_btn">Map</a>
-      <a href="/produce-by-garden" class = "nav_btn">Produce</a>
-      <a href="/dashboard" class = "nav_btn">Dashboard</a>
+  <!--navbar-->
+  <header class="page-header">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper light-green">
+          <a href="/" class="brand-logo" style="float: left; margin-left: .5vw; padding-left: 15px; padding-right: 15px;"><%= yield(:nav_text)%></a>
+          <a href="/map" class = "nav_btn">Map</a>
+          <a href="/produce-by-garden" class = "nav_btn">Produce</a>
+          <a href="/dashboard" class = "nav_btn">Dashboard</a>
+        </div>
+      </nav>
     </div>
-  </nav>
-</div>
-<!--navbar-->
+    <!--navbar-->
+  </header>
 
 
-<%= yield %>
+  <main class="no-padding">
+    <%= yield %>
+  </main>
+
+  <footer class="page-footer" id="ig-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2019 Imagine Grinnell
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
