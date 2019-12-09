@@ -13,10 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
 @import "materialize";
+
+$primary-color: color("light-green", "base");
+
+/* Keep footer at bottom of the page */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* /footer-stuff */
 
 .brand-logo:hover {
   background-color: #83b846;
+}
+
+#ig-footer {
+  margin-top: 1rem;
+  padding-top: 0;
+  background-color: $primary-color;
 }
 
 .nav_btn {
