@@ -352,7 +352,7 @@ export function add_produce_modal_close() {
   instance.close();
 }
 
-export function update_produce_modal_attempt2(produce_id) {
+export function update_produce_modal(produce_id) {
   document.getElementById('update_produce_modal_footer').innerHTML = `
    <a onclick="update_produce_modal_close()" class="modal-close waves-effect waves-green btn-flat">
      Cancel
@@ -382,7 +382,7 @@ export function populate_table_produce() {
           <a onclick='delete_produce_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
             <i class="material-icons">delete</i>
           </a>
-          <a onclick='update_produce_modal_attempt2(${data[i].id})' class="waves-effect waves-teal btn-flat">
+          <a onclick='update_produce_modal(${data[i].id})' class="waves-effect waves-teal btn-flat">
             <i class="material-icons">edit</i>
           </a>
         </td>
