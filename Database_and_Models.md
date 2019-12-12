@@ -1,4 +1,6 @@
-# Database Structure
+# Database and Models
+
+Refer to files in `db/migrate`.
 
 ## Preexisting unused database tables
 
@@ -95,3 +97,28 @@ Type | Field Name
 string | name
 int | during
 
+## Model validations
+
+Refer to files under `/app/models` for validations.
+
+### Garden
+
+- `name`, `address`, `lat`, `long`, and `contact_name_1` have to be present.
+- Either `contact_number_1` and `email_1` has to be present.
+- Either `contact_number_2` and `email_2` has to be present if `contact_name_2` is present.
+- `name`, `email_1`, `email_2`, `contact_number_1`, and `contact_number_2` should be in correct formats.
+
+### Produce
+
+- `name` has to be present, unique, and in correct format.
+- `type` has to be `AnnualProduce` or `PerennialProduce`.
+
+### Annual Produce
+
+- `duration` has to be present.
+- `start_date` and `end_date` have to be absent.
+
+### Perennial Produce
+
+- `duration` has to be absent.
+- `start_date` and `end_date` have to be present.
