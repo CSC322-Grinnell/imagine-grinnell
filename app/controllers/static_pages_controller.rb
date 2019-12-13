@@ -55,9 +55,9 @@ class StaticPagesController < ApplicationController
         # Check if today falls in one of the two ranges we have
 
         # below means: is today between start_date and end_date inclusive
-        is_ripe_first_range = today <=> start_date >= 0 && end_date <=> today >= 0
+        is_ripe_first_range = (today <=> start_date) >= 0 && (end_date <=> today) >= 0
         # below means: is today between start_date_prev and end_date_prev inclusive
-        is_ripe_second_range = today <=> start_date_prev >= 0 && end_date_prev <=> today >= 0
+        is_ripe_second_range = (today <=> start_date_prev) >= 0 && (end_date_prev <=> today) >= 0
 
         is_ripe = is_ripe_first_range || is_ripe_second_range
         crop_item[:ripe] = if is_ripe
