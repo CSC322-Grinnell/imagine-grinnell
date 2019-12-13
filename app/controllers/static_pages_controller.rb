@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
       # Determine ripeness
       today = Date.today
       if crop_produce.type == "AnnualProduce"
-        planted_date = crop.planted_at
+        planted_date = Date::strptime(crop.planted_at, '%m/%d/%Y')
         ripe_date = planted_date + crop_produce.duration
         is_ripe = today <=> ripe_date >= 0 # means: is today on or after ripe_date
         crop_item[:ripe] = if is_ripe
