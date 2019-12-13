@@ -48,7 +48,7 @@ echo
 echo "Nuking images..."
 echo
 
-ALL_VOLUMES="$docker image ls -q"
+ALL_VOLUMES="$(docker image ls -q)"
 
 for volume in $ALL_VOLUMES ; do
     docker rm -v "$volume"
