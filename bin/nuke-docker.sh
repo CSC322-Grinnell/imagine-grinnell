@@ -51,7 +51,7 @@ echo
 ALL_VOLUMES="$(docker image ls -q)"
 
 for volume in $ALL_VOLUMES ; do
-    docker rm -v "$volume"
+    docker volume rm "$volume"
 done
 
 echo
