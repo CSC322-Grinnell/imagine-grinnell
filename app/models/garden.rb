@@ -1,5 +1,6 @@
 class Garden < ApplicationRecord
   has_many :Produces
+  self.primary_key = 'id'
   validates :name, :address, :lat, :long, :contact_name_1, presence: true # all these fields are required
   validate :check_contact_1_consistency
   validate :check_contact_2_consistency
