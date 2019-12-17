@@ -103,6 +103,10 @@ Lists all currently running containers, anywhere on your system.
 #### `docker-compose down`
 Stops the docker-compose process in the current folder.
 
+#### `docker-compose down -v`
+Stops the docker-compose processes in the current folder, *and removes all volumes*.
+This command is notable as it fixes the 'yarn integrity check failed' error with rails, at the cost of losing the current database (and therefore needing re-initialization).
+
 #### `docker stop [container identifier]`
  Stops the container referenced by `[container identifier]`. In general you're going to want to copy that id from the output of `docker ps`
 
