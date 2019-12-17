@@ -84,6 +84,15 @@ Some useful derivatives include:
  - `docker-compose run rails rake db:migrate` - migrate the database
  - `docker-compose run rails bundle [...]` - Run a bundle command. Note that you'll need to rebuild the rails image after doing this, as the only changes that will persist are those to the `Gemfile` and `Gemfile.lock`.
 
+#### `docker-compose exec [service] [command]`
+Runs `[command]` in the *currently running* container for `[service]`.
+Basically the same as `docker-compose run`, but it attaches to a container that is currently running instead of spinning up a new one.
+
+This command has the following advantages over `docker-compose run`:
+ - Doesn't require spinning up a new, separate, container to run commands, which can take a second.
+ - `docker-compose exec rails bash` gives a shell with actual complete access to the environment of the rails server if `docker-compose up` is running
+ - Guarantees access to the same docker volumes that `docker-compose up` uses. If `docker-compose up` is running, and you run `docker-compose run rails bash`, the two processes can have entirely different ideas of what the database looks like, as well as the folders with mounts defined in [docker-compose.yml](./docker-compose.yml).
+
 #### `docker-compose build [service]`
 Rebuilds the image associated with `[service]`. In our case we really only care about the case where `[service]` is `rails`.
 Required after updates to the `Dockerfile`, `Gemfile`, or `Gemfile.lock`.
