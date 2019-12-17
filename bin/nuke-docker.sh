@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# NOTE: This script doesn't work on windows. however you may still want to
+# have the effects of running this on windows. To do so you need to accomplish
+# the following:
+# - Stop all running docker containers
+# - Remove all docker containers
+# - Remove all docker images
+# - Run `docker system prune -a`
+#
+# The first three lines can essentially be thrown into google with 'windows'
+# added to find instructions how to do so. Unfortunately, however, nobody at time
+# of writing has enough experience with windows to write a script that actually
+# does all of those things.
+
 BYPASS=false
 HELP=false
 
@@ -48,6 +61,12 @@ if $HELP ; then
     exit 0
 fi
 
+if [[ -v RAILS_ON_DOCKER ]] && [[ "$RAILS_ON_DOCKER" == "YES" ]] ; then
+    echo
+    echo "This script cannot be run under docker. Pass the --help flag for more"
+    echo "information."
+    exit 1
+fi
 
 if ! $BYPASS ; then
     echo "WARNING: This will remove ALL docker data, short of the docker/docker-compose"
@@ -63,20 +82,21 @@ if ! $BYPASS ; then
     fi
 fi
 
-exit 0
+echo
+echo "Stopping all containers..."
+echo
+docker container stop "$(docker container ls -aq)" &>/dev/null
 
 echo
-echo "Nuking containers..."
+echo "Deleting containers..."
 echo
-
 ALL_CONTAINERS="$(docker ps -a -q --format '{{.ID}}')"
-
 for container in $ALL_CONTAINERS ; do
     docker rm "$container"
 done
 
 echo
-echo "Nuking images..."
+echo "Deleting images..."
 echo
 
 ALL_VOLUMES="$(docker image ls -q)"
@@ -84,6 +104,9 @@ ALL_VOLUMES="$(docker image ls -q)"
 for volume in $ALL_VOLUMES ; do
     docker volume rm "$volume"
 done
+
+# At this point all remaining docker should be considered hanging,
+# and able to be cleaned up by `docker system prune -a`
 
 echo
 echo "Nuking everything else (docker system prune -a)..."
