@@ -77,6 +77,8 @@ Has similar constraints to `docker-compose up` with regards to rebuilding images
 
 Some useful derivatives include:
  - `docker-compose run rails bash` - pulls up a bash shell in the rails container. Great for troubleshooting
+ - `docker-compose run rails rails console` - Run rails console in the rails container.
+    Note the fact that you have to type rails twice; the first to say which container to run in, the second as the first part of the command `rails console`
  - `docker-compose run db bash` - pulls up a bash shell in the postgres container. Useful if you need direct access to the database.
  - `docker-compose run rails bin/initialize.sh` - runs the initialization script
  - `docker-compose run rails rake db:migrate` - migrate the database
