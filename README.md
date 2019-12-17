@@ -116,17 +116,17 @@ Doing so, however, will not break everything outright, but only cause a host of 
 Note that also occurs when includes running `docker-compose run` and `docker-compose up` concurrently.
  - Changes to a container's file system will not stick around between executions unless explicitly persisted through a bind mount to the host filesystem, or a volume.
 The most common manifestation of this is that `bundle` commands run inside a container will not appear to change anything, but there are numerous other things that you may want to do involving changes to the filesystem outside of this folder. Just know that doing so requires at minimum rebuilding the relevant image.
-
+ - Anonymous volumes (i.e. node_modules) usually persist after `docker-compose build rails` is run, and *will override the state of the filesystem created by docker-compose build*. This means that you will sometimes need to remove all volumes with `docker-compose down -v`
 # Resetting things
  - If you accidentally have multiple copies of `docker-compose` running in this directory, `docker-compose down` will clean them up. Usually happens for me when I have a terminal window I forgot about, and get errors about ports already being bound.
- - To reset your databases to their initial state, run `docker-compose run rails bin/initialize.sh -R`
- - To rebuild the rails docker image, run `docker-compose build rails`
- - To do a hard removal of all docker information, you can run `docker container prune`, `docker image prune`, and `docker volume prune`. May be a good idea if you are running out of disk space.
+ - To reset your databases to their initial state, run `docker-compose run rails bin/initialize.sh -R`. If that doesn't work, run `docker-compose down -v` and then `docker-compose run rails bin/initialize.sh -R`.
+ - To rebuild the rails docker image, run `docker-compose build rails`.
+ - To do a hard removal of all docker information, you can run `bin/nuke-docker.sh` *on your host machine*. May be a good idea if you are running out of disk space. On windows this script will not work, but there are comments at the top of the script describing how to achieve the same effect on windows.
 
 # Adding code to this repository / Git style
 See the [`Contributing.md`](Contributing.md) file.
 
-# Old README as I am not to change anything
+# Spring 2019 Readme:
 
 This is the code for creation of the giving gardens webpage associated with Imagine Grinnell.
 Documentation for the API can be found when the project is ran at /api-docs.
