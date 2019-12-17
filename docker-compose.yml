@@ -7,7 +7,7 @@ services:
     command: ./bin/run-dev.sh
     volumes:
       - .:/app:Z
-      - /app/node_modules # Fixes yarn mismatch problems
+      - /app/node_modules # Anonymous volume, isolates node_modules folder from the host filesystem
     ports:
       - "3000:3000"
   db:
