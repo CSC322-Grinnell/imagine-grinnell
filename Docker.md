@@ -118,6 +118,8 @@ This command is notable as it fixes the 'yarn integrity check failed' error with
 #### You just pulled in changes and now rails won't start
 Most of the time this is fixed by just rebuilding the rails container, i.e. running `docker-compose build rails`.
 
+A more extreme version of this is `docker-compose build --no-cache rails`, which forces every step to be re-run.
+
 #### You just pulled in changes and now pages have rails errors in your browser
 Are you sure that your database is up to date?
 Run `docker-compose run rails bin/initialize.sh` or `docker-compose run rails rake db:migrate` depending on whether or not you have a database.
@@ -133,8 +135,13 @@ You can fix this by dropping your unstaged changes to `yarn.lock` with `git chec
 ##### The node_modules anonymous volume is out of sync with your `yarn.lock`
 This usually happens after pulling in new changes, even after rebuilding the rails container.
 
-You can fix this by destroying all docker volumes in the project, with `docker-compose down -v`.
+The easy way to fix this is by running `docker-compose up -V` once instead of `docker-compose up`.
+
+You can also fix this by destroying all docker volumes in the project, with `docker-compose down -v`.
 Note that this will also delete your database, so you'll need to run `docker-compose run bin/initialize.sh` afterwards.
+
+There is one more possibility, though it is rarer. If `yarn` is out of date, then this can also show up.
+This can be fixed by doing a full rebuild of docker without any build cache, i.e. `docker-compose build --no-cache rails`.
 
 # Common Docker pitfalls
  - You can only have only one functional `docker-compose` process per `docker-compose.yml`.
