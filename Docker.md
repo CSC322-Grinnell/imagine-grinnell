@@ -64,8 +64,7 @@ Enabling it requires digging into the system BIOS, which is different from compu
 Finally, windows uses different line endings than linux and OSx, and even though the code on github all uses linux line endings.
 This wreaks havoc on docker, and can cause a whole host of weird bugs. Hopefully this has been solved with the .gitattributes file, but make sure to check this if there are weird problems. `find . -type f -print0 | xargs -0 dos2unix` can be run in git bash to convert all of the line endings.
 
-
-## Abbreviated command line reference, in order of usefulness
+# Abbreviated Docker command line reference, in order of usefulness
 
 Note: all `docker-compose` commands recursively search up through parent directories for a `docker-compose.yml` file, so they can be run from any directory under the project root.
 
@@ -115,13 +114,36 @@ This command is notable as it fixes the 'yarn integrity check failed' error with
 #### `docker stop [container identifier]`
  Stops the container referenced by `[container identifier]`. In general you're going to want to copy that id from the output of `docker ps`
 
-### Common pitfalls
+# Common problems with this repository
+#### You just pulled in changes and now rails won't start
+Most of the time this is fixed by just rebuilding the rails container, i.e. running `docker-compose build rails`.
+
+#### You just pulled in changes and now pages have rails errors in your browser
+Are you sure that your database is up to date?
+Run `docker-compose run rails bin/initialize.sh` or `docker-compose run rails rake db:migrate` depending on whether or not you have a database.
+`docker-compose run rails bin/initialize.sh -R` is the nuclear option here.
+
+#### Rails crashes with `yarn integrity check failed`
+There are two probable causes here, although applying both solutions should fix everything.
+##### Your `yarn.lock` file is screwed up
+This usually happens from trying to use yarn without `bin/yarn-for-docker.sh`.
+
+You can fix this by dropping your unstaged changes to `yarn.lock` with `git checkout -- yarn.lock`.
+
+##### The node_modules anonymous volume is out of sync with your `yarn.lock`
+This usually happens after pulling in new changes, even after rebuilding the rails container.
+
+You can fix this by destroying all docker volumes in the project, with `docker-compose down -v`.
+Note that this will also delete your database, so you'll need to run `docker-compose run bin/initialize.sh` afterwards.
+
+# Common Docker pitfalls
  - You can only have only one functional `docker-compose` process per `docker-compose.yml`.
 Doing so, however, will not break everything outright, but only cause a host of weirdness, usually manifesting as your code not running in your browser, the database not appearing to change, or your changes in your text editor not showing up in the container.
 Note that also occurs when includes running `docker-compose run` and `docker-compose up` concurrently.
  - Changes to a container's file system will not stick around between executions unless explicitly persisted through a bind mount to the host filesystem, or a volume.
 The most common manifestation of this is that `bundle` commands run inside a container will not appear to change anything, but there are numerous other things that you may want to do involving changes to the filesystem outside of this folder. Just know that doing so requires at minimum rebuilding the relevant image.
  - Anonymous volumes (i.e. node_modules) usually persist after `docker-compose build rails` is run, and *will override the state of the filesystem created by docker-compose build*. This means that you will sometimes need to remove all volumes with `docker-compose down -v`
+
 # Resetting things
  - If you accidentally have multiple copies of `docker-compose` running in this directory, `docker-compose down` will clean them up. Usually happens for me when I have a terminal window I forgot about, and get errors about ports already being bound.
  - To reset your databases to their initial state, run `docker-compose run rails bin/initialize.sh -R`. If that doesn't work, run `docker-compose down -v` and then `docker-compose run rails bin/initialize.sh -R`.
