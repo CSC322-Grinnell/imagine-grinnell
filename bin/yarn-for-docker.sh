@@ -86,6 +86,14 @@ if $ERROR ; then
     exit 1
 fi
 
+echo
+echo "Warning: this script will reset the database to the seed."
+read -p "Are you sure that you want to continue? [y/n] " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+fi
 
 cleanup() {
     popd &>/dev/null # Undo the pushd cd
@@ -126,7 +134,15 @@ trap cleanup_with_docker EXIT
 docker cp $CONTAINER_ID:/app/yarn.lock ./yarn.lock
 
 echo
-echo ""
+echo "Wiping out docker volumes..."
+echo "(docker-compose down -v)"
+echo
+docker-compose down -v
+
+echo
+echo "Re-initializing database..."
+echo
+docker-compose run rails bin/initialize.sh
 
 echo
 echo "Done! Please try \`docker-compose up\`, and commit your new changes if happy."
