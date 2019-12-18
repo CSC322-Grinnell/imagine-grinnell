@@ -64,6 +64,16 @@ Enabling it requires digging into the system BIOS, which is different from compu
 Finally, windows uses different line endings than linux and OSx, and even though the code on github all uses linux line endings.
 This wreaks havoc on docker, and can cause a whole host of weird bugs. Hopefully this has been solved with the .gitattributes file, but make sure to check this if there are weird problems. `find . -type f -print0 | xargs -0 dos2unix` can be run in git bash to convert all of the line endings.
 
+#### MathLAN
+Unfortunately with the way that docker is written, having access to run docker commands is equivalent to root access, and [there is no way to run the docker daemon as non-root](https://github.com/moby/moby/issues/1034).
+Therefore, there is no way to run this project on Mathlan without administrator permissions, which they will not hand over for this class, and you must use a machine for which you have full access.
+
+Note that this is not as much of a problem on Windows or OSx, as docker runs a full linux virtual machine there and as such does not have the kernel sharing problem that linux does.
+
+There is also [podman](https://podman.io/), which is compatible with Dockerfile's and does the same thing as docker without this problem.
+Unfortunately, this relies on bleeding-edge kernel features that probably won't make it into Debian until 2022 at the earliest, and as such probably won't be on mathlan until 2024.
+Further, [podman-compose](https://github.com/containers/podman-compose), it's equivalent of docker-compose, is (as of Dec 2019) in it's infancy, and does not support many of the features required for this project.
+
 # Abbreviated Docker command line reference, in order of usefulness
 
 Note: all `docker-compose` commands recursively search up through parent directories for a `docker-compose.yml` file, so they can be run from any directory under the project root.
