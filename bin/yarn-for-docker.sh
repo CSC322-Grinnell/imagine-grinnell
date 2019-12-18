@@ -50,6 +50,7 @@ if $HELP ; then
     echo "Just like \`yarn add MyCoolPackageIWantToInstall\`"
     echo "Adding a dev dependency can be done with:"
     echo "   ./$SCRIPT_NAME add --dev MyCoolPackageIWantToInstall"
+    echo "See: https://yarnpkg.com/lang/en/docs/cli/ for a full list of yarn commands"
     exit 0
 fi
 
@@ -123,6 +124,9 @@ trap cleanup_with_docker EXIT
 # Copy yarn.lock out of newly built container
 # Note that docker cp is happy to clobber existing files
 docker cp $CONTAINER_ID:/app/yarn.lock ./yarn.lock
+
+echo
+echo ""
 
 echo
 echo "Done! Please try \`docker-compose up\`, and commit your new changes if happy."
