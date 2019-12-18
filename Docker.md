@@ -35,7 +35,7 @@ Some random articles on the matter:
 
 
 As for why we decided to use it, there were a few reasons:
- - Using docker makes it near trivial to use postgresql on developer machines instead of SQLite. Normally this is a pain in the a%%.
+ - Using docker makes it near trivial to use postgresql on developer machines instead of SQLite. Normally this is a pain in the a\*\*.
  - Everyone has the same version of ruby and bundler without having to fight with the operating system, and upgrading ruby and bundler versions is easy to do and easy to reverse.
  - Adding additional binaries to the software requirements is easy (this came in handy when we brought in webpack(er))
    - This makes running tests and linting with github actions trivial.
