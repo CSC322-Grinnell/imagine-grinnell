@@ -1,0 +1,11 @@
+# Force all line endings to be linux compatible
+* text eol=lf
+
+# Exclude image files
+*.png binary
+*.gif binary
+*.tiff binary
+*.bmp binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
