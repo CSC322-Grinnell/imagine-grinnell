@@ -28,14 +28,42 @@ First, a blatant appeal to authority: Containers are huge in Real IT™.
 As one example, Google uses them extensively enough that they wrote [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes), and according to the same article all of their software runs in containers.
 Experience with the technology will be something that many employers will be happy to see.
 
-As for why we decided to use it, there were a few small reasons:
- - Using docker makes it near trivial to use postgresql on developer machines instead of SQLite. Normally this is a pain in the a%%.
- - Everyone has the same version of ruby and bundle,
-
-### Some random articles on the matter
+Some random articles on the matter:
  - [What is docker and why is it so darn popular](https://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/)
  - [When not to use docker](https://www.channelfutures.com/open-source/when-not-to-use-docker-understanding-the-limitations-of-containers)
  - [Wikipedia](https://en.wikipedia.org/wiki/Docker_(software))
+
+
+As for why we decided to use it, there were a few reasons:
+ - Using docker makes it near trivial to use postgresql on developer machines instead of SQLite. Normally this is a pain in the a%%.
+ - Everyone has the same version of ruby and bundler without having to fight with the operating system, and upgrading ruby and bundler versions is easy to do and easy to reverse.
+ - Adding additional binaries to the software requirements is easy (this came in handy when we brought in webpack(er))
+   - This makes running tests and linting with github actions trivial.
+ - Software builds are done declaratively, so we can (almost) guarantee that a given state of the git repository will always build the same way.
+ - Managing the versions of software for everyone and making sure that everything works can be compartmentalized.
+ - One command theoretically updates all dependencies at once.
+ - Docker *should* make it easy to develop for Linux on MacOS and Windows
+ - **Docker is the only piece of software you need to install to get the project running**
+
+### Docker is the only piece of software you need to install to get the project running
+This ends up being true for linux machines and Macs.
+You install docker, clone the repository, initialize the database, and then everything just works.
+
+#### Windows
+
+This would also be true on windows, except for the fact that [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/) is [not available on Windows 10 home](https://en.wikipedia.org/wiki/Windows_10_editions#Comparison_chart).
+Hyper-V is required for [the normal version of docker for windows](https://docs.docker.com/docker-for-windows/install/), although there is [docker-toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) which does not require it.
+The college offers Windows 10 education edition keys [for free](https://grinnell.onthehub.com/), but we did not figure that out until part way through the semester, and were unable to get docker toolbox working with the project.
+You may have better luck with docker toolbox.
+Our alternative was to install [Virtualbox](https://www.virtualbox.org/), install an [ubuntu 19](http://releases.ubuntu.com/19.04/) virtual machine with virtualbox, and then [install docker on the virtual machine](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+No matter what, hardware virtualization (VT-x on Intel processors or AMD-V on AMD processors) needs to be enabled on the system's processor, which is essentially some additional CPU instructions dedicated to running virtual machines.
+Almost all x86 processors ship with this technology, [but it is typically disabled out of the box on windows](https://serverfault.com/questions/390012/why-do-systems-generally-disable-virtualization-by-default-in-bios-settings).
+Enabling it requires digging into the system BIOS, which is different from computer to computer and not easy.
+
+Finally, windows uses different line endings than linux and OSx, and even though the code on github all uses linux line endings.
+This wreaks havoc on docker, and can cause a whole host of weird bugs. Hopefully this has been solved with the .gitattributes file, but make sure to check this if there are weird problems. `find . -type f -print0 | xargs -0 dos2unix` can be run in git bash to convert all of the line endings.
+
 
 ## Abbreviated command line reference, in order of usefulness
 
