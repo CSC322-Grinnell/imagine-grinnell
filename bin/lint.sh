@@ -58,7 +58,7 @@ IFS=$'\n\t'
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 if $HELP ; then
-    echo "$SCRIPT_NAME initializes the imagine-grinnell rails application"
+    echo "$SCRIPT_NAME runs linting for the imagine-grinnell rails application"
     echo "$SCRIPT_NAME [no parameters]"
     echo "  -h or --help         Print this message"
     echo "  --fix                Attempt to fix some of the errors found"
